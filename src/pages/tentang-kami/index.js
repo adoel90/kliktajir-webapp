@@ -1,6 +1,6 @@
 import React from 'react'
 import { Grid, Box } from '@mui/material'
-import ImageSectionBerdirinyaTajir from '../../assets/images/tentang-kami/img-main-section-berdirinya-tajir.webp'
+import ImageSectionBerdirinyaTajir from 'assets/images/tentang-kami/img-main-section-berdirinya-tajir.webp'
 
 const TentangKami = () => {
 

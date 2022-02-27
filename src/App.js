@@ -1,14 +1,13 @@
-import { Container, Grid, Box } from '@mui/material'
+import { Container } from '@mui/material'
 import {
   Routes,
-  Route,
-  Link
+  Route  
 } from "react-router-dom";
-import Home from './pages/home/index'
-import InformasiTerkini from './pages/informasi-terkini/index'
-import TentangKami from './pages/tentang-kami/index'
-import BaitulMaal from './pages/baitul-maal/index'
-import BisnisAnggota from './pages/bisnis-anggota/index'
+import Home from 'pages/home/index'
+import InformasiTerkini from 'pages/informasi-terkini/index'
+import TentangKami from 'pages/tentang-kami/index'
+import BaitulMaal from 'pages/baitul-maal/index'
+import BisnisAnggota from 'pages/bisnis-anggota/index'
 
 import { PAGE_TENTANG_KAMI, PAGE_INFORMASI_TERKINI, PAGE_BAITUL_MAAL, PAGE_BISNIS_ANGGOTA } from './constanta/index'
 

@@ -1,56 +1,79 @@
 import React from 'react'
 import { Link } from "react-router-dom";
-import { PAGE_TENTANG_KAMI, PAGE_INFORMASI_TERKINI, PAGE_BAITUL_MAAL, PAGE_BISNIS_ANGGOTA } from '../../../constanta/index'
+import { Button, Box, AppBar, Toolbar, Slide, useScrollTrigger, Typography, Container  } from '@mui/material'
+import { PAGE_TENTANG_KAMI, PAGE_INFORMASI_TERKINI, PAGE_BAITUL_MAAL, PAGE_BISNIS_ANGGOTA } from 'constanta/index'
+import ImageLogoTajir from 'assets/images/logo-tajir.png'
 
-const Header = () => {
+
+function HideOnScroll(props) {
+    
+    const { children, window } = props;
+    const trigger = useScrollTrigger({
+      target: window ? window() : undefined,
+    });
+  
+    return (
+      <Slide appear={false} direction="down" in={!trigger}>
+        {children}
+      </Slide>
+    );
+  }
+
+const Header = (props) => {
 
     return (
-        <>
-            <header>
-                <nav style={{display: 'flex'}}>
-                    <p>
-                    Logo
-                    </p>
-                    <Link to="/">
-                        <p>
-                            Home
-                        </p>
-                    </Link>
-                    <Link to={`${PAGE_TENTANG_KAMI}`}>
-                        <p>
-                            Tentang Kami
-                        </p>
-                    </Link>
-                    <Link to={`${PAGE_INFORMASI_TERKINI}`}>
-                        <p>
-                            Informasi Terkini
-                        </p>
-                    </Link>
-                    <Link to={`${PAGE_BISNIS_ANGGOTA}`}>
-                        <p>
-                            Bisnis Anggota
-                        </p>
-                    </Link>
-                    <Link to={`${PAGE_BAITUL_MAAL}`}>
-                        <p>
-                            Baitul Maal
-                        </p>
-                    </Link>
-                
-                    <button type="button">
-                        Cek Saldo
-                    </button>
-                    <button type="button">
-                        Daftar
-                    </button>    
+        <>           
+            <HideOnScroll {...props}>   
+                        
+                <AppBar sx={{display: { xs: "none", sm: "none", md: "block", lg: 'block' }}}>
+                    <Toolbar>
+                        <Container>
+                            <header>                
+                                <nav className='flex flex-row'>                                     
+                                    <img src={ImageLogoTajir} height="31" width="75" className='mt-1-half' />
+                                    <Link to="/">                                              
+                                        <p className='ml-3 mr-1 text-white' style={{color: 'white'}}> Home</p>                                               
+                                    </Link>
+                                    <Link to={`${PAGE_TENTANG_KAMI}`}>
+                                        <p className='ml-1 mr-1 text-white' style={{color: 'white'}}>
+                                            Tentang Kami
+                                        </p>
+                                    </Link>
+                                    <Link to={`${PAGE_INFORMASI_TERKINI}`}>
+                                        <p className='ml-1 mr-1 text-white' style={{color: 'white'}}>
+                                            Informasi Terkini
+                                        </p>
+                                    </Link>
+                                    <Link to={`${PAGE_BISNIS_ANGGOTA}`}>
+                                        <p className='ml-1 mr-1 text-white' style={{color: 'white'}}>
+                                            Bisnis Anggota
+                                        </p>
+                                    </Link>
 
-                </nav>
-            </header>
+                                    <Typography variant="p" sx={{ flexGrow: 1 }}>                                    
+                                        <Link to={`${PAGE_BAITUL_MAAL}`}> 
+                                            <p className='ml-1 text-white' style={{color: 'white'}}>
+                                                Baitul Maal                                        
+                                            </p>                                               
+                                        </Link>                    
+                                    </Typography>                                        
+                                                                                                                    
+                                    <Box sx={{mt: 1}}>
+                                        <Button variant="outlined" color="secondary" sx={{borderRadius: "24px", textTransform: 'none'}} >
+                                            Cek Saldo
+                                        </Button>
+                                        <Button variant="contained" color="secondary" sx={{ml: 1, borderRadius: "24px", color: "primary.contrastText", textTransform: 'none'}}>
+                                            Daftar
+                                        </Button>    
+                                    </Box>
 
-     
-                
-        </>
-        
+                                </nav>                
+                            </header>
+                        </Container>
+                    </Toolbar>
+                </AppBar>                                          
+            </HideOnScroll>
+        </>        
     )
 }
 

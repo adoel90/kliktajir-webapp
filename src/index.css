@@ -1,14 +1,19 @@
 
 :root {
   
-  --common-white: 'white';
+  --primary-main: #023a15;
+  --primary-light: #32653c;
+  --primary-dark: #001700;
+
+  --secondary-main: #e84710;
+  --secondary-light: #ff7a41;
+  --secondary-dark: #ae0000;
   
-}
+  --common-primary-contrast:'#ffffff';
+  --common-secondary-contrast:'#000000';
 
-/* Reference expressive css : https://tailwindcss.com/ */
-.text-white {
+  --common-white: 'white';
 
-  color: var(--common-white);
 }
 
 body {
@@ -24,3 +29,57 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+/* Reference expressive css : https://tailwindcss.com/ */
+.text-white {
+
+  color: var(--common-white);
+}
+
+.flex {
+
+  display: flex !important;
+}
+
+.flex-row {
+
+  direction: row !important ;
+}
+
+.flex-grow-1 {
+
+  flex-grow: 1 !important;
+}
+
+.ml-5 {
+
+  margin-left: 5rem;
+}
+
+.ml-3 {
+  
+  margin-left: 3rem;
+}
+
+
+.mr-3 {
+  
+  margin-right: 3rem;
+}
+
+.ml-1 {
+  
+  margin-left: 1rem;
+}
+
+.mr-1 {
+  
+  margin-right: 1rem;
+}
+
+.mt-1-half {
+  
+  margin-top: 0.5rem;
+}
+
