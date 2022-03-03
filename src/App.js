@@ -22,19 +22,20 @@ import './App.css';
 function App() {
 
   return (    
-      <Container>
-        <Header />   
+      <>
+        {/* <Container> */}
+          <Header />         
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route path={`${PAGE_TENTANG_KAMI}`} element={<TentangKami />} />
+            <Route path={`${PAGE_INFORMASI_TERKINI}`} element={<InformasiTerkini />} />    
+            <Route path={`${PAGE_BISNIS_ANGGOTA}`} element={<BisnisAnggota />} /> 
+            <Route path={`${PAGE_BAITUL_MAAL}`} element={<BaitulMaal />} />                                                                  
+          </Routes>  
 
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route path={`${PAGE_TENTANG_KAMI}`} element={<TentangKami />} />
-          <Route path={`${PAGE_INFORMASI_TERKINI}`} element={<InformasiTerkini />} />    
-          <Route path={`${PAGE_BISNIS_ANGGOTA}`} element={<BisnisAnggota />} /> 
-          <Route path={`${PAGE_BAITUL_MAAL}`} element={<BaitulMaal />} />                                                                  
-        </Routes>  
-
+        {/* </Container> */}
         <Footer />      
-      </Container>
+      </>
   );
 }
 

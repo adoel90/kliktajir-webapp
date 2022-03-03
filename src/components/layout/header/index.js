@@ -26,33 +26,33 @@ const Header = (props) => {
             <HideOnScroll {...props}>   
                         
                 <AppBar sx={{display: { xs: "none", sm: "none", md: "block", lg: 'block' }}}>
-                    <Toolbar>
+                    <Toolbar >
                         <Container>
                             <header>                
-                                <nav className='flex flex-row'>                                     
+                                <nav className='flex flex-row'  >                                     
                                     <img src={ImageLogoTajir} height="31" width="75" className='mt-1-half' />
-                                    <Link to="/">                                              
-                                        <p className='ml-3 mr-1 text-white' style={{color: 'white'}}> Home</p>                                               
+                                    <Link to="/" style={{textDecoration: 'none'}}>                                              
+                                        <p className='ml-3 mr-1 text-avenir-light' style={{color: 'white'}}> Home</p>                                               
                                     </Link>
-                                    <Link to={`${PAGE_TENTANG_KAMI}`}>
-                                        <p className='ml-1 mr-1 text-white' style={{color: 'white'}}>
+                                    <Link to={`${PAGE_TENTANG_KAMI}`} style={{textDecoration: 'none'}}>
+                                        <p className='ml-1 mr-1 text-avenir-light' style={{color: 'white'}}>
                                             Tentang Kami
                                         </p>
                                     </Link>
-                                    <Link to={`${PAGE_INFORMASI_TERKINI}`}>
-                                        <p className='ml-1 mr-1 text-white' style={{color: 'white'}}>
+                                    <Link to={`${PAGE_INFORMASI_TERKINI}`} style={{textDecoration: 'none'}}>
+                                        <p className='ml-1 mr-1 text-avenir-light' style={{color: 'white'}}>
                                             Informasi Terkini
                                         </p>
                                     </Link>
-                                    <Link to={`${PAGE_BISNIS_ANGGOTA}`}>
-                                        <p className='ml-1 mr-1 text-white' style={{color: 'white'}}>
+                                    <Link to={`${PAGE_BISNIS_ANGGOTA}`} style={{textDecoration: 'none'}}>
+                                        <p className='ml-1 mr-1 text-avenir-light' style={{color: 'white'}}>
                                             Bisnis Anggota
                                         </p>
                                     </Link>
 
                                     <Typography variant="p" sx={{ flexGrow: 1 }}>                                    
-                                        <Link to={`${PAGE_BAITUL_MAAL}`}> 
-                                            <p className='ml-1 text-white' style={{color: 'white'}}>
+                                        <Link to={`${PAGE_BAITUL_MAAL}`} style={{textDecoration: 'none'}}> 
+                                            <p className='ml-1 text-avenir-light' style={{color: 'white'}}>
                                                 Baitul Maal                                        
                                             </p>                                               
                                         </Link>                    
@@ -70,9 +70,13 @@ const Header = (props) => {
                                 </nav>                
                             </header>
                         </Container>
-                    </Toolbar>
-                </AppBar>                                          
+                    </Toolbar>                                                 
+                </AppBar>           
             </HideOnScroll>
+
+            <br />
+            <br />
+
         </>        
     )
 }

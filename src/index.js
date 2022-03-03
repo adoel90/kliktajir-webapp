@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import App from './App';
+import './index.css';
 
 
 const theme = createTheme({
@@ -33,7 +33,7 @@ const theme = createTheme({
     },
     warning: {
       light:'#ffee33',
-      main: '#ffea00',
+      main: '#ffd233',
       dark: '#b2a300',
       contrastText: 'white'
 
@@ -50,8 +50,14 @@ const theme = createTheme({
       transparent: 'transparent',
       grey: 'grey',
       yellow: '#FFD233'
-    }
+    },
+  },
+  typography: {  
+    // subtitle1: {
+    //   fontFamily: ['AvenirLight' ].join("",)   
+    // },      
   }
+
 });
   
 

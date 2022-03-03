@@ -1,4 +1,8 @@
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   
   --primary-main: #023a15;
@@ -9,18 +13,32 @@
   --secondary-light: #ff7a41;
   --secondary-dark: #ae0000;
   
-  --common-primary-contrast:'#ffffff';
-  --common-secondary-contrast:'#000000';
+  --common-primary-contrast:#ffffff;
+  --common-secondary-contrast:#000000;
 
-  --common-white: 'white';
+  --common-white: #ffffff;
+  --common-white-dark: #678973;
+  --common-white-contrast-dark: #969696;
+  
+}
 
+@font-face {
+  font-family: 'AvenirBlack';
+  src: local('AvenirBlack'),
+       url('./assets/fonts/avenir/Avenir-Black.woff') format('woff'),
+       url('./assets/fonts/avenir/Avenir-Black.woff') format('woff2');
+}
+
+@font-face {
+  font-family: 'AvenirLight';
+  src: local('AvenirLight'),
+       url('./assets/fonts/avenir/Avenir-Light.woff') format('woff'),
+       url('./assets/fonts/avenir/Avenir-Light.woff') format('woff2');
 }
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Oswald', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -32,9 +50,76 @@ code {
 
 
 /* Reference expressive css : https://tailwindcss.com/ */
+
+.bg-primary-main {
+
+  background-color: var(--primary-main);
+}
+
 .text-white {
 
-  color: var(--common-white);
+  color: var(--common-white) !important;
+}
+
+.text-secondary-main {
+
+  color: var(--secondary-main) !important;
+}
+
+.text-white-dark {
+
+  color: var(--common-white-dark) !important;
+}
+
+.text-white-contrast-dark {
+
+  color: var(--common-white-contrast-dark) !important;
+}
+
+.text-oswald {
+
+  font-family: 'Oswald', sans-serif !important;
+}
+
+.text-avenir-black {
+
+  font-family: 'AvenirBlack';
+}
+
+.text-avenir-light {
+
+  font-family: 'AvenirLight' !important;
+}
+
+.text-bold {
+
+  font-weight: bold !important;
+}
+
+.text-56px {
+
+  font-size: 56px !important;  
+
+}
+
+.text-40px {
+
+  font-size: 40px;
+}
+
+.text-20px {
+
+  font-size: 20px !important;
+}
+
+.text-small {
+
+  font-size: small !important;
+}
+
+.no-underline {
+
+  text-decoration: none !important;
 }
 
 .flex {
@@ -83,3 +168,49 @@ code {
   margin-top: 0.5rem;
 }
 
+.mt-n1 {
+  
+  margin-top: -1rem;
+}
+
+.mt-2 {
+  
+  margin-top: 2rem !important;
+}
+
+.mt-3 {
+  
+  margin-top: 3rem !important;
+}
+
+.mt-5 {
+  
+  margin-top: 5rem !important;
+}
+
+.w-127 {
+
+  width: 127%;
+}
+
+.tracking-tight {
+
+  letter-spacing: 1px !important;
+}
+
+.tracking-normal {
+
+  letter-spacing: 2px !important;
+}
+
+
+/* mobile device - sm */
+@media (max-width: 740px) {
+
+  
+  .w-sm-full {
+    
+    width: 100% !important;
+  }
+
+}
