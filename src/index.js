@@ -53,9 +53,15 @@ const theme = createTheme({
     },
   },
   typography: {  
-    // subtitle1: {
-    //   fontFamily: ['AvenirLight' ].join("",)   
-    // },      
+    h5: {
+      fontFamily: ['AvenirLight' ].join("",)   
+    },  
+    subtitle1: {
+      fontFamily: ['AvenirLight' ].join("",)   
+    },  
+    p: {
+      fontFamily: ['AvenirLight' ].join("",)   
+    },      
   }
 
 });
