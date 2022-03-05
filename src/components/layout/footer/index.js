@@ -2,7 +2,7 @@ import { Container, Grid, Typography, Box } from '@mui/material'
 import ImageLogoTajir from 'assets/images/logo-tajir-medium.svg'
 import ImagePlaystore from 'assets/images/footer/image-playstore.svg'
 import ImageWhiteFb from 'assets/images/footer/image-white-fb.png'
-
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
 
@@ -20,7 +20,11 @@ const Footer = () => {
                         <ul style={{paddingLeft: 0, listStyleType: 'none', color: 'white'}} className="text-avenir-light">
                             <li>Visi Misi</li>
                             <li>Sejarah</li>
-                            <li>Struktur Organisasi</li>
+                            <li>
+                                <Link className='no-underline text-white' to="/struktur-organisasi">
+                                    Struktur Organisasi
+                                </Link>
+                            </li>
                         </ul>
                     </Grid>
 
@@ -62,19 +66,23 @@ const Footer = () => {
 
                     <Grid item xs={12} sm={12} md={3} lg={3} >
                         <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: {xs: 'center', md: 'end'}, mt: 2 }}>
-                            <img src={ImagePlaystore} width={127} height={43} alt="ImagePlaystore" />
+                            <a className='no-underline' href="https://play.google.com/store/apps/details?id=id.co.neosantara.tajir" target="_blank">
+                                <img  src={ImagePlaystore} width={127} height={43} alt="ImagePlaystore" />
+                            </a>
                         </Box>
                     </Grid>
                     <Grid item xs={12} sm={12} md={3} lg={3} > 
                         <Box sx={{ display:'row', justifyContent: {xs: 'center', md: 'end'} }}>
-                            <figure className='flex' style={{flexDirection: 'row-reverse'}}>
-                                <img src={ImageWhiteFb} alt="" width={40} height={40} />
-                                <figcaption>
-                                    <Typography variant="p" component="p" mt={1} mr={2} sx={{color: "common.white"}} className="text-avenir-light text-bold"> 
-                                        Ikuti kami di FB
-                                    </Typography>      
-                                </figcaption>
-                            </figure>                        
+                            <a className='no-underline' href="https://www.facebook.com/tajir.muamalah.syariah" target="_blank">
+                                <figure className='flex' style={{flexDirection: 'row-reverse'}}>
+                                    <img src={ImageWhiteFb} alt="" width={40} height={40} />
+                                    <figcaption>
+                                        <Typography variant="p" component="p" mt={1} mr={2} sx={{color: "common.white"}} className="text-avenir-light text-bold"> 
+                                            Ikuti kami di FB
+                                        </Typography>      
+                                    </figcaption>
+                                </figure>                        
+                            </a>
                         </Box>
 
                     </Grid>

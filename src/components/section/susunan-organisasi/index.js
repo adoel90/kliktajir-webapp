@@ -5,7 +5,7 @@ const SusunanOrganisasi = () => {
 
     return (
 
-        <Paper elevation={1} sx={{p: 3, mt:7}}>      
+        <Paper elevation={1} sx={{p: 3, mt:7, backgroundColor: "common.softGrey"}}>      
             <h1 className='text-oswald text-primary-main text-500 tracking-normal'>
                 <b>SUSUNAN ORGANISASI</b>
             </h1>

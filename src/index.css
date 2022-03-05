@@ -86,6 +86,11 @@ code {
   color: var(--secondary-main) !important;
 }
 
+.text-secondary-light {
+
+  color: var(--secondary-light) !important;
+}
+
 .text-white-dark {
 
   color: var(--common-white-dark) !important;

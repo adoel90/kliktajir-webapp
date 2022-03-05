@@ -5,6 +5,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import { Link } from 'react-router-dom';
 
 import ImageSectionOne from 'assets/images/home/image-section-1.png'
 import ImageSecondaryArrowRight from 'assets/images/common/icon-secondary-arrow-right.png'
@@ -43,9 +44,11 @@ const Home = () => {
                                 Badan Syirkah Muamalah TAJIR.  Powered By Koperasi <br />masyarakat Muamalah Syariah
                             </h3>
 
-                            <Button size="large" variant="contained" color="warning" sx={{mt:1, mb:3,borderRadius: "24px", color: "primary.main", textTransform: 'none'}} className="text-bold text-avenir-light">                                            
-                                Selengkapnya
-                            </Button>
+                            <Link className=" no-underline" to="/produk-kami">
+                                <Button size="large" variant="contained" color="warning" sx={{mt:1, mb:3,borderRadius: "24px", color: "primary.main", textTransform: 'none'}} className="text-bold text-avenir-light">                                            
+                                    Selengkapnya
+                                </Button>
+                            </Link>
 
                             <div style={{display: 'flex'}}>
                                 <Box sx={{mr: 5}}>
@@ -101,10 +104,10 @@ const Home = () => {
                                 Beberapa usaha yang akan di tangani oleh BSM TAJIR untuk membangun masyarakat berbasis syariáh
                             </h3>  
                             
-                            <a className="text-avenir-light text-secondary-main no-underline text-bold" href="">
+                            <Link className="text-avenir-light text-secondary-main no-underline text-bold" to="/produk-kami">
                                 Lihat Semua Produk
                                 <img className=' mt-2' style={{marginBottom: "-0.3rem", marginLeft: "1rem"}} src={ImageSecondaryArrowRight} alt="ImageSecondaryArrowRight" width={27} height="auto" />
-                            </a>
+                            </Link>
                         </section>             
                     </Grid>
                     <Grid item xs={12} sm={12} md={8} lg={8} >
@@ -178,12 +181,13 @@ const Home = () => {
                         <Box sx={{display: 'flex', flexDirection: 'row'}}>
                             <Box sx={{flexGrow: 1}}>
                                 <h1 className='text-40px text-oswald tracking-tight'>
-                                    Kabar
-                                </h1>      
+                                    Kabar 
+                                    <span className='text-small text-white-dark text-500'><i> (onprogress Integrasi API...)</i></span> 
+                                </h1>     
                             </Box>
                             <Box sx={{mt: 3}}>
                                 <a className="text-avenir-light text-secondary-main no-underline text-bold" href="">
-                                    Lihat Semua Produk
+                                    Lihat Semua Kabar
                                     <img className=' mt-2' style={{marginBottom: "-0.3rem", marginLeft: "1rem"}} src={ImageSecondaryArrowRight} alt="ImageSecondaryArrowRight" width={27} height="auto" />
                                 </a>
                             </Box>
@@ -312,9 +316,11 @@ const Home = () => {
                             </Box>            
 
                             <Box sx={{display: 'flex', justifyContent : 'end'}}>
-                                <Button size="large" variant="contained" color="warning" sx={{mt:7, mb:3,borderRadius: "24px", color: "primary.main", textTransform: 'none'}} className="text-bold text-avenir-light">                                            
-                                    Daftar Menjadi Anggota
-                                </Button>                        
+                                <Link className='no-underline' to="/daftar-anggota">
+                                    <Button size="large" variant="contained" color="warning" sx={{mt:7, mb:3,borderRadius: "24px", color: "primary.main", textTransform: 'none'}} className="text-bold text-avenir-light">                                            
+                                        Daftar Menjadi Anggota
+                                    </Button>                        
+                                </Link>                                
                             </Box>
                         </Grid>          
                     </Grid>
@@ -330,9 +336,11 @@ const Home = () => {
                     </Grid>
                     <Grid item xs={12} sm={12} md={2} lg={2} >                
                         <Box sx={{display: 'flex', justifyContent : 'end'}}>
-                            <Button size="large" variant="contained" color="secondary" sx={{mt:5,borderRadius: "24px", color: "common.white", textTransform: 'none'}} className="text-bold text-avenir-light">                                            
-                                Daftar Konsultasi
-                            </Button>                        
+                            <a className='no-underline' href="https://forms.gle/hdggctA9V3zSBp6E8" target="_blank">
+                                <Button size="large" variant="contained" color="secondary" sx={{mt:5,borderRadius: "24px", color: "common.white", textTransform: 'none'}} className="text-bold text-avenir-light">                                            
+                                    Daftar Konsultasi
+                                </Button>                        
+                            </a>
                         </Box>
                     </Grid>
 

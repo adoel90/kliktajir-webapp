@@ -49,7 +49,8 @@ const theme = createTheme({
       black: 'black',
       transparent: 'transparent',
       grey: 'grey',
-      yellow: '#FFD233'
+      yellow: '#FFD233',
+      softGrey: '#f7f7f7'
     },
   },
   typography: {  
