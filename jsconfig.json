@@ -2,11 +2,11 @@
     "compilerOptions": {
       "baseUrl": "src",
       "paths": {
-        "@constanta/*": ["constanta/*"],        
-        "@components/*": ["components/*"],
-        "@assets/*": ["assets/*"],
-        "@pages/*": ["pages/*"],
-        "@pages-admin/*": ["pages-admin/*"]
+        "constanta/*": ["constanta/*"],        
+        "components/*": ["components/*"],
+        "assets/*": ["assets/*"],
+        "pages/*": ["pages/*"],
+        "pages-admin/*": ["pages-admin/*"]
 
       }
     }
