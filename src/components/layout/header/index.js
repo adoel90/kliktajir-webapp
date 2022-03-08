@@ -1,8 +1,12 @@
 import React from 'react'
-import { Button, Box, AppBar, Toolbar, Slide, useScrollTrigger, Typography, Container  } from '@mui/material'
+import { Button, Box, AppBar, Toolbar, Slide, useScrollTrigger, Typography, Container, Menu, MenuItem } from '@mui/material'
 import { PAGE_TENTANG_KAMI, PAGE_INFORMASI_TERKINI, PAGE_BAITUL_MAAL, PAGE_BISNIS_ANGGOTA } from 'constanta/index'
 import ImageLogoTajir from 'assets/images/logo-tajir.png'
 import CustomLink from 'components/common/custom-link/index'
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
+import { Link } from 'react-router-dom'
 
 function HideOnScroll(props) {
     
@@ -19,6 +23,15 @@ function HideOnScroll(props) {
   }
 
 const Header = (props) => {
+
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const open = Boolean(anchorEl);
+    const handleClick = (event) => {
+      setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+      setAnchorEl(null);
+    };
 
     return (
         <>           
@@ -61,9 +74,35 @@ const Header = (props) => {
                                         <Button variant="outlined" color="secondary" sx={{borderRadius: "24px", textTransform: 'none'}} >
                                             Cek Saldo
                                         </Button>
-                                        <Button variant="contained" color="secondary" sx={{ml: 1, borderRadius: "24px", color: "primary.contrastText", textTransform: 'none'}}>
+                                        <Button 
+                                            endIcon={<KeyboardArrowDownIcon />} 
+                                            variant="contained" 
+                                            color="secondary" 
+                                            sx={{ml: 1, borderRadius: "24px", color: "primary.contrastText", textTransform: 'none'}}
+                                            onClick={handleClick}    
+                                            className="tracking-tight"
+                                        >
                                             Daftar
                                         </Button>    
+
+                                        <Menu                                        
+                                            anchorEl={anchorEl}
+                                            open={open}
+                                            onClose={handleClose}                                           
+                                        >
+                                            <MenuItem onClick={handleClose}>
+                                                <Link className='no-underline text-avenir-light text-bold text-primary-main tracking-normal' to="/daftar-anggota">
+                                                    Daftar Anggota 
+                                                </Link>
+                                                <DoubleArrowIcon  fontSize='small' />
+                                            </MenuItem>
+                                            <MenuItem onClick={handleClose}>
+                                                <a className='no-underline  text-avenir-light text-bold text-primary-main tracking-normal' href="https://forms.gle/hdggctA9V3zSBp6E8" target="_blank">                                                
+                                                    Daftar Konsultasi
+                                                </a>
+                                                <DoubleArrowIcon fontSize='small' />
+                                            </MenuItem>                                            
+                                        </Menu>
                                     </Box>
 
                                 </nav>                

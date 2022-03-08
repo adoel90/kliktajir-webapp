@@ -4,7 +4,7 @@ const StrukturOrganisasi = () => {
 
     return (
         <>
-            <Container>
+            <Container sx={{pb:7}}>
                 <SusunanOrganisasi />
             </Container>
         </>
