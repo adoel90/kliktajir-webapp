@@ -10,7 +10,13 @@ import BisnisAnggota from 'pages/bisnis-anggota/index'
 import DaftarAnggota from 'pages/daftar-anggota/index'
 import ProdukKami from 'pages/produk-kami/index'
 import StrukturOrganisasi from 'pages/struktur-organisasi/index'
+
+
+// *Admin
 import PageAdminLogin from 'pages-admin/login/index'
+import AdminLayout from 'components/layout-admin/wrapper-admin-layout/index'
+
+
 
 
 import { 
@@ -36,21 +42,83 @@ import './App.css';
 function App() {
 
   return (    
-      <>        
-        <Header />         
-          <Routes>
-            <Route exact path="/" element={<Home />} />
-            <Route path={`${PAGE_TENTANG_KAMI}`} element={<TentangKami />} />
-            <Route path={`${PAGE_INFORMASI_TERKINI}`} element={<InformasiTerkini />} />    
-            <Route path={`${PAGE_BISNIS_ANGGOTA}`} element={<BisnisAnggota />} /> 
-            <Route path={`${PAGE_BAITUL_MAAL}`} element={<BaitulMaal />} /> 
-            <Route path={`${PAGE_DAFTAR_ANGGOTA}`} element={<DaftarAnggota />} />   
-            <Route path={`${PAGE_PRODUK_KAMI}`} element={<ProdukKami />} />   
-            <Route path={`${PAGE_STRUKTUR_ORGANISASI}`} element={<StrukturOrganisasi />} />
-            <Route path={`${PAGE_ADMIN_LOGIN}`} element={<PageAdminLogin />} />                                                                                          
+      <>                     
+        <Routes>
 
-          </Routes>          
-        <Footer />      
+            <Route  path="/" element={
+                <>
+                  <Header />    
+                    <Home />
+                  <Footer />
+                </>
+              }
+              >
+            </Route>
+
+            <Route path={`${PAGE_TENTANG_KAMI}`} element={
+                <>
+                  <Header /> 
+                  <TentangKami />
+                  <Footer />
+                </>
+              }
+            />
+            <Route path={`${PAGE_INFORMASI_TERKINI}`} element={
+                <>
+                  <Header /> 
+                    <InformasiTerkini />
+                  <Footer />
+                </>
+              
+            } />    
+
+            <Route path={`${PAGE_BISNIS_ANGGOTA}`} element={
+                <>
+                  <Header /> 
+                    <BisnisAnggota />
+                  <Footer />
+                </>
+            } /> 
+
+            <Route path={`${PAGE_BAITUL_MAAL}`} element={
+                <>
+                  <Header /> 
+                    <BaitulMaal />
+                  <Footer />
+                </>
+            } /> 
+            <Route path={`${PAGE_DAFTAR_ANGGOTA}`} element={
+                <>
+                  <Header /> 
+                    <DaftarAnggota />
+                  <Footer/>
+                </>                    
+            } />   
+            <Route path={`${PAGE_PRODUK_KAMI}`} element={
+                <>
+                  <Header /> 
+                    <ProdukKami />
+                  <Footer />
+                </>
+            } />   
+
+            <Route path={`${PAGE_STRUKTUR_ORGANISASI}`} element={
+              <>
+                <Header /> 
+                  <StrukturOrganisasi />
+                <Footer />
+              </>
+            } />              
+
+            {/* ADMIN LAYOUT */}
+            <Route path={`${PAGE_ADMIN_LOGIN}`} element={
+                <AdminLayout>
+                  <PageAdminLogin />
+                </AdminLayout>
+              }                                                                                                                                   
+            />   
+
+        </Routes>                                 
       </>
   );
 }

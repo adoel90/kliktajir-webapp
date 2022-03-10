@@ -8,7 +8,7 @@ export const PAGE_STRUKTUR_ORGANISASI = "/struktur-organisasi"
 
 
 //* ADMIN
-export const PAGE_ADMIN_LOGIN = "/pages-admin/login"
+export const PAGE_ADMIN_LOGIN = "/pages-admin"
 
 
 
