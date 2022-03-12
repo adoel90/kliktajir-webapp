@@ -6,8 +6,8 @@
         "components/*": ["components/*"],
         "assets/*": ["assets/*"],
         "pages/*": ["pages/*"],
-        "pages-admin/*": ["pages-admin/*"]
-
+        "pages-admin/*": ["pages-admin/*"],
+        "context/*": ["context/*"]
       }
     }
   }

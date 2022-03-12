@@ -1,6 +1,7 @@
 import {
   Routes,
-  Route  
+  Route ,
+  Outlet
 } from "react-router-dom";
 import Home from 'pages/home/index'
 import InformasiTerkini from 'pages/informasi-terkini/index'
@@ -15,12 +16,8 @@ import StrukturOrganisasi from 'pages/struktur-organisasi/index'
 // *Admin
 import PageAdminLogin from 'pages-admin/login/index'
 import AdminLayout from 'components/layout-admin/wrapper-admin-layout/index'
-
-
-
-
 import { 
-  PAGE_TENTANG_KAMI, 
+  PAGE_TENTANG_KAMI,    
   PAGE_INFORMASI_TERKINI, 
   PAGE_BAITUL_MAAL, 
   PAGE_BISNIS_ANGGOTA, 
@@ -31,13 +28,60 @@ import {
   PAGE_ADMIN_LOGIN
 } from './constanta/index'
 
-import Header from './components/layout/header/index'
-import Footer from './components/layout/footer/index'
+import Header from 'components/layout/header/index'
+import Footer from 'components/layout/footer/index'
+import { AuthProvider, useAuthentication } from 'context/authentication';
 
 // ADMIN PAGE
-
-
 import './App.css';
+
+const AdminApp = () => {
+
+  const { token, user } = useAuthentication();  
+
+  return true ? <AuthenticatedPages /> : <PageAdminLogin />;
+
+}
+
+const AuthenticatedPages = () => {
+
+  return (
+
+    <>
+      <h1>
+          AuthenticatedPages
+      </h1>
+      <Outlet />
+    </>
+  )
+}
+
+const NoMatch = () => {
+
+  return (
+    <h1>
+      Not Found
+    </h1>
+  )
+}
+
+const AdminBaitulMaal = () => {
+
+  return (
+
+    <h1>AdminBaitulMaal</h1>
+  )
+}
+
+const AdminBisnisAnggota = () => {
+
+  return (
+
+      <h1>
+        AdminBisnisAnggota
+      </h1>
+  )
+}
 
 function App() {
 
@@ -113,10 +157,20 @@ function App() {
             {/* ADMIN LAYOUT */}
             <Route path={`${PAGE_ADMIN_LOGIN}`} element={
                 <AdminLayout>
-                  <PageAdminLogin />
+                  <AuthProvider>
+                    <AdminApp />
+                  </AuthProvider>
+                  {/* <PageAdminLogin /> */}
                 </AdminLayout>
               }                                                                                                                                   
-            />   
+            >   
+
+              <Route index element={<AdminBaitulMaal />} />
+              <Route path="baitul-maal" element={<AdminBaitulMaal />} />
+              <Route path="bisnis-anggota" element={<AdminBisnisAnggota />} />
+              <Route path="*" element={<NoMatch />}  />
+
+            </Route>
 
         </Routes>                                 
       </>
