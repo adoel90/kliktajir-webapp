@@ -4,6 +4,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { SnackbarProvider } from 'notistack';
 import App from './App';
 import './index.css';
 
@@ -72,10 +73,12 @@ const theme = createTheme({
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <BrowserRouter>      
-        <App />
-      </BrowserRouter>
+      <SnackbarProvider maxSnack={3}>
+        <CssBaseline />
+        <BrowserRouter>      
+          <App />
+        </BrowserRouter>
+      </SnackbarProvider>
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')

@@ -101,6 +101,11 @@ code {
   color: var(--common-white-contrast-dark) !important;
 }
 
+.text-black {
+
+  color: var(--common-secondary-contrast) !important;
+}
+
 .text-oswald {
 
   font-family: 'Oswald', sans-serif !important;
@@ -226,6 +231,11 @@ code {
 .mt-1-half {
   
   margin-top: 0.5rem;
+}
+
+.mt-1-quarter {
+  
+  margin-top: 0.75rem;
 }
 
 .mt-n1 {
