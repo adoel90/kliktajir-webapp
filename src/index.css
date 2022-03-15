@@ -7,7 +7,11 @@
   
   --primary-main: #023a15;
   --primary-light: #32653c;
-  --primary-dark: #001700;
+  --primary-dark: #000000;
+
+  /* --primary-main: #2a6348;
+  --primary-light: #589174;
+  --primary-dark: #003820; */
 
   --secondary-main: #e84710;
   --secondary-light: #ff7a41;

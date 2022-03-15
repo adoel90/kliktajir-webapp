@@ -10,8 +10,6 @@ import ImageLaunching2 from 'assets/images/tentang-kami/img-launching-2.webp'
 import ImageBerdiriTajir1 from 'assets/images/tentang-kami/img-berdirinya-tajir.webp'
 import ImageBerdiriTajir2 from 'assets/images/tentang-kami/img-berdirinya-tajir-2.webp'
 
-
-
 const images = [
     {
       label: 'Image Launching 1',

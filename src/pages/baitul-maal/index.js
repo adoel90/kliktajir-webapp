@@ -1,19 +1,79 @@
-import React from 'react'
-import { Box } from '@mui/material'
+import React, { useEffect, useState} from 'react'
+import { Box, Grid, Container, Paper, Card, CardContent, Typography, CardMedia, CardHeader} from '@mui/material'
+import TextBigPicture from 'components/section/text-big-picture/index.js'
+import AxiosConfig from 'utilities/axios-config'
+
+
 
 const BaitulMaal = () => {
 
+    const [ listData, setListData ] = useState();
+
+
+    useEffect(() => {
+        AxiosConfig.get('v1/baitul-maal/list?limit=10&page=1').then((response) => {
+              
+          setListData(response?.data?.data || [])
+              
+        }).catch((e) => {
+      
+          console.log("Error : ", e)
+          return e;
+        })
+      },[])
+    
+
     return (
                 
-        <>
-            <Box component="h1" className='text-oswald text-center mt-5' >Baitul Maal Page</Box>
-            <p className='text-avenir-light text-center text-bold'>
-                <i>onprogress Integrasi API...</i>
-            </p>
-            <br />
-            <br />
-            <br />
-            <br />
+        <>            
+            <TextBigPicture>
+                Baitul <span className='text-secondary-main'>Maal</span>
+            </TextBigPicture>
+            <Container sx={{pt: 3, pb: 11}}>
+                <Grid container>
+                    <Grid item xs={12} sm={12} md={12} lg={12} alignContent="center">
+
+                            {
+                                listData?.map((item, i) => (
+                                    <Box sx={{display:'flex', justifyContent: 'center', mb: 7}} key={i}>
+
+                                        <Card sx={{ width: '50%'}} >
+                                            <CardHeader                                 
+                                                title={
+                                                    <Typography variant='h3' className='text-oswald' >
+                                                        {item?.title || "-"}
+                                                    </Typography>
+                                                }
+                                                sx={{textAlign: 'center'}}
+                                            />
+                                            <CardMedia
+                                                component="img"
+                                                height="auto"
+                                                image={`http://averoa.com:8800/${item?.image}`}
+                                                alt= {item?.judul}
+                                            />
+                                            <CardContent>
+                                                <Typography gutterBottom variant="p" component="div" className="text-white-dark"  >
+                                                    {item?.date}
+                                                </Typography>
+                                                <Typography variant="h5" className='text-black text-avenir-light' sx={{fontWeight: 'bold', pb: 5}} >
+                                                    {item?.description}
+                                                </Typography>
+                                            </CardContent>
+                                            {/* <CardActions>
+                                                <Button size="small">Share</Button>
+                                                <Button size="small">Learn More</Button>
+                                            </CardActions> */}
+                                        </Card>
+                                    </Box>
+                                ))
+                            }
+                    </Grid>
+                </Grid>
+            </Container> 
+
+
+            
             <br />
             <br />
         </>

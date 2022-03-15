@@ -7,10 +7,13 @@ import { TextField, Grid, Button} from '@mui/material';
 import SideNav from 'components/layout-admin/side-nav'
 import HeaderAdmin from 'components/layout-admin/header'
 import { useNavigate } from 'react-router-dom'
+import { useSnackbar } from 'notistack'
 
 export default function AdminBaitulMaal() {
 
-const navigate = useNavigate();
+  const { enqueueSnackbar } = useSnackbar()
+  const navigate = useNavigate();
+  
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -55,7 +58,7 @@ const navigate = useNavigate();
                   Cancel
                 </Button>
                 &nbsp;
-                <Button variant="contained"  color="primary">
+                <Button variant="contained"  color="primary" onClick={() => enqueueSnackbar("Whoops something went wrong !", { variant: 'error'})} >
                   Simpan
                 </Button>
               </Box>        
