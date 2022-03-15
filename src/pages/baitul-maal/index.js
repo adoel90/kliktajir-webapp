@@ -1,26 +1,14 @@
 import React, { useEffect, useState} from 'react'
 import { Box, Grid, Container, Paper, Card, CardContent, Typography, CardMedia, CardHeader} from '@mui/material'
 import TextBigPicture from 'components/section/text-big-picture/index.js'
-import AxiosConfig from 'utilities/axios-config'
+import { useQueryData } from 'hooks'
 
 
 
 const BaitulMaal = () => {
+    
 
-    const [ listData, setListData ] = useState();
-
-
-    useEffect(() => {
-        AxiosConfig.get('v1/baitul-maal/list?limit=10&page=1').then((response) => {
-              
-          setListData(response?.data?.data || [])
-              
-        }).catch((e) => {
-      
-          console.log("Error : ", e)
-          return e;
-        })
-      },[])
+    const { data } = useQueryData('v1/baitul-maal/list?limit=10&page=1')
     
 
     return (
@@ -34,7 +22,7 @@ const BaitulMaal = () => {
                     <Grid item xs={12} sm={12} md={12} lg={12} alignContent="center">
 
                             {
-                                listData?.map((item, i) => (
+                                data?.map((item, i) => (
                                     <Box sx={{display:'flex', justifyContent: 'center', mb: 7}} key={i}>
 
                                         <Card sx={{ width: '50%'}} >

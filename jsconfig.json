@@ -8,7 +8,9 @@
         "pages/*": ["pages/*"],
         "pages-admin/*": ["pages-admin/*"],
         "context/*": ["context/*"],
-        "utilities/*": ["utilities/*"]
+        "utilities/*": ["utilities/*"],
+        "hooks/*": ["hooks/*"]
+
       }
     }
   }
