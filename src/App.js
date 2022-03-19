@@ -15,9 +15,15 @@ import StrukturOrganisasi from 'pages/struktur-organisasi/index'
 // *Admin
 import PageAdminLogin from 'pages-admin/login'
 import AdminBisnisAnggota from 'pages-admin/bisnis-anggota'
+import AdminBisnisAnggotaCreate from 'pages-admin/bisnis-anggota/create'
+
 import AdminBaitulMaal from 'pages-admin/baitul-maal/list'
 import AdminBaitulMaalCreate from 'pages-admin/baitul-maal/create'
 import AdminBaitulMaalUpdate from 'pages-admin/baitul-maal/update'
+
+import AdminInformasiTerkini from 'pages-admin/informasi-terkini/list'
+import AdminInformasiTerkiniCreate from 'pages-admin/informasi-terkini/create'
+// import AdminInformasiTerkiniUpdate from 'pages-admin/informasi-terkini/update'
 
 import AdminLayout from 'components/layout-admin/wrapper-admin-layout'
 
@@ -165,7 +171,16 @@ const App = () =>  {
                 <Route path="baitul-maal" element={<AdminBaitulMaal />} />
                 <Route path="baitul-maal/create" element={<AdminBaitulMaalCreate />} />
                 <Route path="baitul-maal/update" element={<AdminBaitulMaalUpdate />} />
+
                 <Route path="bisnis-anggota" element={<AdminBisnisAnggota />} />
+                <Route path="bisnis-anggota/create" element={<AdminBisnisAnggotaCreate />} />
+                {/* <Route path="bisnis-anggota/update" element={<AdminBisnisAnggotaCreate />} /> */}
+
+                <Route path="informasi-terkini" element={<AdminInformasiTerkini />} />
+                <Route path="informasi-terkini/create" element={<AdminInformasiTerkiniCreate />} />
+                {/* <Route path="informasi-terkini/update" element={<AdminInformasiTerkiniCreate />} /> */}
+
+
                 <Route path="*" element={<NoMatch />}  />
               </Route>
 

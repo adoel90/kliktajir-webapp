@@ -19,7 +19,7 @@ import HeaderAdmin from 'components/layout-admin/header'
 import ImageIcon from '@mui/icons-material/Image';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { API_BAITUL_MAAL } from 'constanta'
+import { API_INFORMASI_TERKINI } from 'constanta'
 
 
 
@@ -35,13 +35,6 @@ const columns = [
     format: (value) => value.toLocaleString('en-US'),
   },
   {
-    id: 'size',
-    label: 'Deskripsi',
-    minWidth: 170,
-    align: 'left',
-    format: (value) => value.toLocaleString('en-US'),
-  },
-  {
     id: 'density',
     label: 'Action',
     minWidth: 170,
@@ -50,9 +43,7 @@ const columns = [
   },
 ];
 
-
-
-export default function List() {
+export default () => {
 
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
@@ -66,7 +57,7 @@ export default function List() {
     setPage(0);
   };
  
-  const { isLoading, isFetching, error, data, status} = useQueryData(`${API_BAITUL_MAAL}/list?limit=${rowsPerPage}&page=${page}`);  
+  const { isLoading, isFetching, error, data, status} = useQueryData(`${API_INFORMASI_TERKINI}/list?limit=${rowsPerPage}&page=${page}`);  
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -76,11 +67,11 @@ export default function List() {
 
       <Box component="main" sx={{ flexGrow: 1, p: 2 }}>
         <Typography variant="h3" sx={{mt:-3}} className='text-center text-oswald'>
-            Baitul Maal
+            Informasi Terkini
         </Typography>
         
         <Box sx={{display: 'flex', justifyContent: 'end', mt: 7}}>                
-            <Link to="/pages-admin/baitul-maal/create" className='no-underline'>
+            <Link to="/pages-admin/informasi-terkini/create" className='no-underline'>
                 <Button variant="contained"  color="primary">                
                     Create Data
                 </Button>
@@ -123,8 +114,7 @@ export default function List() {
                                         </IconButton>
                                       </p>
                                     </TableCell>
-                                    <TableCell align="center">{row.date}</TableCell>
-                                    <TableCell align="left">{row.description}</TableCell>
+                                    <TableCell align="center">{row.date}</TableCell>                                    
                                     <TableCell align="left">
                                       <IconButton>
                                         <EditIcon />

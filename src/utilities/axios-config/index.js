@@ -10,7 +10,8 @@ axiosConfig.defaults.headers.common['Content-Type'] = 'application/json';
 axiosConfig.defaults.headers.common['app_token'] = '12345';
 
 if (credentials !== null && credentials !== undefined && credentials !== '') {  
-  axiosConfig.defaults.headers.common['Authorization'] = `Bearer ${credentials}`;
+  
+  axiosConfig.defaults.headers.common['token'] = credentials;  
 }
 
 export default axiosConfig;

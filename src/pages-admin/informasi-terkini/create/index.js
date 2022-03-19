@@ -10,11 +10,11 @@ import { useNavigate } from 'react-router-dom'
 import { useSnackbar } from 'notistack'
 import { useForm } from "react-hook-form";
 import { useMutate } from 'hooks'
-import { API_BAITUL_MAAL } from 'constanta'
+import { API_INFORMASI_TERKINI } from 'constanta'
 import { useAuthentication } from 'context/authentication';
 
 
-export default function AdminBaitulMaal() {
+export default () => {
 
   const { enqueueSnackbar } = useSnackbar()
   const navigate = useNavigate();
@@ -28,7 +28,7 @@ export default function AdminBaitulMaal() {
 
   }
 
-  const [mutateData, isLoading] = useMutate(`${API_BAITUL_MAAL}/add`);
+  const [mutateData, isLoading] = useMutate(`${API_INFORMASI_TERKINI}/add`);
   
 
   return (
@@ -39,7 +39,7 @@ export default function AdminBaitulMaal() {
 
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <Typography variant="h3" sx={{mt:-3}} className='text-center text-oswald'>
-            Baitul Maal
+            Informasi Terkini
         </Typography>
 
 
@@ -48,28 +48,19 @@ export default function AdminBaitulMaal() {
             <form onSubmit={handleSubmit(onSubmit)}>                 
               <Box sx={{mt:1}}>
                 <TextField                            
-                    label="Judul"       
+                    label="Judul Informasi"       
                     fullWidth    
                     {...register('title')}                                             
                 />
-              </Box> 
-              <Box sx={{mt:3}}>
-                <TextField label="Upload Gambar" fullWidth {...register('image')}      />
-              </Box> 
+              </Box>              
 
               <Box sx={{mt:3}}>
                 <TextField label="Tanggal" fullWidth {...register('date')} />
               </Box> 
 
               <Box sx={{mt:3}}>
-                <TextField 
-                  label="Deskripsi" 
-                  fullWidth                 
-                  multiline
-                  rows={4}                  
-                  {...register('description')}
-                />
-              </Box>     
+                <TextField label="Upload Gambar" fullWidth {...register('image')}      />
+              </Box> 
 
               <Box sx={{display: 'flex', justifyContent: 'end', mt: 3}}>
                 <Button variant="outlined" color="primary" onClick={() => navigate(-1)}>

@@ -1,16 +1,16 @@
-import React, { useEffect, useState} from 'react'
-import { Box, Grid, Container, Paper, Card, CardContent, Typography, CardMedia, CardHeader} from '@mui/material'
+import React from 'react'
+import { Box, Grid, Container, Card, CardContent, Typography, CardMedia, CardHeader} from '@mui/material'
 import TextBigPicture from 'components/section/text-big-picture/index.js'
 import { useQueryData } from 'hooks'
+import { API_BAITUL_MAAL } from 'constanta'
 
 
 
 const BaitulMaal = () => {
     
 
-    const { data } = useQueryData('v1/baitul-maal/list?limit=10&page=1')
+    const { data } = useQueryData(`${API_BAITUL_MAAL}/list?limit=10000&page=1`)
     
-
     return (
                 
         <>            
@@ -37,7 +37,7 @@ const BaitulMaal = () => {
                                             <CardMedia
                                                 component="img"
                                                 height="auto"
-                                                image={`http://averoa.com:8800/${item?.image}`}
+                                                image={`${ process.env.REACT_APP_API_BASE_URL}/${item?.image}`}
                                                 alt= {item?.judul}
                                             />
                                             <CardContent>

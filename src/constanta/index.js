@@ -10,8 +10,10 @@ export const PAGE_STRUKTUR_ORGANISASI = "/struktur-organisasi"
 //* ADMIN
 export const PAGE_ADMIN_LOGIN = "/pages-admin"
 
-export const API_BAITUL_MAAL=`v1/${PAGE_BAITUL_MAAL}`
-export const API_BISNIS_ANGGOTA=`v1/${PAGE_BISNIS_ANGGOTA}`
+export const API_BAITUL_MAAL=`v1${PAGE_BAITUL_MAAL}`
+export const API_BISNIS_ANGGOTA=`v1${PAGE_BISNIS_ANGGOTA}`
+export const API_INFORMASI_TERKINI=`v1${PAGE_INFORMASI_TERKINI}`
+
 
 
 

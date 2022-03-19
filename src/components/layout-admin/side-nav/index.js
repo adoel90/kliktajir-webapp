@@ -1,10 +1,13 @@
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
+import NewspaperIcon from '@mui/icons-material/Newspaper';
+import AddBusinessIcon from '@mui/icons-material/AddBusiness';
+import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import { Link } from 'react-router-dom'
+import CustomLink from 'components/common/custom-link/index'
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 
@@ -25,34 +28,48 @@ export default () => {
                 <Toolbar />
                 <Box sx={{ overflow: 'auto', mt: 11 }}>
                     <List>               
-                        <Link to="/pages-admin/baitul-maal" className='no-underline '>
+                        <CustomLink to="/pages-admin/baitul-maal" isWhite={false} >
                             <ListItem button>
                             <ListItemIcon>
-                                <MailIcon />
+                                <BusinessCenterIcon />
                             </ListItemIcon>
                             <ListItemText                         
                                 primary={
-                                <p className='text-avenir-light text-black text-bold'>                          
-                                Baitul Maal
+                                <p className='text-avenir-light text-bold'>                          
+                                    Baitul Maal
                                 </p>
                                 }
                             />
                             </ListItem>
-                        </Link>
-                        <Link to="/pages-admin/bisnis-anggota" className='no-underline'>
+                        </CustomLink>
+                        <CustomLink to="/pages-admin/bisnis-anggota" isWhite={false} >
                             <ListItem button>
                             <ListItemIcon>
-                                <MailIcon />
+                                <AddBusinessIcon />
                             </ListItemIcon>
                             <ListItemText 
                                 primary={
-                                <p className='text-avenir-light text-black text-bold'>                          
+                                <p className='text-avenir-light  text-bold' isWhite={false}>                          
                                     Bisnis Anggota
                                 </p>                        
                                 }
                             />
                             </ListItem>
-                        </Link>
+                        </CustomLink>
+                        <CustomLink to="/pages-admin/informasi-terkini" isWhite={false} >
+                            <ListItem button>
+                            <ListItemIcon>
+                                <NewspaperIcon />
+                            </ListItemIcon>
+                            <ListItemText 
+                                primary={
+                                <p className='text-avenir-light text-bold'>                          
+                                    Informasi Terkini
+                                </p>                        
+                                }
+                            />
+                            </ListItem>
+                        </CustomLink>
                     </List>
                     
                 </Box>

@@ -4,7 +4,6 @@ import { PAGE_TENTANG_KAMI, PAGE_INFORMASI_TERKINI, PAGE_BAITUL_MAAL, PAGE_BISNI
 import ImageLogoTajir from 'assets/images/logo-tajir.png'
 import CustomLink from 'components/common/custom-link/index'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
 import { Link } from 'react-router-dom'
 

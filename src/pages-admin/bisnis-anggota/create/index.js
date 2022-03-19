@@ -10,16 +10,15 @@ import { useNavigate } from 'react-router-dom'
 import { useSnackbar } from 'notistack'
 import { useForm } from "react-hook-form";
 import { useMutate } from 'hooks'
-import { API_BAITUL_MAAL } from 'constanta'
+import { API_BISNIS_ANGGOTA } from 'constanta'
 import { useAuthentication } from 'context/authentication';
 
 
-export default function AdminBaitulMaal() {
+export default () => {
 
   const { enqueueSnackbar } = useSnackbar()
   const navigate = useNavigate();
   const { token } = useAuthentication();  
-
 
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const onSubmit = params => {
@@ -28,8 +27,7 @@ export default function AdminBaitulMaal() {
 
   }
 
-  const [mutateData, isLoading] = useMutate(`${API_BAITUL_MAAL}/add`);
-  
+  const [mutateData, isLoading] = useMutate(`${API_BISNIS_ANGGOTA}/add`);  
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -39,31 +37,30 @@ export default function AdminBaitulMaal() {
 
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <Typography variant="h3" sx={{mt:-3}} className='text-center text-oswald'>
-            Baitul Maal
+            Bisnis Anggota
         </Typography>
-
 
         <Grid container sx={{mt:3}}>          
           <Grid item md={5}>   
             <form onSubmit={handleSubmit(onSubmit)}>                 
               <Box sx={{mt:1}}>
                 <TextField                            
-                    label="Judul"       
+                    label="Nama Anggota"       
                     fullWidth    
-                    {...register('title')}                                             
+                    {...register('member_name')}                                             
                 />
               </Box> 
               <Box sx={{mt:3}}>
-                <TextField label="Upload Gambar" fullWidth {...register('image')}      />
+                <TextField label="No WhatsApp" fullWidth {...register('phone')}      />
               </Box> 
 
               <Box sx={{mt:3}}>
-                <TextField label="Tanggal" fullWidth {...register('date')} />
+                <TextField label="Produk Anggota" fullWidth {...register('image')} />
               </Box> 
 
               <Box sx={{mt:3}}>
                 <TextField 
-                  label="Deskripsi" 
+                  label="Deskripsi Umum untuk All Produk" 
                   fullWidth                 
                   multiline
                   rows={4}                  
@@ -79,8 +76,7 @@ export default function AdminBaitulMaal() {
                 <Button
                  variant="contained"  
                  color="primary"  
-                 type="submit"
-                  // onClick={() => enqueueSnackbar("Whoops something went wrong !", { variant: 'error'})}
+                 type="submit"                  
                 >
 
                   Simpan
