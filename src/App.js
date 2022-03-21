@@ -170,7 +170,7 @@ const App = () =>  {
                 <Route index element={<AdminBaitulMaal />} />
                 <Route path="baitul-maal" element={<AdminBaitulMaal />} />
                 <Route path="baitul-maal/create" element={<AdminBaitulMaalCreate />} />
-                <Route path="baitul-maal/update" element={<AdminBaitulMaalUpdate />} />
+                <Route path="baitul-maal/update/:id" element={<AdminBaitulMaalUpdate />} />
 
                 <Route path="bisnis-anggota" element={<AdminBisnisAnggota />} />
                 <Route path="bisnis-anggota/create" element={<AdminBisnisAnggotaCreate />} />

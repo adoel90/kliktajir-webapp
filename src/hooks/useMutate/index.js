@@ -25,35 +25,29 @@ const useMutate = (endpointName = '', endpointNameRefetch = undefined) => {
     {
       onError: err => {
 
-        console.log("ERROR : ", err);
+        console.log("ERROR mutation: ", err);
 
-        if (err.response !== null && err.response !== undefined) {
-          if (err.response.data !== null && err.response.data !== undefined) {
-            if (err.response.data.msg !== null && err.response.data.msg !== undefined) {
-                enqueueSnackbar(err.response.data && err.response.data.msg, { variant: 'error'});
-
-              if (err.response.status === 401) {
-                localStorage.removeItem('token');
-                setTimeout(() => {
-                  window.location.reload();
-                }, 1500);
+        if(err !== undefined){
+          if (err.response !== null && err.response !== undefined) {
+            if (err.response.data !== null && err.response.data !== undefined) {
+              if (err.response.data.msg !== null && err.response.data.msg !== undefined) {
+                  enqueueSnackbar(err.response.data && err.response.data.msg, { variant: 'error'});
+  
+                if (err.response.status === 401) {
+                  localStorage.removeItem('token');
+                  setTimeout(() => {
+                    window.location.reload();
+                  }, 1500);
+                }
               }
             }
-          }
-        } else {
-            enqueueSnackbar("Whoops something went wrong !", { variant: 'error'});
-        }
+          } 
+        } 
       },
     },
   );
 
   useEffect(() => {    
-
-    // console.log("DATA : ", data)
-
-    // if(data === undefined){
-    //     enqueueSnackbar("Whoops something went wrong !", { variant: 'error'});   
-    // }
     if(data?.status === true){
         if (isSuccess === true) {
             enqueueSnackbar("Success !", { variant: 'success'});                  
@@ -75,7 +69,13 @@ const useMutate = (endpointName = '', endpointNameRefetch = undefined) => {
 
     }
 
-  }, [isSuccess, data, status, endpointNameRefetch, history, queryClient]);
+    console.log("isError : ", isError)
+    if(isError){
+      enqueueSnackbar("Whoops, something went wrong !", { variant: 'error'});      
+
+    }
+
+  }, [isSuccess, data, status, endpointNameRefetch, history, queryClient, isError]);
 
   return [mutateData, isLoading, isSuccess, isError, isIdle];
 };

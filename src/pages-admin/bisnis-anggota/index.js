@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Box, Button, Paper, TableContainer, Table, TableHead, TableRow, TableCell, IconButton, TablePagination, TableBody } from '@mui/material';
+import { Box, Button, Paper, TableContainer, Table, TableHead, TableRow, TableCell, IconButton, TablePagination, TableBody, Skeleton } from '@mui/material';
 import CssBaseline from '@mui/material/CssBaseline';
 import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom'
@@ -55,7 +55,7 @@ export default function AdminBisnisAnggota() {
     setPage(0);
   };
  
-  const { isLoading, isFetching, error, data, status} = useQueryData(`${API_BISNIS_ANGGOTA}/list?limit=${rowsPerPage}&page=${page}`);
+  const { isLoading: isLoaderList, isFetching, error, data, status} = useQueryData(`${API_BISNIS_ANGGOTA}/list?limit=${rowsPerPage}&page=${page}`);
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -75,73 +75,76 @@ export default function AdminBisnisAnggota() {
                 </Button>
             </Link>
         </Box>
-        <Paper elevation={2} sx={{ width: '100%', overflow: 'hidden', mt:3 }}>
-            <TableContainer sx={{ maxHeight: 700 }}>
+        {
+          isLoaderList ? <Skeleton sx={{ height: 290,  mt:3 }} animation="wave" variant="rectangular" /> : 
+            <Paper elevation={2} sx={{ width: '100%', overflow: 'hidden', mt:3 }}>
+                <TableContainer sx={{ maxHeight: 700 }}>
 
-                <Table stickyHeader aria-label="sticky table">
-                    <TableHead>
-                        <TableRow>
-                          {columns.map((column) => (
-                              <TableCell
-                                key={column.id}
-                                align={column.align}
-                                style={{ minWidth: column.minWidth }}
-                              >
-                              {column.label}
-                              </TableCell>
-                          ))}
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {                        
-                          data?.map((row, i) => {
-                              return (
-                                <>
-                                  <TableRow key={i}>
-                                    <TableCell component="th" scope="row">
-                                      <p className='text-avenir-light'>
-                                        {row?.member_name}
-                                      </p>                                    
-                                    </TableCell>
-                                    <TableCell component="th" scope="row">
-                                      <p className='text-avenir-light'>
-                                        {row?.phone}
-                                      </p>                                    
-                                    </TableCell>
-                                    <TableCell align="center">
-                                      <p className='text-avenir-light'>
-                                        <IconButton onClick={() => window?.open(`${process.env.REACT_APP_API_BASE_URL}/${row?.image}`)}>
-                                          <ImageIcon />                                      
-                                        </IconButton>
-                                      </p>
-                                    </TableCell>
-                                    <TableCell align="left">{row.description}</TableCell>
-                                    <TableCell align="left">
-                                      <IconButton>
-                                        <EditIcon />
-                                      </IconButton>
-                                      <IconButton>
-                                        <DeleteIcon />
-                                      </IconButton>
-                                    </TableCell>
-                                  </TableRow>                                                                                                  
-                                </>
-                              );
-                          })
-                        }
-                    </TableBody>
-                </Table>
-            </TableContainer>
-            <TablePagination
-                rowsPerPageOptions={[10, 25, 100]}
-                component="div"
-                count={data?.length}
-                rowsPerPage={rowsPerPage}
-                page={page}
-                onPageChange={handleChangePage}
-                onRowsPerPageChange={handleChangeRowsPerPage}
-            />
-            </Paper> 
+                    <Table stickyHeader aria-label="sticky table">
+                        <TableHead>
+                            <TableRow>
+                              {columns.map((column) => (
+                                  <TableCell
+                                    key={column.id}
+                                    align={column.align}
+                                    style={{ minWidth: column.minWidth }}
+                                  >
+                                  {column.label}
+                                  </TableCell>
+                              ))}
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {                        
+                              data?.map((row, i) => {
+                                  return (
+                                    <>
+                                      <TableRow key={i}>
+                                        <TableCell component="th" scope="row">
+                                          <p className='text-avenir-light'>
+                                            {row?.member_name}
+                                          </p>                                    
+                                        </TableCell>
+                                        <TableCell component="th" scope="row">
+                                          <p className='text-avenir-light'>
+                                            {row?.phone}
+                                          </p>                                    
+                                        </TableCell>
+                                        <TableCell align="center">
+                                          <p className='text-avenir-light'>
+                                            <IconButton onClick={() => window?.open(`${process.env.REACT_APP_API_BASE_URL}/${row?.image}`)}>
+                                              <ImageIcon />                                      
+                                            </IconButton>
+                                          </p>
+                                        </TableCell>
+                                        <TableCell align="left">{row.description}</TableCell>
+                                        <TableCell align="left">
+                                          <IconButton>
+                                            <EditIcon />
+                                          </IconButton>
+                                          <IconButton>
+                                            <DeleteIcon />
+                                          </IconButton>
+                                        </TableCell>
+                                      </TableRow>                                                                                                  
+                                    </>
+                                  );
+                              })
+                            }
+                        </TableBody>
+                    </Table>
+                </TableContainer>
+                <TablePagination
+                    rowsPerPageOptions={[10, 25, 100]}
+                    component="div"
+                    count={data?.length}
+                    rowsPerPage={rowsPerPage}
+                    page={page}
+                    onPageChange={handleChangePage}
+                    onRowsPerPageChange={handleChangeRowsPerPage}
+                />
+                </Paper> 
+        }
 
 
 

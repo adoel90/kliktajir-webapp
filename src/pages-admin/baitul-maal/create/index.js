@@ -2,7 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Typography from '@mui/material/Typography';
-import { TextField, Grid, Button} from '@mui/material';
+import { TextField, Grid, Button } from '@mui/material';
 
 import SideNav from 'components/layout-admin/side-nav'
 import HeaderAdmin from 'components/layout-admin/header'
@@ -12,6 +12,7 @@ import { useForm } from "react-hook-form";
 import { useMutate } from 'hooks'
 import { API_BAITUL_MAAL } from 'constanta'
 import { useAuthentication } from 'context/authentication';
+import Form from '../components/form'
 
 
 export default function AdminBaitulMaal() {
@@ -23,8 +24,12 @@ export default function AdminBaitulMaal() {
 
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const onSubmit = params => {
-    
-    mutateData(params);
+
+    console.log("params : ", params);
+
+    var formData = new FormData();
+    formData.append("image", params?.image)
+    mutateData({...params, image: formData});
 
   }
 
@@ -46,46 +51,22 @@ export default function AdminBaitulMaal() {
         <Grid container sx={{mt:3}}>          
           <Grid item md={5}>   
             <form onSubmit={handleSubmit(onSubmit)}>                 
-              <Box sx={{mt:1}}>
-                <TextField                            
-                    label="Judul"       
-                    fullWidth    
-                    {...register('title')}                                             
-                />
-              </Box> 
-              <Box sx={{mt:3}}>
-                <TextField label="Upload Gambar" fullWidth {...register('image')}      />
-              </Box> 
-
-              <Box sx={{mt:3}}>
-                <TextField label="Tanggal" fullWidth {...register('date')} />
-              </Box> 
-
-              <Box sx={{mt:3}}>
-                <TextField 
-                  label="Deskripsi" 
-                  fullWidth                 
-                  multiline
-                  rows={4}                  
-                  {...register('description')}
-                />
-              </Box>     
-
-              <Box sx={{display: 'flex', justifyContent: 'end', mt: 3}}>
-                <Button variant="outlined" color="primary" onClick={() => navigate(-1)}>
-                  Cancel
-                </Button>
-                &nbsp;
-                <Button
-                 variant="contained"  
-                 color="primary"  
-                 type="submit"
-                  // onClick={() => enqueueSnackbar("Whoops something went wrong !", { variant: 'error'})}
-                >
-
-                  Simpan
-                </Button>
-              </Box>        
+              <Form register={register}>                          
+                <Box sx={{display: 'flex', justifyContent: 'end', mt: 3}}>
+                  <Button variant="outlined" color="primary" onClick={() => navigate(-1)}>
+                    Cancel
+                  </Button>
+                  &nbsp;
+                  <Button
+                    variant="contained"  
+                    color="primary"  
+                    type="submit"
+                    // onClick={() => enqueueSnackbar("Whoops something went wrong !", { variant: 'error'})}
+                  >
+                    Simpan
+                  </Button>
+                </Box>  
+              </Form>
             </form>
           </Grid>   
           <Grid item md={7}> </Grid>       
