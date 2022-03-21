@@ -312,6 +312,11 @@ code {
     margin-left: 0px !important;
   }
 
+  .ml-sm-1 {
+  
+    margin-left: 1rem !important;
+  }
+
   .text-sm-78px {
     font-size: 78px !important;
 }
