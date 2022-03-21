@@ -3,7 +3,7 @@ const TextBigPicture = ({children}) => {
 
     return (
         <section id="text-big-picture" className='bg-primary-main'>
-            <h1 className='text-oswald text-white tracking-normal text-center text-uppercase text-88px'>
+            <h1 className='text-oswald text-white tracking-normal text-center text-uppercase text-88px text-sm-78px'>
                 {children}
             </h1>  
         </section>

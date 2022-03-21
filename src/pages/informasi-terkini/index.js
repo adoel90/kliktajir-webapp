@@ -35,9 +35,7 @@ const InformasiTerkini = () => {
                                                     width:  {
                                                         sm: "100%",
                                                         md:'50%'
-                                                    }
-                                                    
-                                                    
+                                                    }                                                                                                        
                                                     
                                                 }} >
                                                     <CardHeader                                 

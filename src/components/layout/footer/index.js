@@ -82,7 +82,14 @@ const Footer = () => {
                         </ul>
                     </Grid>
 
-                    <Grid item xs={12} sm={12} md={3} lg={3} >
+                    <Grid item xs={12} sm={12} md={3} lg={3} 
+                         sx={{
+                            color: "common.white", 
+                            textAlign: {
+                                xs: 'center'                                
+                            }
+                        }} 
+                    >
                         <div class="mapouter">
                             <div class="gmap_canvas">
                                 <iframe width="296" height="200" id="gmap_canvas" src="https://maps.google.com/maps?q=%20Jl.%20Soekarno-Hatta%20No.641,%20Sukapura,%20Kec.%20Kiaracondong,%20Kota%20Bandung,%20Jawa%20Barat%2040285&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://123movies-to.org"></a>                                

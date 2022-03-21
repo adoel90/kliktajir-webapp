@@ -34,7 +34,12 @@ const BaitulMaal = () => {
                                         data?.map((item, i) => (
                                             <Box sx={{display:'flex', justifyContent: 'center', mb: 7}} key={i}>
 
-                                                <Card sx={{ width: '50%'}} >
+                                                <Card sx={{ 
+                                                     width:  {
+                                                        sm: "100%",
+                                                        md:'50%'
+                                                    }
+                                                }}>
                                                     <CardHeader                                 
                                                         title={
                                                             <Typography variant='h3' className='text-oswald' >
@@ -57,10 +62,7 @@ const BaitulMaal = () => {
                                                             {item?.description}
                                                         </Typography>
                                                     </CardContent>
-                                                    {/* <CardActions>
-                                                        <Button size="small">Share</Button>
-                                                        <Button size="small">Learn More</Button>
-                                                    </CardActions> */}
+                                                   
                                                 </Card>
                                             </Box>
                                         ))
