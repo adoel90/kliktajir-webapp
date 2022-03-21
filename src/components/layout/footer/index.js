@@ -15,10 +15,16 @@ const Footer = () => {
         <footer className='bg-primary-main'>
             <Container sx={{pt: 7, pb: 5}}>                
                 <Grid container sx={{pb: 7}}>
-                    <Grid item xs={12} sm={12} md={3} lg={3} >
+                    <Grid item xs={12} sm={12} md={3} lg={3} 
+                        sx={{                            
+                            mb: {
+                                xs: 3
+                            }
+                        }}
+                    >
                         <img src={ImageLogoTajir} height="47" width="114" className='' />
                     </Grid>
-                    <Grid item xs={12} sm={12} md={2} lg={2} >
+                    <Grid item xs={6} sm={6} md={2} lg={2} >
                         <Typography variant="p" component="p" mt={1} sx={{color: "common.white"}} className="text-avenir-light text-bold"> 
                             Tajir
                         </Typography>
@@ -41,7 +47,7 @@ const Footer = () => {
                         </ul>
                     </Grid>
 
-                    <Grid item xs={12} sm={12} md={2} lg={2} >
+                    <Grid item xs={6} sm={6} md={2} lg={2} >
                         <Typography variant="p" component="p" mt={1} sx={{color: "common.white"}} className="text-avenir-light text-bold"> 
                             Learn More
                         </Typography>                    
@@ -60,7 +66,13 @@ const Footer = () => {
                         </ul>
                     </Grid>
 
-                    <Grid item xs={12} sm={12} md={2} lg={2} >
+                    <Grid item xs={12} sm={12} md={2} lg={2} 
+                        sx={{
+                            mb: {
+                                xs: 3
+                            }
+                        }}
+                    >
                         <Typography variant="p" component="p" mt={1} sx={{color: "common.white"}} className="text-avenir-light text-bold"> 
                             Support
                         </Typography>                           
@@ -82,34 +94,74 @@ const Footer = () => {
                 <hr style={{borderWidth: 1}} />
                 <Grid container >
                     <Grid item xs={12} sm={12} md={6} lg={6} >
-                        <Typography variant="p" component="p" mt={3} sx={{color: "common.white"}} className="text-avenir-light"> 
+                        <Typography 
+                            variant="p" 
+                            component="p" 
+                            mt={3} 
+                            sx={{
+                                color: "common.white", 
+                                textAlign: {
+                                    xs: 'center',
+                                    md: 'left',
+                                }
+                            }} 
+                            className="text-avenir-light"
+                        > 
                             © Kliktajir. {new Date().getFullYear()}. All Right Reserved
                         </Typography>
                     </Grid>
 
-                    <Grid item xs={12} sm={12} md={3} lg={3} >
+                    <Grid item xs={12} sm={12} md={3} lg={3} 
+                         sx={{                            
+                            textAlign: {
+                                xs: 'center'
+                            }
+                        }} 
+                    >
                         <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: {xs: 'center', md: 'end'}, mt: 2 }}>
                             <a className='no-underline' href="https://play.google.com/store/apps/details?id=id.co.neosantara.tajir" target="_blank">
                                 <img  src={ImagePlaystore} width={127} height={43} alt="ImagePlaystore" />
                             </a>
                         </Box>
                     </Grid>
-                    <Grid item xs={12} sm={12} md={3} lg={3} > 
-                        <Box sx={{ display:'row', justifyContent: {xs: 'center', md: 'end'} }}>
-                            <a className='no-underline' href="https://www.facebook.com/tajir.muamalah.syariah" target="_blank">
-                                <figure className='flex' style={{flexDirection: 'row-reverse'}}>
+                    <Grid item xs={12} sm={12} md={3} lg={3} >                         
+                        <a className='no-underline' href="https://www.facebook.com/tajir.muamalah.syariah" target="_blank">                                
+                            <figure >
+                                <Box 
+                                    sx={{
+                                        display: {
+                                            xs: 'block',
+                                            md:'flex', 
+                                        },
+                                        flexDirection: {
+                                            xs: 'initial',
+                                            md: 'row-reverse', 
+                                        },                                            
+                                        textAlign: {
+                                            xs: 'center',
+                                            md: 'right'
+                                        }                                            
+                                    }}>
                                     <img src={ImageWhiteFb} alt="" width={40} height={40} />
                                     <figcaption>
-                                        <Typography variant="p" component="p" mt={1} mr={2} sx={{color: "common.white"}} className="text-avenir-light text-bold"> 
+                                        <Typography variant="p" component="p" mt={1} mr={2} 
+                                            sx={{
+                                                color: "common.white", 
+                                                textAlign: 'center',
+                                                display: {
+                                                    xs: 'none',
+                                                    md: 'block'
+                                                }
+                                            }} 
+                                            className="text-avenir-light text-bold"
+                                        > 
                                             Ikuti kami di FB
                                         </Typography>      
                                     </figcaption>
-                                </figure>                        
-                            </a>
-                        </Box>
-
+                                </Box>
+                            </figure>                        
+                        </a>                    
                     </Grid>
-
                 </Grid>
             </Container>
         </footer>
