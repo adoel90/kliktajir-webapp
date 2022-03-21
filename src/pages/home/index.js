@@ -34,7 +34,12 @@ const Home = () => {
             <section id="hero" className='bg-primary-main'>                            
                 <Container>
                     <Grid container >
-                        <Grid item xs={12} sm={12} md={8} lg={8} sx={{pt: 15}}>
+                        <Grid item xs={12} sm={12} md={8} lg={8} sx={{
+                            pt: {
+                                xs: 1,
+                                md: 15
+                            }                            
+                        }}>
                                
                             <h1 className='text-oswald text-56px text-white tracking-normal'>
                                 Mitra Bisnis Syariah Anda
@@ -105,14 +110,14 @@ const Home = () => {
                             </h3>  
                             
                             <Link className="text-avenir-light text-secondary-main no-underline text-bold" to="/produk-kami">
-                                Lihat Semua Produk
+                                Lihat Semua 
                                 <img className=' mt-2' style={{marginBottom: "-0.3rem", marginLeft: "1rem"}} src={ImageSecondaryArrowRight} alt="ImageSecondaryArrowRight" width={27} height="auto" />
                             </Link>
                         </section>             
                     </Grid>
                     <Grid item xs={12} sm={12} md={8} lg={8} >
 
-                        <Box sx={{display: 'flex', flexDirection: 'row', justifyContent:"space-between"}}>
+                        <Box sx={{display: 'flex', flexWrap: 'wrap' ,flexDirection: 'row', justifyContent:"space-between"}}>
                             <figure className='bg-primary-main mt-3' style={{width: 75, height: 75, textAlign: 'center', borderRadius: "50%"}}>
                                 <img style={{marginTop: "1.5rem"}} src={ImageWhiteProperty} alt="ImageWhiteProperty" width={51} height="auto" />                           
                                 <figcaption className='text-black text-avenir-light text-bold' style={{ marginTop: 24}}>
@@ -142,7 +147,7 @@ const Home = () => {
                             </figure>                    
                         </Box>      
 
-                         <Box sx={{ mt: 3, display: 'flex', flexDirection: 'row', justifyContent:"space-between"}}>
+                         <Box sx={{ mt: 3, display: 'flex',  flexWrap: 'wrap', flexDirection: 'row', justifyContent:"space-between"}}>
                             <figure className='bg-primary-main mt-3' style={{width: 75, height: 75, textAlign: 'center', borderRadius: "50%"}}>
                                 <img style={{marginTop: "1.2rem"}} src={ImageWhiteKesehatan} alt="ImageWhiteKesehatan" width={38} height="auto" />                           
                                 <figcaption className='text-black text-avenir-light text-bold' style={{ marginTop: 24}}>
@@ -185,15 +190,42 @@ const Home = () => {
                                     <span className='text-small text-white-dark text-500'><i> (onprogress Integrasi API...)</i></span> 
                                 </h1>     
                             </Box>
-                            <Box sx={{mt: 3}}>
-                                <a className="text-avenir-light text-secondary-main no-underline text-bold" href="">
-                                    Lihat Semua Kabar
+                            <Box sx={{
+                                mt: 3,
+                                display: { 
+                                    xs: 'none',
+                                    md: 'block',
+                                }
+
+                            }}>
+                                <a className="text-avenir-light text-secondary-main no-underline text-bold" href="">                                    
+                                    Lihat Semua Kabar                                    
                                     <img className=' mt-2' style={{marginBottom: "-0.3rem", marginLeft: "1rem"}} src={ImageSecondaryArrowRight} alt="ImageSecondaryArrowRight" width={27} height="auto" />
+                                </a>
+                            </Box>
+                            <Box 
+                                sx={{ 
+                                    mt: 3,
+                                    display: { 
+                                        xs: 'block',
+                                        md: 'none',
+                                    }
+                                }}>
+                                <a className="text-avenir-light text-secondary-main no-underline text-bold" href="">        
+                                    <img className=' mt-2' style={{marginBottom: "-0.3rem", marginLeft: "1rem"}} src={ImageSecondaryArrowRight} alt="ImageSecondaryArrowRight" width={27} height="auto" />                            
                                 </a>
                             </Box>
                         </Box>                  
 
-                        <Card sx={{ width: '25%' }}>
+                        <Card sx={{ 
+
+                            width: {
+                                xs: '100%',
+                                md: '25%' 
+                            }
+                            
+                            
+                        }}>
                             <CardMedia
                                 component="img"
                                 height="auto"
@@ -229,7 +261,14 @@ const Home = () => {
                             </h3>
                         </Grid>
                         <Grid item xs={12} sm={12} md={6} lg={6} textAlign="center">
-                            <img style={{marginLeft: 17}} src={ImageWhatIsBadanSyirkah} alt="ImageWhatIsBadanSyirkah" width="100%" height="auto" />
+                            <Box sx={{
+                                marginLeft: {
+                                    xs: 0,
+                                    md: 17                                                                        
+                                }
+                            }}>
+                                <img  src={ImageWhatIsBadanSyirkah} alt="ImageWhatIsBadanSyirkah" width="100%" height="auto" />
+                            </Box>
                         </Grid>
                     </Grid>
                 </Container>
@@ -315,7 +354,13 @@ const Home = () => {
                                 </p>          
                             </Box>            
 
-                            <Box sx={{display: 'flex', justifyContent : 'end'}}>
+                            <Box sx={{
+                                display: 'flex', 
+                                justifyContent : {
+                                    xs : 'center',
+                                    md: 'end'
+                                }                                
+                            }}>
                                 <Link className='no-underline' to="/daftar-anggota">
                                     <Button size="large" variant="contained" color="warning" sx={{mt:7, mb:3,borderRadius: "24px", color: "primary.main", textTransform: 'none'}} className="text-bold text-avenir-light">                                            
                                         Daftar Menjadi Anggota
@@ -335,7 +380,14 @@ const Home = () => {
                         </h1>                    
                     </Grid>
                     <Grid item xs={12} sm={12} md={2} lg={2} >                
-                        <Box sx={{display: 'flex', justifyContent : 'end'}}>
+                        <Box sx={{
+                            display: 'flex',                             
+                            justifyContent : {
+                                xs : 'center',
+                                md: 'end'
+                            } 
+                        }}
+                        >
                             <a className='no-underline' href="https://forms.gle/hdggctA9V3zSBp6E8" target="_blank">
                                 <Button size="large" variant="contained" color="secondary" sx={{mt:5,borderRadius: "24px", color: "common.white", textTransform: 'none'}} className="text-bold text-avenir-light">                                            
                                     Daftar Konsultasi
