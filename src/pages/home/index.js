@@ -110,7 +110,7 @@ const Home = () => {
                             </h3>  
                             
                             <Link className="text-avenir-light text-secondary-main no-underline text-bold" to="/produk-kami">
-                                Lihat Semua 
+                                Lihat Semua Produk
                                 <img className=' mt-2' style={{marginBottom: "-0.3rem", marginLeft: "1rem"}} src={ImageSecondaryArrowRight} alt="ImageSecondaryArrowRight" width={27} height="auto" />
                             </Link>
                         </section>             
@@ -187,7 +187,7 @@ const Home = () => {
                             <Box sx={{flexGrow: 1}}>
                                 <h1 className='text-40px text-oswald tracking-tight'>
                                     Kabar 
-                                    <span className='text-small text-white-dark text-500'><i> (onprogress Integrasi API...)</i></span> 
+                                    {/* <span className='text-small text-white-dark text-500'><i> (onprogress Integrasi API...)</i></span>  */}
                                 </h1>     
                             </Box>
                             <Box sx={{
@@ -198,10 +198,10 @@ const Home = () => {
                                 }
 
                             }}>
-                                <a className="text-avenir-light text-secondary-main no-underline text-bold" href="">                                    
+                                <Link className="text-avenir-light text-secondary-main no-underline text-bold" to="/informasi-terkini">                                    
                                     Lihat Semua Kabar                                    
                                     <img className=' mt-2' style={{marginBottom: "-0.3rem", marginLeft: "1rem"}} src={ImageSecondaryArrowRight} alt="ImageSecondaryArrowRight" width={27} height="auto" />
-                                </a>
+                                </Link>
                             </Box>
                             <Box 
                                 sx={{ 
@@ -211,9 +211,9 @@ const Home = () => {
                                         md: 'none',
                                     }
                                 }}>
-                                <a className="text-avenir-light text-secondary-main no-underline text-bold" href="">        
+                                <Link className="text-avenir-light text-secondary-main no-underline text-bold" to="/informasi-terkini">        
                                     <img className=' mt-2' style={{marginBottom: "-0.3rem", marginLeft: "1rem"}} src={ImageSecondaryArrowRight} alt="ImageSecondaryArrowRight" width={27} height="auto" />                            
-                                </a>
+                                </Link>
                             </Box>
                         </Box>                  
 

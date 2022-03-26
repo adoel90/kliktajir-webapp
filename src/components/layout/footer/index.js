@@ -22,7 +22,9 @@ const Footer = () => {
                             }
                         }}
                     >
-                        <img src={ImageLogoTajir} height="47" width="114" className='' />
+                        <Link to="pages-admin" className='no-underline'>
+                            <img src={ImageLogoTajir} height="47" width="114" className='' />
+                        </Link>
                     </Grid>
                     <Grid item xs={6} sm={6} md={2} lg={2} >
                         <Typography variant="p" component="p" mt={1} sx={{color: "common.white"}} className="text-avenir-light text-bold"> 

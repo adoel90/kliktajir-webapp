@@ -152,9 +152,9 @@ const Header = (props) => {
                                     </Typography>                                        
                                                                                                                     
                                     <Box sx={{mt: 1}}>
-                                        <Button variant="outlined" color="secondary" sx={{borderRadius: "24px", textTransform: 'none'}} >
+                                        {/* <Button variant="outlined" color="secondary" sx={{borderRadius: "24px", textTransform: 'none'}} >
                                             Cek Saldo
-                                        </Button>
+                                        </Button> */}
                                         <Button 
                                             endIcon={<KeyboardArrowDownIcon />} 
                                             variant="contained" 
