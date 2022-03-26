@@ -19,7 +19,7 @@ const ProdukKami = () => {
 
                     <Grid container >
                         <Grid item xs={12} sm={12} md={6} lg={6} textAlign="center" sx={{mx: 'auto'}}>
-                            <p>
+                            <p className='text-bold'>
                                 Beberapa usaha yang akan ditangani oleh BSM TAJIR untuk membangun masyarakat berbasis syariah, diantaranya adalah usaha Propert, Travel, PPOB, Transportasi, Kesehatan, Kajian / Ibadah, Pembiayaan, Syirkah, Pengerjaan Proyek– proyek, Dll.
                             </p>
                             <img  src={MainImage} alt="MainImage" width="100%" height="auto" className='mt-5' />
