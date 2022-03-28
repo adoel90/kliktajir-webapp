@@ -140,11 +140,15 @@ const [mutateData, isLoading ] = useMutate(`${API_BAITUL_MAAL}/delete`);
                                         </TableCell>
                                         <TableCell align="center">
                                           <p className='text-avenir-light'>
-                                            <Tooltip title="Lihat Gambar, klik Icon ini !" placement='right-start' >
-                                              <IconButton onClick={() => window?.open(`${process.env.REACT_APP_API_BASE_URL}/${row?.image}`)}>
-                                                <ImageIcon />                                      
-                                              </IconButton>
-                                            </Tooltip>
+                                            {
+                                              row?.image ?
+                                                <Tooltip title="Lihat Gambar, klik Icon ini !" placement='right-start' >
+                                                  <IconButton onClick={() => window?.open(`${process.env.REACT_APP_API_BASE_URL}/${row?.image}`)}>
+                                                    <ImageIcon />                                      
+                                                  </IconButton>
+                                                </Tooltip> :
+                                                "-"
+                                            }
                                           </p>
                                         </TableCell>
                                         <TableCell align="center">{row.date}</TableCell>

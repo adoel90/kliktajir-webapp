@@ -64,7 +64,11 @@ const Footer = () => {
                                     Baitul Maal 
                                 </Link>                        
                             </li>
-                            <li className='mt-1-half'>Informasi Terkini</li>
+                            <li className='mt-1-half'>
+                                <Link className='no-underline text-white' to="/informasi-terkini">                            
+                                    Informasi Terkini
+                                </Link>
+                            </li>
                         </ul>
                     </Grid>
 

@@ -25,11 +25,14 @@ export default function AdminBaitulMaal() {
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const onSubmit = params => {
 
-    console.log("params : ", params);
 
     var formData = new FormData();
-    formData.append("image", params?.image)
-    mutateData({...params, image: formData});
+    formData.append("title", params?.title)
+    formData.append("image", params?.image[0])
+    formData.append("date", params?.date)
+    formData.append("description", params?.description)
+    mutateData(formData);
+
 
   }
 

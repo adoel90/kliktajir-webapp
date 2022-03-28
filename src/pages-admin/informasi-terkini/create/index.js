@@ -24,7 +24,12 @@ export default () => {
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const onSubmit = params => {
     
-    mutateData(params);
+    var formData = new FormData();
+    formData.append("title", params?.title)
+    formData.append("image", params?.image[0])
+    formData.append("date", params?.date)    
+    mutateData(formData);
+    // mutateData(params);
 
   }
 
@@ -54,12 +59,20 @@ export default () => {
                 />
               </Box>              
 
-              <Box sx={{mt:3}}>
-                <TextField label="Tanggal" fullWidth {...register('date')} />
+              <Box sx={{mt:3}}>                                
+                <TextField label="Tanggal" type="date"  fullWidth {...register('date')} 
+                  InputLabelProps={{
+                      shrink: true,
+                  }}
+                />            
               </Box> 
 
               <Box sx={{mt:3}}>
-                <TextField label="Upload Gambar" fullWidth {...register('image')}      />
+                <TextField label="Upload Gambar" type="file" fullWidth {...register('image')}      
+                    InputLabelProps={{
+                        shrink: true,
+                    }}
+                />
               </Box> 
 
               <Box sx={{display: 'flex', justifyContent: 'end', mt: 3}}>

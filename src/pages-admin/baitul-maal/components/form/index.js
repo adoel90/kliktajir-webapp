@@ -16,9 +16,9 @@ export default ({register, children, isEdit = false}) => {
             </Box> 
             <Box sx={{mt:3}}>
                 <TextField label="Upload Gambar" type="file" fullWidth {...register('image')}      
-                InputLabelProps={{
-                    shrink: true,
-                }}
+                    InputLabelProps={{
+                        shrink: true,
+                    }}
                 />
             </Box> 
 

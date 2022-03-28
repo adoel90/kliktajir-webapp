@@ -48,6 +48,9 @@ const BaitulMaal = () => {
                                                         }
                                                         sx={{textAlign: 'center'}}
                                                     />
+                                                    {/* {
+                                                        item?.image ? 
+                                                    } */}
                                                     <CardMedia
                                                         component="img"
                                                         height="auto"

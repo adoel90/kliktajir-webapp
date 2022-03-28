@@ -43,9 +43,16 @@ export default () => {
 
   const onSubmit = params => {
     
+
+    
     var formData = new FormData();
-    formData.append("image", params?.image)
-    mutateData({...params, image: formData});
+    formData.append('id', queryParam?.id)
+    formData.append("title", params?.title)
+    formData.append("image", params?.image[0])
+    formData.append("date", params?.date)
+    formData.append("description", params?.description)
+    mutateData(formData);
+    
 
   };
 
