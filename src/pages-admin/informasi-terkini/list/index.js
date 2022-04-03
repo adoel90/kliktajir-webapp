@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useQueryData } from 'hooks'
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Typography from '@mui/material/Typography';
-import { IconButton, Button, Skeleton, Grid } from '@mui/material';
+import { IconButton, Button, Skeleton, Grid,  Dialog, DialogContent, DialogActions,} from '@mui/material';
 import Paper from '@mui/material/Paper';
 import TableMaterial from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -20,6 +20,7 @@ import ImageIcon from '@mui/icons-material/Image';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { API_INFORMASI_TERKINI } from 'constanta'
+import { useMutate } from 'hooks'
 
 const columns = [
   { id: 'name', label: 'Judul', minWidth: 170 },
@@ -55,6 +56,27 @@ export default () => {
   };
  
   const { isLoading: isLoaderList, isFetching, error, data, status} = useQueryData(`${API_INFORMASI_TERKINI}/list?limit=${rowsPerPage}&page=${page}`);  
+  
+  //*
+  const [isOpen, setOpen] = React.useState(false);
+  const [ dataDeleted, setDataDeleted ] = useState('')
+  const handleOpenModalDelete = (params) => {
+    setOpen(true);
+    setDataDeleted(params)
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleSubmitDelete = () => {
+
+    console.log("dataDeleted : ", dataDeleted);
+    mutateData({id: dataDeleted?.id})
+
+  }
+
+const [mutateData, isLoading ] = useMutate(`${API_INFORMASI_TERKINI}/delete`);
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -120,10 +142,12 @@ export default () => {
                                         </TableCell>
                                         <TableCell align="center">{row.date}</TableCell>                                    
                                         <TableCell align="left">
-                                          <IconButton>
-                                            <EditIcon />
-                                          </IconButton>
-                                          <IconButton>
+                                          <Link to={`/pages-admin/informasi-terkini/update/${row?.id}`}>   
+                                            <IconButton>
+                                              <EditIcon />
+                                            </IconButton>
+                                          </Link>
+                                          <IconButton onClick={() => handleOpenModalDelete(row)}>
                                             <DeleteIcon />
                                           </IconButton>
                                         </TableCell>
@@ -147,6 +171,24 @@ export default () => {
               </Paper>              
         }
       </Box>
+      <Dialog
+          open={isOpen}
+          onClose={handleClose}  
+        >
+          <DialogContent>
+              <Typography variant="h5">
+                Apakah Anda yakin ingin hapus ini ?
+              </Typography>
+          </DialogContent>
+          <DialogActions>
+          <Button onClick={handleClose}>
+            Batal
+          </Button>
+          <Button variant='outlined' color='secondary' sx={{backgroundColor: 'error.main', color: 'common.white', "&:hover": { color: 'error.main'}}} onClick={handleSubmitDelete} autoFocus>
+            {isLoading ? "Loading..." : "Hapus"}
+          </Button>
+        </DialogActions>
+      </Dialog> 
     </Box>
   );
 }

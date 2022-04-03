@@ -23,7 +23,7 @@ import AdminBaitulMaalUpdate from 'pages-admin/baitul-maal/update'
 
 import AdminInformasiTerkini from 'pages-admin/informasi-terkini/list'
 import AdminInformasiTerkiniCreate from 'pages-admin/informasi-terkini/create'
-// import AdminInformasiTerkiniUpdate from 'pages-admin/informasi-terkini/update'
+import AdminInformasiTerkiniUpdate from 'pages-admin/informasi-terkini/update'
 
 import AdminLayout from 'components/layout-admin/wrapper-admin-layout'
 
@@ -178,7 +178,7 @@ const App = () =>  {
 
                 <Route path="informasi-terkini" element={<AdminInformasiTerkini />} />
                 <Route path="informasi-terkini/create" element={<AdminInformasiTerkiniCreate />} />
-                {/* <Route path="informasi-terkini/update" element={<AdminInformasiTerkiniCreate />} /> */}
+                <Route path="informasi-terkini/update/:id" element={<AdminInformasiTerkiniUpdate />} />
 
 
                 <Route path="*" element={<NoMatch />}  />
