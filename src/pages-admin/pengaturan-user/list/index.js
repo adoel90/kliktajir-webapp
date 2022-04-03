@@ -125,7 +125,7 @@ const [mutateData, isLoading ] = useMutate(`${API_PENGATURAN_USER}/delete`);
                                         </TableCell>                                      
                                         <TableCell align="center">{row.username}</TableCell>                                        
                                         <TableCell align="left">
-                                          <Link to={`/pages-admin/users/update/${row?.id}`}>                                        
+                                          <Link to={`/pages-admin/pengaturan-user/update/${row?.id}`}>                                        
                                             <IconButton>
                                               <EditIcon />
                                             </IconButton>

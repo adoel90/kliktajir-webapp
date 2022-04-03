@@ -9,9 +9,9 @@ export default ({register, children, isEdit = false}) => {
                     label="Nama Lengkap"       
                     fullWidth    
                     {...register('full_name')}   
-                    InputLabelProps = {{
-                        shrink: isEdit
-                    }}                                          
+                    InputLabelProps = {
+                        isEdit ? {shrink: true} : {}
+                    }                                          
                 />
             </Box> 
             <Box sx={{mt:1}}>
@@ -19,9 +19,9 @@ export default ({register, children, isEdit = false}) => {
                     label="Username Login"       
                     fullWidth    
                     {...register('username')}   
-                    InputLabelProps = {{
-                        shrink: isEdit
-                    }}                                          
+                    InputLabelProps = {
+                        isEdit ? {shrink: true} : {}
+                    }                                             
                 />
             </Box> 
                                 
@@ -29,14 +29,31 @@ export default ({register, children, isEdit = false}) => {
             <Box sx={{mt:3}}>
                 <TextField 
                     type="password"
-                    label={`Password ${isEdit ? "Baru" : ""}`}
-                    fullWidth                                                         
+                    label="Password"
+                    fullWidth   
+                    disabled={isEdit ? true : false}                                                      
                     {...register('password')}
-                    InputLabelProps = {{
-                        shrink: isEdit
-                    }}  
+                    InputLabelProps = {
+                        isEdit ? {shrink: true} : {}
+                    }     
                 />
-            </Box>             
+            </Box>    
+            {
+                isEdit && (
+                    
+                    <Box sx={{mt:3}}>
+                        <TextField 
+                            type="password"
+                            label="Password Baru"
+                            fullWidth                                                                                   
+                            {...register('password_new')}
+                            InputLabelProps = {
+                                isEdit ? {shrink: true} : {}
+                            }     
+                        />
+                    </Box>    
+                )
+            }         
             {children}
         </>
     )

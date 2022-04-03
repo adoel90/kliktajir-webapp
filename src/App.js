@@ -27,7 +27,7 @@ import AdminInformasiTerkiniUpdate from 'pages-admin/informasi-terkini/update'
 
 import AdminPengaturanUser from 'pages-admin/pengaturan-user/list'
 import AdminPengaturanUserCreate from 'pages-admin/pengaturan-user/create'
-// import AdminPengaturanUserUpdate from 'pages-admin/pengaturan-user/update'
+import AdminPengaturanUserUpdate from 'pages-admin/pengaturan-user/update'
 
 
 import AdminLayout from 'components/layout-admin/wrapper-admin-layout'
@@ -184,7 +184,7 @@ const App = () =>  {
 
                 <Route path="pengaturan-user" element={<AdminPengaturanUser />} />
                 <Route path="pengaturan-user/create" element={<AdminPengaturanUserCreate />} />
-                {/* <Route path="pengaturan-user/update/:id" element={<AdminPengaturanUserUpdate />} /> */}
+                <Route path="pengaturan-user/update/:id" element={<AdminPengaturanUserUpdate />} />
 
 
 

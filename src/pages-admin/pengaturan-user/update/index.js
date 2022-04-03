@@ -1,44 +1,63 @@
-import * as React from 'react';
+import React, { useEffect, useMemo } from 'react';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Typography from '@mui/material/Typography';
-import { TextField, Grid, Button } from '@mui/material';
+import { Skeleton, Grid, Button } from '@mui/material';
 
 import SideNav from 'components/layout-admin/side-nav'
 import HeaderAdmin from 'components/layout-admin/header'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useSnackbar } from 'notistack'
 import { useForm } from "react-hook-form";
 import { useMutate } from 'hooks'
 import { API_PENGATURAN_USER } from 'constanta'
 import { useAuthentication } from 'context/authentication';
+import { useQueryData } from 'hooks';
 import Form from '../components/form'
 
-
-export default function AdminBaitulMaal() {
+export default () => {
 
   const { enqueueSnackbar } = useSnackbar()
   const navigate = useNavigate();
   const { token } = useAuthentication();  
 
+  const queryParam = useParams();  
 
-  const { register, handleSubmit, watch, formState: { errors } } = useForm();
-  const onSubmit = params => {
+  const { isLoading: isLoadingDetail, isFetching, error, data } = useQueryData(`${API_PENGATURAN_USER}/detail/${queryParam?.id}`); 
+
+  const { register, handleSubmit, watch, formState: { errors }, setValue, reset } = useForm({
+
+    defaultValues: {} 
+  });
 
 
+  useEffect(() => {
+    
+    if(data){      
+
+      reset(data)
+    };
+
+  },[data])
+
+  const onSubmit = params => {  
+    
     var formData = new FormData();
     formData.append("full_name", params?.full_name)    
     formData.append("username", params?.username)
-    formData.append("password", params?.password)
+    if(params?.password_new !== ''){
+      formData.append("password", params?.password_new)
+    } else {
+      formData.append("password", params?.password)
+    }
     formData.append("role", 1)
     mutateData(formData);
+    
 
+  };
 
-  }
-
-  const [mutateData, isLoading] = useMutate(`${API_PENGATURAN_USER}/add`);
+  const [mutateData, isLoading] = useMutate(`${API_PENGATURAN_USER}/update`);
   
-
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
@@ -49,12 +68,12 @@ export default function AdminBaitulMaal() {
         <Typography variant="h3" sx={{mt:-3}} className='text-center text-oswald'>
             Pengaturan User
         </Typography>
-
-
+       
         <Grid container sx={{mt:3}}>          
           <Grid item md={5}>   
+            {isLoadingDetail && <Skeleton variant="text" />}
             <form onSubmit={handleSubmit(onSubmit)}>                 
-              <Form register={register}>                          
+              <Form register={register} isEdit={true}>                          
                 <Box sx={{display: 'flex', justifyContent: 'end', mt: 3}}>
                   <Button variant="outlined" color="primary" onClick={() => navigate(-1)}>
                     Cancel
@@ -63,10 +82,9 @@ export default function AdminBaitulMaal() {
                   <Button
                     variant="contained"  
                     color="primary"  
-                    type="submit"
-                    // onClick={() => enqueueSnackbar("Whoops something went wrong !", { variant: 'error'})}
+                    type="submit"                    
                   >
-                    Simpan
+                    {isLoading ? "Loading..." : "Simpan"}
                   </Button>
                 </Box>  
               </Form>

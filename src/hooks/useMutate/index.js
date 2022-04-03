@@ -56,6 +56,7 @@ const useMutate = (endpointName = '', endpointNameRefetch = undefined) => {
             console.log('Force refetch...');
             history(-1);
             queryClient.refetchQueries(endpointNameRefetch);
+            
           } else if (history !== undefined) {
             history(-1);
           } else if (history == undefined) {
