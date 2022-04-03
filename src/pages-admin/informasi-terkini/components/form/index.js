@@ -9,7 +9,10 @@ export default ({register, children, isEdit = false}) => {
                 <TextField                            
                     label="Judul Informasi"       
                     fullWidth    
-                    {...register('title')}                                             
+                    {...register('title')}   
+                    InputLabelProps = {
+                        isEdit ? { shrink: true } : {}
+                    }                                            
                 />
             </Box>              
 

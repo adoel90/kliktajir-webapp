@@ -8,10 +8,11 @@ export default ({register, children, isEdit = false}) => {
                 <TextField                            
                     label="Judul"       
                     fullWidth    
-                    {...register('title')}   
-                    InputLabelProps = {{
-                        shrink: isEdit
-                    }}                                          
+                    {...register('title')}    
+                                       
+                    InputLabelProps = {
+                        isEdit ? { shrink: true } : {}
+                    }                                          
                 />
             </Box> 
             <Box sx={{mt:3}}>
@@ -37,9 +38,9 @@ export default ({register, children, isEdit = false}) => {
                     multiline
                     rows={4}                  
                     {...register('description')}
-                    InputLabelProps = {{
-                        shrink: isEdit
-                    }}  
+                    InputLabelProps = {
+                        isEdit ? { shrink: true } : {}
+                    }  
                 />
             </Box> 
             

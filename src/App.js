@@ -25,6 +25,11 @@ import AdminInformasiTerkini from 'pages-admin/informasi-terkini/list'
 import AdminInformasiTerkiniCreate from 'pages-admin/informasi-terkini/create'
 import AdminInformasiTerkiniUpdate from 'pages-admin/informasi-terkini/update'
 
+import AdminPengaturanUser from 'pages-admin/pengaturan-user/list'
+import AdminPengaturanUserCreate from 'pages-admin/pengaturan-user/create'
+// import AdminPengaturanUserUpdate from 'pages-admin/pengaturan-user/update'
+
+
 import AdminLayout from 'components/layout-admin/wrapper-admin-layout'
 
 import { 
@@ -44,9 +49,6 @@ import Footer from 'components/layout/footer/index'
 import { AuthProvider, useAuthentication } from 'context/authentication';
 import { QueryClient, QueryClientProvider } from 'react-query'
 
-// ADMIN PAGE
-import './App.css';
-
 const AdminApp = () => {
 
   const { token, user } = useAuthentication();  
@@ -61,7 +63,7 @@ const AuthenticatedPages = () => {
 
     <>
       <h1>
-          AuthenticatedPages
+          Authenticated Pages
       </h1>
       <Outlet />
     </>
@@ -179,6 +181,12 @@ const App = () =>  {
                 <Route path="informasi-terkini" element={<AdminInformasiTerkini />} />
                 <Route path="informasi-terkini/create" element={<AdminInformasiTerkiniCreate />} />
                 <Route path="informasi-terkini/update/:id" element={<AdminInformasiTerkiniUpdate />} />
+
+                <Route path="pengaturan-user" element={<AdminPengaturanUser />} />
+                <Route path="pengaturan-user/create" element={<AdminPengaturanUserCreate />} />
+                {/* <Route path="pengaturan-user/update/:id" element={<AdminPengaturanUserUpdate />} /> */}
+
+
 
 
                 <Route path="*" element={<NoMatch />}  />

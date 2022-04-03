@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom'
 import CustomLink from 'components/common/custom-link/index'
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
+import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 
 export default () => {
     
@@ -65,6 +66,20 @@ export default () => {
                                 primary={
                                 <p className='text-avenir-light text-bold'>                          
                                     Informasi Terkini
+                                </p>                        
+                                }
+                            />
+                            </ListItem>
+                        </CustomLink>
+                        <CustomLink to="/pages-admin/pengaturan-user" isWhite={false} >
+                            <ListItem button>
+                                <ListItemIcon>
+                                    <AdminPanelSettingsIcon />
+                                </ListItemIcon>
+                            <ListItemText 
+                                primary={
+                                <p className='text-avenir-light text-bold'>                          
+                                    Pengaturan User
                                 </p>                        
                                 }
                             />

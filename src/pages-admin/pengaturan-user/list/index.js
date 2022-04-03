@@ -3,7 +3,7 @@ import { useQueryData } from 'hooks'
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Typography from '@mui/material/Typography';
-import { IconButton, Button, Skeleton, Grid,  Dialog, DialogContent, DialogActions,} from '@mui/material';
+import { IconButton, Button, Dialog, DialogContent, DialogActions, Skeleton, Tooltip } from '@mui/material';
 import Paper from '@mui/material/Paper';
 import TableMaterial from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -16,32 +16,28 @@ import { Link } from 'react-router-dom'
 
 import SideNav from 'components/layout-admin/side-nav'
 import HeaderAdmin from 'components/layout-admin/header'
-import ImageIcon from '@mui/icons-material/Image';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { API_INFORMASI_TERKINI } from 'constanta'
+import { API_PENGATURAN_USER } from 'constanta'
 import { useMutate } from 'hooks'
 
+
+
 const columns = [
-  { id: 'name', label: 'Judul', minWidth: 170 },
-  { id: 'code', label: 'Gambar', minWidth: 100,align: 'center', },
-  {
-    id: 'population',
-    label: 'Tanggal',
-    minWidth: 170,
-    align: 'center',
-    format: (value) => value.toLocaleString('en-US'),
-  },
+  { id: 'full_name', label: 'Nama Lengkap', minWidth: 170 },
+  { id: 'username', label: 'Username Login', minWidth: 100,align: 'center', },
   {
     id: 'density',
     label: 'Action',
     minWidth: 170,
     align: 'left',
     format: (value) => value.toFixed(2),
-  },
+  }, 
 ];
 
-export default () => {
+
+
+export default function List() {
 
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
@@ -55,8 +51,8 @@ export default () => {
     setPage(0);
   };
  
-  const { isLoading: isLoaderList, isFetching, error, data, status} = useQueryData(`${API_INFORMASI_TERKINI}/list?limit=${rowsPerPage}&page=${page}`);  
-  
+  const { isLoading: isLoaderList, isFetching, error, data, status} = useQueryData(`${API_PENGATURAN_USER}/list?limit=${rowsPerPage}&page=${page}`);  
+
   //*
   const [isOpen, setOpen] = React.useState(false);
   const [ dataDeleted, setDataDeleted ] = useState('')
@@ -76,7 +72,7 @@ export default () => {
 
   }
 
-const [mutateData, isLoading ] = useMutate(`${API_INFORMASI_TERKINI}/delete`);
+const [mutateData, isLoading ] = useMutate(`${API_PENGATURAN_USER}/delete`);
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -86,28 +82,21 @@ const [mutateData, isLoading ] = useMutate(`${API_INFORMASI_TERKINI}/delete`);
 
       <Box component="main" sx={{ flexGrow: 1, p: 2 }}>
         <Typography variant="h3" sx={{mt:-3}} className='text-center text-oswald'>
-            Informasi Terkini
+            Pengaturan User
         </Typography>
         
         <Box sx={{display: 'flex', justifyContent: 'end', mt: 7}}>                
-            <Link to="/pages-admin/informasi-terkini/create" className='no-underline'>
+            <Link to="/pages-admin/pengaturan-user/create" className='no-underline'>
                 <Button variant="contained"  color="primary">                
-                    Create Data
+                    Create User As Admin
                 </Button>
             </Link>
         </Box>  
-
         {
-          isLoaderList ?           
-            <Grid container>
-                <Grid item xs={12} sm={12} md={8} lg={8} alignContent="center" sx={{mx: 'auto'}}>   
-                    <Skeleton variant="text" />
-                    <Skeleton sx={{ height: 190,  mt:3 }} animation="wave" variant="rectangular" /> 
-                </Grid>
-            </Grid> :                       
-            <Paper elevation={2} sx={{ width: '100%', overflow: 'hidden', mt:3 }}>          
-                <TableContainer sx={{ maxHeight: 700 }}>
+          isLoaderList ? <Skeleton sx={{ height: 290,  mt:3 }} animation="wave" variant="rectangular" /> : 
 
+            <Paper elevation={2} sx={{ width: '100%', overflow: 'hidden', mt:3 }}>              
+                <TableContainer sx={{ maxHeight: 700 }}>
                     <TableMaterial stickyHeader aria-label="sticky table">
                         <TableHead>
                             <TableRow>
@@ -117,7 +106,7 @@ const [mutateData, isLoading ] = useMutate(`${API_INFORMASI_TERKINI}/delete`);
                                     align={column.align}
                                     style={{ minWidth: column.minWidth }}
                                   >
-                                  {column.label}
+                                    {column.label}
                                   </TableCell>
                               ))}
                             </TableRow>
@@ -125,28 +114,18 @@ const [mutateData, isLoading ] = useMutate(`${API_INFORMASI_TERKINI}/delete`);
                         <TableBody>
                             {                        
                               data?.map((row, i) => {
+
                                   return (
-                                    <>
+                                    
                                       <TableRow key={i}>
                                         <TableCell component="th" scope="row">
                                           <p className='text-avenir-light'>
-                                            {row?.title}
-                                          </p>                                    
-                                        </TableCell>
-                                        <TableCell align="center">
-                                          <p className='text-avenir-light'>
-                                            {
-                                              row?.image !== null ?
-                                                <IconButton onClick={() => window?.open(`${process.env.REACT_APP_API_BASE_URL}/${row?.image}`)}>
-                                                  <ImageIcon />                                      
-                                                </IconButton> : 
-                                                "-"
-                                            }
-                                          </p>
-                                        </TableCell>
-                                        <TableCell align="center">{row.date}</TableCell>                                    
+                                            <b>{row?.full_name}</b>  <i className='text-small'>(as Admin)</i>
+                                          </p>                                                                                                                                                    
+                                        </TableCell>                                      
+                                        <TableCell align="center">{row.username}</TableCell>                                        
                                         <TableCell align="left">
-                                          <Link to={`/pages-admin/informasi-terkini/update/${row?.id}`}>   
+                                          <Link to={`/pages-admin/users/update/${row?.id}`}>                                        
                                             <IconButton>
                                               <EditIcon />
                                             </IconButton>
@@ -156,7 +135,7 @@ const [mutateData, isLoading ] = useMutate(`${API_INFORMASI_TERKINI}/delete`);
                                           </IconButton>
                                         </TableCell>
                                       </TableRow>                                                                                                  
-                                    </>
+                                    
                                   );
                               })
                             }
@@ -174,8 +153,10 @@ const [mutateData, isLoading ] = useMutate(`${API_INFORMASI_TERKINI}/delete`);
                 />
               </Paper>              
         }
+        
       </Box>
-      <Dialog
+
+        <Dialog
           open={isOpen}
           onClose={handleClose}  
         >
@@ -189,10 +170,10 @@ const [mutateData, isLoading ] = useMutate(`${API_INFORMASI_TERKINI}/delete`);
             Batal
           </Button>
           <Button variant='outlined' color='secondary' sx={{backgroundColor: 'error.main', color: 'common.white', "&:hover": { color: 'error.main'}}} onClick={handleSubmitDelete} autoFocus>
-            {isLoading ? "Loading..." : "Hapus"}
+            {isLoading ? "Loading..." : "Simpan"}
           </Button>
         </DialogActions>
-      </Dialog> 
+        </Dialog>      
     </Box>
   );
 }

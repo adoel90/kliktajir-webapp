@@ -112,9 +112,13 @@ export default function AdminBisnisAnggota() {
                                         </TableCell>
                                         <TableCell align="center">
                                           <p className='text-avenir-light'>
-                                            <IconButton onClick={() => window?.open(`${process.env.REACT_APP_API_BASE_URL}/${row?.image}`)}>
-                                              <ImageIcon />                                      
-                                            </IconButton>
+                                            {
+                                              row?.image && row?.image?.length > 0 ? 
+                                                <IconButton onClick={() => window?.open(`${process.env.REACT_APP_API_BASE_URL}/${row?.image}`)}>
+                                                  <ImageIcon />                                      
+                                                </IconButton> :
+                                                "-"
+                                            }
                                           </p>
                                         </TableCell>
                                         <TableCell align="left">{row.description}</TableCell>
