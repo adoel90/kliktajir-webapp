@@ -16,6 +16,7 @@ import StrukturOrganisasi from 'pages/struktur-organisasi/index'
 import PageAdminLogin from 'pages-admin/login'
 import AdminBisnisAnggota from 'pages-admin/bisnis-anggota'
 import AdminBisnisAnggotaCreate from 'pages-admin/bisnis-anggota/create'
+import AdminBisnisAnggotaUpdate from 'pages-admin/bisnis-anggota/update'
 
 import AdminBaitulMaal from 'pages-admin/baitul-maal/list'
 import AdminBaitulMaalCreate from 'pages-admin/baitul-maal/create'
@@ -176,7 +177,7 @@ const App = () =>  {
 
                 <Route path="bisnis-anggota" element={<AdminBisnisAnggota />} />
                 <Route path="bisnis-anggota/create" element={<AdminBisnisAnggotaCreate />} />
-                {/* <Route path="bisnis-anggota/update" element={<AdminBisnisAnggotaCreate />} /> */}
+                <Route path="bisnis-anggota/update/:id" element={<AdminBisnisAnggotaUpdate />} />
 
                 <Route path="informasi-terkini" element={<AdminInformasiTerkini />} />
                 <Route path="informasi-terkini/create" element={<AdminInformasiTerkiniCreate />} />

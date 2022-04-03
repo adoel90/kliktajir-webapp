@@ -10,7 +10,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { useSnackbar } from 'notistack'
 import { useForm } from "react-hook-form";
 import { useMutate } from 'hooks'
-import { API_BAITUL_MAAL } from 'constanta'
+import { API_BISNIS_ANGGOTA } from 'constanta'
 import { useAuthentication } from 'context/authentication';
 import { useQueryData } from 'hooks';
 import Form from '../components/form'
@@ -21,10 +21,9 @@ export default () => {
   const navigate = useNavigate();
   const { token } = useAuthentication();  
 
-
   const queryParam = useParams();  
 
-  const { isLoading: isLoadingDetail, isFetching, error, data } = useQueryData(`${API_BAITUL_MAAL}/detail/${queryParam?.id}`); 
+  const { isLoading: isLoadingDetail, isFetching, error, data } = useQueryData(`${API_BISNIS_ANGGOTA}/detail/${queryParam?.id}`); 
 
   const { register, handleSubmit, watch, formState: { errors }, setValue, reset } = useForm({
 
@@ -41,22 +40,19 @@ export default () => {
 
   },[data])
 
-  const onSubmit = params => {
-    
-
+  const onSubmit = params => {  
     
     var formData = new FormData();
-    formData.append('id', queryParam?.id)
-    formData.append("title", params?.title)
-    formData.append("image", params?.image[0])
-    formData.append("date", params?.date)
+    formData.append("member_name", params?.member_name)
+    formData.append("phone", params?.phone)
     formData.append("description", params?.description)
+    // formData.append("image", valueImages) 
+    formData.append("image", params?.image[0]) 
     mutateData(formData);
-    
 
   };
 
-  const [mutateData, isLoading] = useMutate(`${API_BAITUL_MAAL}/update`);
+  const [mutateData, isLoading] = useMutate(`${API_BISNIS_ANGGOTA}/update`);
   
   return (
     <Box sx={{ display: 'flex' }}>
@@ -66,7 +62,7 @@ export default () => {
 
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <Typography variant="h3" sx={{mt:-3}} className='text-center text-oswald'>
-            Baitul Maal
+        Bisnis Anggota            
         </Typography>
        
         <Grid container sx={{mt:3}}>          
@@ -82,8 +78,7 @@ export default () => {
                   <Button
                     variant="contained"  
                     color="primary"  
-                    type="submit"
-                    // onClick={() => enqueueSnackbar("Whoops something went wrong !", { variant: 'error'})}
+                    type="submit"                    
                   >
                     {isLoading ? "Loading..." : "Simpan"}
                   </Button>

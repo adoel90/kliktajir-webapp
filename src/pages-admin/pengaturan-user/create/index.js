@@ -54,7 +54,7 @@ export default function AdminBaitulMaal() {
         <Grid container sx={{mt:3}}>          
           <Grid item md={5}>   
             <form onSubmit={handleSubmit(onSubmit)}>                 
-              <Form register={register}>                          
+              <Form register={register} errors={errors}>                          
                 <Box sx={{display: 'flex', justifyContent: 'end', mt: 3}}>
                   <Button variant="outlined" color="primary" onClick={() => navigate(-1)}>
                     Cancel
@@ -63,10 +63,9 @@ export default function AdminBaitulMaal() {
                   <Button
                     variant="contained"  
                     color="primary"  
-                    type="submit"
-                    // onClick={() => enqueueSnackbar("Whoops something went wrong !", { variant: 'error'})}
+                    type="submit"                    
                   >
-                    Simpan
+                    {isLoading ? 'Loading...' : 'Simpan'}
                   </Button>
                 </Box>  
               </Form>

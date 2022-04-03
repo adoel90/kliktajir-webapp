@@ -72,7 +72,7 @@ export default () => {
           <Grid item md={5}>   
             {isLoadingDetail && <Skeleton variant="text" />}
             <form onSubmit={handleSubmit(onSubmit)}>                 
-              <Form register={register} isEdit={true}>                          
+              <Form register={register} isEdit={true} errors={errors}>                          
                 <Box sx={{display: 'flex', justifyContent: 'end', mt: 3}}>
                   <Button variant="outlined" color="primary" onClick={() => navigate(-1)}>
                     Cancel

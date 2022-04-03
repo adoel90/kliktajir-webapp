@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { Box, Button, Paper, TableContainer, Table, TableHead, TableRow, TableCell, IconButton, TablePagination, TableBody, Skeleton } from '@mui/material';
+import React, { useState } from 'react';
+import { Box, Button, Paper, TableContainer, Table, TableHead, TableRow, TableCell, IconButton, TablePagination, TableBody, Skeleton, Dialog, DialogContent, DialogActions } from '@mui/material';
 import CssBaseline from '@mui/material/CssBaseline';
 import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom'
@@ -12,6 +12,7 @@ import { API_BISNIS_ANGGOTA } from 'constanta';
 import ImageIcon from '@mui/icons-material/Image';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { useMutate } from 'hooks'
 
 const columns = [
   { id: 'name', label: 'Nama Anggota', minWidth: 170 },
@@ -57,6 +58,28 @@ export default function AdminBisnisAnggota() {
  
   const { isLoading: isLoaderList, isFetching, error, data, status} = useQueryData(`${API_BISNIS_ANGGOTA}/list?limit=${rowsPerPage}&page=${page}`);
 
+
+    //*
+    const [isOpen, setOpen] = React.useState(false);
+    const [ dataDeleted, setDataDeleted ] = useState('')
+    const handleOpenModalDelete = (params) => {
+      setOpen(true);
+      setDataDeleted(params)
+    };
+  
+    const handleClose = () => {
+      setOpen(false);
+    };
+  
+    const handleSubmitDelete = () => {
+  
+      console.log("dataDeleted : ", dataDeleted);
+      mutateData({id: dataDeleted?.id})
+  
+    }
+  
+  const [mutateData, isLoading ] = useMutate(`${API_BISNIS_ANGGOTA}/delete`);
+  
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
@@ -123,10 +146,12 @@ export default function AdminBisnisAnggota() {
                                         </TableCell>
                                         <TableCell align="left">{row.description}</TableCell>
                                         <TableCell align="left">
-                                          <IconButton>
-                                            <EditIcon />
-                                          </IconButton>
-                                          <IconButton>
+                                          <Link to={`/pages-admin/bisnis-anggota/update/${row?.id}`}>     
+                                            <IconButton>
+                                              <EditIcon />
+                                            </IconButton>
+                                          </Link>
+                                          <IconButton onClick={() => handleOpenModalDelete(row)}>
                                             <DeleteIcon />
                                           </IconButton>
                                         </TableCell>
@@ -149,10 +174,26 @@ export default function AdminBisnisAnggota() {
                 />
                 </Paper> 
         }
-
-
-
       </Box>
+
+      <Dialog
+          open={isOpen}
+          onClose={handleClose}  
+        >
+          <DialogContent>
+              <Typography variant="h5">
+                Apakah Anda yakin ingin hapus ini ?
+              </Typography>
+          </DialogContent>
+          <DialogActions>
+          <Button onClick={handleClose}>
+            Batal
+          </Button>
+          <Button variant='outlined' color='secondary' sx={{backgroundColor: 'error.main', color: 'common.white', "&:hover": { color: 'error.main'}}} onClick={handleSubmitDelete} autoFocus>
+            {isLoading ? "Loading..." : "Simpan"}
+          </Button>
+        </DialogActions>
+        </Dialog> 
     </Box>
   );
 }
