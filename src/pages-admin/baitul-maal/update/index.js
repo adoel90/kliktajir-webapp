@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Typography from '@mui/material/Typography';
@@ -31,12 +31,14 @@ export default () => {
     defaultValues: {} 
   });
 
+  const [imageUrl, setImageUrl] = useState('')
 
   useEffect(() => {
     
     if(data){      
 
-      reset(data)
+      reset(data);
+      setImageUrl(data?.image);
     };
 
   },[data])
@@ -73,7 +75,7 @@ export default () => {
           <Grid item md={5}>   
             {isLoadingDetail && <Skeleton variant="text" />}
             <form onSubmit={handleSubmit(onSubmit)}>                 
-              <Form register={register} isEdit={true} errors={errors}>                          
+              <Form register={register} isEdit={true} errors={errors} imageUrl={imageUrl}>                          
                 <Box sx={{display: 'flex', justifyContent: 'end', mt: 3}}>
                   <Button variant="outlined" color="primary" onClick={() => navigate(-1)}>
                     Cancel
