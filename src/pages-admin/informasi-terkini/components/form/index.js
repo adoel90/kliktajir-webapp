@@ -1,7 +1,8 @@
-import { TextField, Box } from '@mui/material';
+import { TextField, Box, Stack, Tooltip, IconButton } from '@mui/material';
+import ImageIcon from '@mui/icons-material/Image';
 
 
-export default ({register, children, isEdit = false, errors}) => {
+export default ({register, children, isEdit = false, errors, imageUrl =''}) => {
 
     return (
         <>
@@ -29,13 +30,20 @@ export default ({register, children, isEdit = false, errors}) => {
             </Box> 
 
             <Box sx={{mt:3}}>
-                <TextField label="Upload Gambar" type="file" fullWidth {...register('image',{ required: true})}      
-                    InputLabelProps={{
-                        shrink: true,
-                    }}
-                    helperText={errors?.image?.type === "required" && "Wajib di isi !"} 
-                    error={errors?.image?.type === "required" ? true : false}  
-                />
+                <Stack direction="row">
+                    <TextField label="Upload Gambar" type="file" fullWidth {...register('image',{ required: isEdit ? false : true})}      
+                        InputLabelProps={{
+                            shrink: true,
+                        }}
+                        helperText={errors?.image?.type === "required" && "Wajib di isi !"} 
+                        error={errors?.image?.type === "required" ? true : false}  
+                    />
+                     <Tooltip title="Lihat Gambar existing saat ini, klik Icon ini !" placement='right-start' >
+                        <IconButton onClick={() => window?.open(`${process.env.REACT_APP_API_BASE_URL}/${imageUrl}`)}>
+                            <ImageIcon />                                      
+                        </IconButton>
+                    </Tooltip>
+                </Stack>
             </Box> 
             {children}
         </>
