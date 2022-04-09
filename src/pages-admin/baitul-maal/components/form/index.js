@@ -9,7 +9,7 @@ export default ({register, children, errors, isEdit = false, imageUrl =''}) => {
         <>
             <Box sx={{mt:1}}>
                 <TextField                            
-                    label="Judul*"       
+                    label="Judul *"       
                     fullWidth    
                     {...register('title', {
                         required: true
@@ -24,7 +24,7 @@ export default ({register, children, errors, isEdit = false, imageUrl =''}) => {
             </Box> 
             <Box sx={{mt:3}}>
                 <Stack direction="row">
-                    <TextField label="Upload Gambar*" type="file" fullWidth {...register('image', {required: isEdit ? false : true})}      
+                    <TextField label="Upload Gambar *" type="file" fullWidth {...register('image', {required: isEdit ? false : true})}      
                         InputLabelProps={{
                             shrink: true,
                         }}
@@ -40,7 +40,7 @@ export default ({register, children, errors, isEdit = false, imageUrl =''}) => {
             </Box> 
 
             <Box sx={{mt:3}}>
-                <TextField label="Tanggal*" type="date"  fullWidth {...register('date', {required: true})} 
+                <TextField label="Tanggal *" type="date"  fullWidth {...register('date', {required: true})} 
                     InputLabelProps={{
                         shrink: true,
                     }}
@@ -51,7 +51,7 @@ export default ({register, children, errors, isEdit = false, imageUrl =''}) => {
 
             <Box sx={{mt:3}}>
                 <TextField 
-                    label="Deskripsi*" 
+                    label="Deskripsi *" 
                     fullWidth                 
                     multiline
                     rows={4}                  

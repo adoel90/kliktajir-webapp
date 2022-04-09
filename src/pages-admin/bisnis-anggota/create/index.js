@@ -24,42 +24,23 @@ export default () => {
 
   const { register, handleSubmit, control, formState: { errors } } = useForm({
     defaultValues: {
-      // image: [{image: ''}]
+      image: [{image: ''}]
     }
   });
 
-  // const { fields, append, remove } = useFieldArray({
-  //   control, // control props comes from useForm (optional: if you are using FormContext)
-  //   name: "image", // unique name for your Field Array,
-  // });
+  const { fields, append, remove } = useFieldArray({
+    control, 
+    name: "image", 
+  });
 
   const onSubmit = params => {
-    
-
-    console.log("PARAMS : ", params);
-    // mutateData(params);
-    
-    // const valueImages = params?.image?.map((item, i) => (item?.image[0]))
-    // console.log("valueImages : ", valueImages)
 
     var formData = new FormData();
     formData.append("member_name", params?.member_name)
     formData.append("phone", params?.phone)
     formData.append("description", params?.description)
-    // formData.append("image", valueImages) 
-    formData.append("image", params?.image[0]) 
+    params?.image?.map((item, i) => (formData.append(`image${i !== 0 ? i : ''}`, item?.image[0])))
     mutateData(formData);
-
-    // let test = {
-    //   member_name :  params?.member_name,
-    //   phone: params?.phone,
-    //   description: params?.description,
-    //   image :  valueImages
-    // }
-
-    // console.log("Test with multiple image : ", test)
-
-
   }
 
   const [mutateData, isLoading] = useMutate(`${API_BISNIS_ANGGOTA}/add`);  
@@ -80,7 +61,7 @@ export default () => {
           <Grid item md={5}>   
             <form onSubmit={handleSubmit(onSubmit)}>                 
                
-              <Form register={register} errors={errors}>  
+              <Form register={register} errors={errors} fields={fields} append={append} remove={remove}>  
                 <Box sx={{display: 'flex', justifyContent: 'end', mt: 3}}>
                   <Button variant="outlined" color="primary" onClick={() => navigate(-1)}>
                     Cancel

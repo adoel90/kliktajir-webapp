@@ -45,7 +45,7 @@ export default function AdminBisnisAnggota() {
 
   
   const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [rowsPerPage, setRowsPerPage] = React.useState(100);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -135,12 +135,16 @@ export default function AdminBisnisAnggota() {
                                         </TableCell>
                                         <TableCell align="center">
                                           <p className='text-avenir-light'>
+                                            {console.log("ROW : ", row)}
                                             {
                                               row?.image && row?.image?.length > 0 ? 
-                                                <IconButton onClick={() => window?.open(`${process.env.REACT_APP_API_BASE_URL}/${row?.image}`)}>
-                                                  <ImageIcon />                                      
-                                                </IconButton> :
-                                                "-"
+
+                                                row?.image?.map((item, index) => (
+
+                                                  <IconButton key={index} onClick={() => window?.open(`${process.env.REACT_APP_API_BASE_URL}/${item?.image}`)}>
+                                                    <ImageIcon />                                      
+                                                  </IconButton> 
+                                                )) : "-"
                                             }
                                           </p>
                                         </TableCell>

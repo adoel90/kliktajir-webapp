@@ -1,6 +1,8 @@
-import { TextField, Box } from '@mui/material';
+import { TextField, Grid, Button, Stack, Fab, IconButton, Box } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
+import AddIcon from '@mui/icons-material/Add';
 
-export default ({register, children, isEdit = false, errors={errors}}) => {
+export default ({register, children, isEdit = false, errors, fields, append, remove}) => {
 
     return (
         <>
@@ -26,7 +28,7 @@ export default ({register, children, isEdit = false, errors={errors}}) => {
                 />
               </Box> 
 
-              <Box sx={{mt:3}}>
+              {/* <Box sx={{mt:3}}>
                   <TextField label="Upload Gambar*" type="file" fullWidth {...register('image',{ required: true})}      
                       InputLabelProps={{
                           shrink: true,
@@ -34,8 +36,8 @@ export default ({register, children, isEdit = false, errors={errors}}) => {
                       helperText={errors?.image?.type === "required" && "Wajib di isi !"} 
                       error={errors?.image?.type === "required" ? true : false}  
                   />
-              </Box> 
-              {/* {
+              </Box>  */}
+              {
                 fields?.map((item, index) => (
                   
                   <Box sx={{mt:3}} key={index}>
@@ -66,7 +68,7 @@ export default ({register, children, isEdit = false, errors={errors}}) => {
                   </Box> 
                 ))
               }
-               */}
+              
 
               <Box sx={{mt:3}}>
                 <TextField 

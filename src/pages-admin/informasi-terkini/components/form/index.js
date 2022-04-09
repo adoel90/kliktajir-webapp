@@ -8,7 +8,7 @@ export default ({register, children, isEdit = false, errors, imageUrl =''}) => {
         <>
             <Box sx={{mt:1}}>
                 <TextField                            
-                    label="Judul Informasi"       
+                    label="Judul Informasi *"       
                     fullWidth    
                     {...register('title',{ required: true})}   
                     InputLabelProps = {
@@ -20,7 +20,7 @@ export default ({register, children, isEdit = false, errors, imageUrl =''}) => {
             </Box>              
 
             <Box sx={{mt:3}}>                                
-                <TextField label="Tanggal" type="date"  fullWidth {...register('date',{ required: true})} 
+                <TextField label="Tanggal *" type="date"  fullWidth {...register('date',{ required: true})} 
                     InputLabelProps={{
                         shrink: true,
                     }}
@@ -31,7 +31,7 @@ export default ({register, children, isEdit = false, errors, imageUrl =''}) => {
 
             <Box sx={{mt:3}}>
                 <Stack direction="row">
-                    <TextField label="Upload Gambar" type="file" fullWidth {...register('image',{ required: isEdit ? false : true})}      
+                    <TextField label="Upload Gambar *" type="file" fullWidth {...register('image',{ required: isEdit ? false : true})}      
                         InputLabelProps={{
                             shrink: true,
                         }}
