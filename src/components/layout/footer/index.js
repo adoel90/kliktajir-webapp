@@ -22,7 +22,7 @@ const Footer = () => {
                             }
                         }}
                     >
-                        <Link to="pages-admin" className='no-underline'>
+                        <Link to="/pages-admin" className='no-underline'>
                             <img src={ImageLogoTajir} height="47" width="114" className='' />
                         </Link>
                     </Grid>

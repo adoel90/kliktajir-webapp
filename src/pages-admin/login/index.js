@@ -54,6 +54,9 @@ const Login = () => {
               if (err?.response?.data?.username) {
                 enqueueSnackbar(err?.response?.data?.username[0], { variant: 'error'})                
               };
+              if (err?.response?.data?.code === 401) {
+                enqueueSnackbar(err?.response?.data?.message, { variant: 'error'})                
+              };
 
             }
           } else {            
@@ -101,8 +104,8 @@ const Login = () => {
                                 />
                             </Box>    
 
-                            <Button onClick={handleSubmit} className='text-avenir-light text-500' variant="contained" color="primary" size="large" fullWidth sx={{mt:3}}>
-                                Login
+                            <Button disabled={isLoading ? true : false} onClick={handleSubmit} className='text-avenir-light text-500' variant="contained" color="primary" size="large" fullWidth sx={{mt:3}}>
+                                {isLoading ? 'Loading...' : 'Login'}
                             </Button>
                         </form>
                     </Paper>

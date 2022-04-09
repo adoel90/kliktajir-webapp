@@ -122,8 +122,10 @@ const Header = (props) => {
 
                         <Container sx={{display: { xs: "none", sm: "none", md: "block", lg: 'block' }}}>
                             <header>                
-                                <nav className='flex flex-row'  >                                     
-                                    <img src={ImageLogoTajir} height="31" width="75" className='mt-1-half' />
+                                <nav className='flex flex-row'  >   
+                                    <CustomLink to="/">                                   
+                                        <img src={ImageLogoTajir} height="31" width="75" className='mt-1-half' />
+                                    </CustomLink>
                                     <CustomLink to="/">                                              
                                         <p className='ml-3 mr-1 text-avenir-light' > Home</p>                                               
                                     </CustomLink>

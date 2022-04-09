@@ -58,9 +58,10 @@ export default () => {
                   </Button>
                   &nbsp;
                   <Button
-                  variant="contained"  
-                  color="primary"  
-                  type="submit"
+                    variant="contained"  
+                    color="primary"  
+                    type="submit"
+                    disabled={isLoading ? true : false}
                   >
 
                     {isLoading ? 'Loading...' : 'Simpan'}

@@ -27,7 +27,12 @@ import ImageManfaatMenjadiAnggota4 from 'assets/images/home/manfaat-menjadi-angg
 import ImageManfaatMenjadiAnggota5 from 'assets/images/home/manfaat-menjadi-anggota/5.png'
 import ImageManfaatMenjadiAnggota6 from 'assets/images/home/manfaat-menjadi-anggota/6.png'
 
+import { useQueryData } from 'hooks'
+import { API_INFORMASI_TERKINI } from 'constanta'
+
 const Home = () => {
+
+    const { data, isLoading } = useQueryData(`${API_INFORMASI_TERKINI}/list?limit=4&page=1`)  
 
     return (
         <>
@@ -215,9 +220,41 @@ const Home = () => {
                                     <img className=' mt-2' style={{marginBottom: "-0.3rem", marginLeft: "1rem"}} src={ImageSecondaryArrowRight} alt="ImageSecondaryArrowRight" width={27} height="auto" />                            
                                 </Link>
                             </Box>
-                        </Box>                  
+                        </Box>               
+                        <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
 
-                        <Card sx={{ 
+                            {
+                                data?.map((item, i) => (
+                                    <Card 
+                                        key={i}
+                                        sx={{ 
+
+                                            width: {
+                                                xs: '100%',
+                                                md: '25%' 
+                                            }                                                                                
+                                        }}
+                                    >
+                                        <CardMedia
+                                            component="img"
+                                            height="auto"
+                                            image={`${ process.env.REACT_APP_API_BASE_URL}/${item?.image}`}
+                                            alt={item?.title}
+                                        />
+                                        <CardContent>
+                                            <Typography gutterBottom variant="p" component="div" className="text-white-dark"  >
+                                                {item?.date}
+                                            </Typography>
+                                            <Typography variant="h5" className='text-black' sx={{fontWeight: 'bold', pb: 5}} >
+                                                {item?.title}
+                                            </Typography>
+                                        </CardContent>                           
+                                    </Card>
+                                ))
+                            }   
+                        </Box>
+
+                        {/* <Card sx={{ 
 
                             width: {
                                 xs: '100%',
@@ -239,12 +276,8 @@ const Home = () => {
                                 <Typography variant="h5" className='text-black' sx={{fontWeight: 'bold', pb: 5}} >
                                     Di Padang
                                 </Typography>
-                            </CardContent>
-                            {/* <CardActions>
-                                <Button size="small">Share</Button>
-                                <Button size="small">Learn More</Button>
-                            </CardActions> */}
-                            </Card>
+                            </CardContent>                           
+                        </Card> */}
                     </section>
                 </Grid>
             </Container>

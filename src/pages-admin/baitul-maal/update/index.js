@@ -85,7 +85,7 @@ export default () => {
                     variant="contained"  
                     color="primary"  
                     type="submit"
-                    // onClick={() => enqueueSnackbar("Whoops something went wrong !", { variant: 'error'})}
+                    disabled={isLoading ? true : false}
                   >
                     {isLoading ? "Loading..." : "Simpan"}
                   </Button>

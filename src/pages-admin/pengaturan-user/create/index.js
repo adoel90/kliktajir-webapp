@@ -63,7 +63,8 @@ export default function AdminBaitulMaal() {
                   <Button
                     variant="contained"  
                     color="primary"  
-                    type="submit"                    
+                    type="submit"  
+                    disabled={isLoading ? true : false}                  
                   >
                     {isLoading ? 'Loading...' : 'Simpan'}
                   </Button>
