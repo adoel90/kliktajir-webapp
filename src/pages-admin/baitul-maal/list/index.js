@@ -20,7 +20,7 @@ import ImageIcon from '@mui/icons-material/Image';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { API_BAITUL_MAAL } from 'constanta'
-import { useMutate } from 'hooks'
+import { useMutateDelete } from 'hooks'
 
 
 
@@ -83,11 +83,11 @@ export default function List() {
   const handleSubmitDelete = () => {
 
     console.log("dataDeleted : ", dataDeleted);
-    mutateData({id: dataDeleted?.id})
-
+    deleteData({id: dataDeleted?.id})
+    
   }
 
-const [mutateData, isLoading ] = useMutate(`${API_BAITUL_MAAL}/delete`);
+const [deleteData, isLoading ] = useMutateDelete(`${API_BAITUL_MAAL}/delete`);
 
   return (
     <Box sx={{ display: 'flex' }}>

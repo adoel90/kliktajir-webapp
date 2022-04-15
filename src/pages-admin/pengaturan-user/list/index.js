@@ -19,7 +19,7 @@ import HeaderAdmin from 'components/layout-admin/header'
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { API_PENGATURAN_USER } from 'constanta'
-import { useMutate } from 'hooks'
+import { useMutateDelete } from 'hooks'
 
 
 
@@ -68,11 +68,11 @@ export default function List() {
   const handleSubmitDelete = () => {
 
     console.log("dataDeleted : ", dataDeleted);
-    mutateData({id: dataDeleted?.id})
+    deleteData({id: dataDeleted?.id})
 
   }
 
-const [mutateData, isLoading ] = useMutate(`${API_PENGATURAN_USER}/delete`);
+const [deleteData, isLoading ] = useMutateDelete(`${API_PENGATURAN_USER}/delete`);
 
   return (
     <Box sx={{ display: 'flex' }}>

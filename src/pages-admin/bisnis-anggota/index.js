@@ -12,7 +12,7 @@ import { API_BISNIS_ANGGOTA } from 'constanta';
 import ImageIcon from '@mui/icons-material/Image';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { useMutate } from 'hooks'
+import { useMutateDelete } from 'hooks'
 
 const columns = [
   { id: 'name', label: 'Nama Anggota', minWidth: 170 },
@@ -74,11 +74,11 @@ export default function AdminBisnisAnggota() {
     const handleSubmitDelete = () => {
   
       console.log("dataDeleted : ", dataDeleted);
-      mutateData({id: dataDeleted?.id})
+      deleteData({id: dataDeleted?.id})
   
     }
   
-  const [mutateData, isLoading ] = useMutate(`${API_BISNIS_ANGGOTA}/delete`);
+  const [deleteData, isLoading ] = useMutateDelete(`${API_BISNIS_ANGGOTA}/delete`);
   
   return (
     <Box sx={{ display: 'flex' }}>
