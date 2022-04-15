@@ -1,6 +1,8 @@
-import { TextField, Grid, Button, Stack, Fab, IconButton, Box } from '@mui/material';
+import { TextField, Grid, Tooltip, Stack, Fab, IconButton, Box, ImageList, ImageListItem, Card, CardMedia, Typography } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
+import ImageIcon from '@mui/icons-material/Image';
+
 
 export default ({register, children, isEdit = false, errors, fields, append, remove}) => {
 
@@ -27,16 +29,37 @@ export default ({register, children, isEdit = false, errors, fields, append, rem
                     error={errors?.phone?.type === "required" ? true : false}  
                 />
               </Box> 
+              
+              {/* {
+                isEdit && (
 
-              {/* <Box sx={{mt:3}}>
-                  <TextField label="Upload Gambar*" type="file" fullWidth {...register('image',{ required: true})}      
-                      InputLabelProps={{
-                          shrink: true,
-                      }}
-                      helperText={errors?.image?.type === "required" && "Wajib di isi !"} 
-                      error={errors?.image?.type === "required" ? true : false}  
-                  />
-              </Box>  */}
+                  fields?.map((item, index) => (
+
+                    <Box mt={3}>
+                      {
+                        item?.image !== '' &&  item?.image?.length !== 0 ? 
+                          <Card sx={{ maxWidth: '100%' }}>
+                            <CardMedia
+                              component="img"
+                              height="140"
+                              image={process.env.REACT_APP_API_BASE_URL + item.image}
+                              alt={item?.image}
+                            />
+                          </Card>  : item?.image?.length > 0 ?
+                          <Card sx={{ maxWidth: 345 }}>
+                            <CardMedia
+                              component="img"
+                              height="140"
+                              image={process.env.REACT_APP_API_BASE_URL + item.image}
+                              alt={item?.image}
+                            />
+                          </Card> : ''
+                      }
+                    </Box>
+                  ))
+                )
+              } */}
+          
               {
                 fields?.map((item, index) => (
                   
@@ -64,6 +87,43 @@ export default ({register, children, isEdit = false, errors, fields, append, rem
                       >
                         {index !== 0 ? <DeleteIcon /> : <AddIcon />}
                       </IconButton>
+                      
+                      {isEdit && (
+                        <>
+                          {
+                            item?.image !== '' &&  item?.image?.length !== 0? 
+                              <Tooltip 
+                                // title="Lihat Gambar existing saat ini, klik Icon ini ! (*Akan otomatis terhapus apabila tidak di upload ulang !)" 
+                                title={
+                                  <Typography variant='caption' className='text-avenir-light'>
+                                    Lihat Gambar existing saat ini, klik Icon ini ! <i className='text-sm'>(*Akan otomatis terhapus apabila tidak di upload ulang.)</i>
+                                  </Typography>
+                                }
+                                placement='right-start' 
+                              >
+                                  <IconButton  onClick={() => window?.open(`${process.env.REACT_APP_API_BASE_URL}/${item?.image}`)}>                           
+                                      <ImageIcon />                                      
+                                  </IconButton>
+                              </Tooltip> 
+                              
+                                                            
+                              : item?.image?.length > 0 ?
+                                <Tooltip 
+                                  title={
+                                    <Typography variant='caption' className='text-avenir-light'>
+                                    Lihat Gambar existing saat ini, klik Icon ini ! <i className='text-sm'>(*Akan otomatis terhapus apabila tidak di upload ulang.)</i>
+                                  </Typography>
+                                  }
+                                  placement='right-start' 
+                                >
+                                    <IconButton  onClick={() => window?.open(`${process.env.REACT_APP_API_BASE_URL}/${item?.image}`)}>                           
+                                        <ImageIcon />                                      
+                                    </IconButton>
+                                </Tooltip> 
+                              : ''
+                           }
+                        </>
+                        )}
                     </Stack>
                   </Box> 
                 ))

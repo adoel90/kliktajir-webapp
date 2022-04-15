@@ -38,11 +38,14 @@ export default ({register, children, isEdit = false, errors, imageUrl =''}) => {
                         helperText={errors?.image?.type === "required" && "Wajib di isi !"} 
                         error={errors?.image?.type === "required" ? true : false}  
                     />
-                     <Tooltip title="Lihat Gambar existing saat ini, klik Icon ini !" placement='right-start' >
-                        <IconButton onClick={() => window?.open(`${process.env.REACT_APP_API_BASE_URL}/${imageUrl}`)}>
-                            <ImageIcon />                                      
-                        </IconButton>
-                    </Tooltip>
+                    {isEdit && (
+
+                        <Tooltip title="Lihat Gambar existing saat ini, klik Icon ini !" placement='right-start' >
+                            <IconButton onClick={() => window?.open(`${process.env.REACT_APP_API_BASE_URL}/${imageUrl}`)}>
+                                <ImageIcon />                                      
+                            </IconButton>
+                        </Tooltip>
+                    )}
                 </Stack>
             </Box> 
             {children}

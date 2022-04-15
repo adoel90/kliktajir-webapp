@@ -134,13 +134,12 @@ export default function AdminBisnisAnggota() {
                                           </p>                                    
                                         </TableCell>
                                         <TableCell align="center">
-                                          <p className='text-avenir-light'>
-                                            {console.log("ROW : ", row)}
+                                          <p className='text-avenir-light'>                                            
                                             {
-                                              row?.image && row?.image?.length > 0 ? 
+                                              row?.image && row?.image?.length > 0  ? 
 
                                                 row?.image?.map((item, index) => (
-
+                                                  
                                                   <IconButton key={index} onClick={() => window?.open(`${process.env.REACT_APP_API_BASE_URL}/${item?.image}`)}>
                                                     <ImageIcon />                                      
                                                   </IconButton> 

@@ -49,7 +49,7 @@ export default ({register, children, isEdit = false, errors}) => {
                     <Box sx={{mt:3}}>
                         <TextField 
                             type="password"
-                            label="Password Baru*"
+                            label="Password Baru"
                             fullWidth                                                                                   
                             {...register('password_new', { required: true})}
                             InputLabelProps = {
