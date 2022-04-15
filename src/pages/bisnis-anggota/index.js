@@ -1,6 +1,7 @@
 import React from 'react'
 import { Box, Grid, Container, Card, Skeleton, Typography, CardMedia, CardHeader, Paper} from '@mui/material'
 import TextBigPicture from 'components/section/text-big-picture/index.js'
+import DaftarJadiAnggota from 'components/section/daftar-jadi-anggota/index.js'
 import { useQueryData } from 'hooks'
 import { API_BISNIS_ANGGOTA } from 'constanta'
 
@@ -50,15 +51,27 @@ const BisnisAnggota = () => {
                                             </Box>
 
                                             <Typography variant='h5' className='text-avenir-light text-center' sx={{mt:3}} >
-                                                fdsadsfdasfasdf
+                                                {item?.description}
                                             </Typography>
 
                                         </Paper>
+
                                     ))
                                 }
                                 
+                                
                             </Grid>
                         </Grid>
+
+
+                        <h1 className='text-oswald text-primary-main tracking-tight text-center'>
+                            Anggota yang ingin mendaftarkan produk  &nbsp;          
+                            <a className='text-primary-main' href="https://forms.gle/1w4G7yXsWKZjDjSg7"  target="_blank">
+                                klik di sini 
+                            </a>                            
+                            
+                        </h1>
+                        <DaftarJadiAnggota />
                     </Container> 
             }
             
