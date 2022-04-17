@@ -50,7 +50,7 @@ const Home = () => {
                                 Mitra Bisnis Syariah Anda
                             </h1>
 
-                            <h3 className='text-white-dark text-avenir-light text-20px text-500'>
+                            <h3 className='text-white text-avenir-light text-20px text-500'>
                                 Badan Syirkah Muamalah TAJIR.  Powered By Koperasi <br />masyarakat Muamalah Syariah
                             </h3>
 
@@ -289,7 +289,7 @@ const Home = () => {
                             <h1 className='text-40px text-oswald tracking-tight text-white'>
                                 Apa itu Badan Syirkah Muamalah ?
                             </h1>  
-                            <h3 className='text-white-dark text-500'>
+                            <h3 className='text-white text-500'>
                                 Badan Syirkah Muamalah adalah tempat berkumpulnya ummat untuk melakukan Syirkah (kerjasama). Wadah ini menyepakati transaksi bisnis dengan tujuan mencari keuntungan yang sesuai syariah islam, yang terhindar dari antara lain Maysir (untung-untungan), Gharar (Ketidakjelasan), Riba dan Haram.
                             </h3>
                         </Grid>
