@@ -63,35 +63,44 @@ const Home = () => {
                             <div style={{display: 'flex'}}>
                                 <Box sx={{mr: 5}}>
                                     <h4 className='text-white text-avenir-light'>
-                                        1500+ 
+                                        100+ 
                                     </h4>
-                                    <p className='text-white text-avenir-light text-small mt-n1'>
-                                        Anggota
-                                    </p>              
+                                    <Link className='no-underline' to="/bisnis-anggota">
+                                        <p className='text-white text-avenir-light text-small mt-n1'>
+                                            Anggota
+                                        </p>              
+                                    </Link>
                                 </Box>
                                 <Box sx={{mr: 5}}>
                                     <h4 className='text-white text-avenir-light'>                                    
-                                        800+ 
+                                        500+ 
                                     </h4>
-                                    <p className='text-white text-avenir-light text-small mt-n1'>
-                                        Penerima <br /> Manfaat
-                                    </p>              
+                                    
+                                    <Link className='no-underline' to="/baitul-maal">
+                                        <p className='text-white text-avenir-light text-small mt-n1'>
+                                            Penerima <br /> Manfaat
+                                        </p>          
+                                    </Link>    
                                 </Box>
                                 <Box sx={{mr: 5}}>
                                     <h4 className='text-white text-avenir-light'>                                                                    
                                         40+ 
                                     </h4>
-                                    <p className='text-white text-avenir-light text-small mt-n1'>                                    
-                                        Produk
-                                    </p>              
+                                    <Link className='no-underline' to="/produk-kami">                                    
+                                        <p className='text-white text-avenir-light text-small mt-n1'>                                    
+                                            Produk
+                                        </p>              
+                                    </Link>
                                 </Box>
                                 <Box sx={{mr: 5}}>
                                     <h4 className='text-white text-avenir-light'>                                                                                                        
                                         10
                                     </h4>
-                                    <p className='text-white text-avenir-light text-small mt-n1'>
-                                        Program
-                                    </p>              
+                                    <Link className='no-underline' to="/informasi-terkini">
+                                        <p className='text-white text-avenir-light text-small mt-n1'>
+                                            Program
+                                        </p>              
+                                    </Link>
                                 </Box>
                             </div>                                                         
                         </Grid>

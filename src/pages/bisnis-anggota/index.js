@@ -1,10 +1,10 @@
 import React from 'react'
-import { Box, Grid, Container, Card, Skeleton, Typography, CardMedia, CardHeader, Paper} from '@mui/material'
+import { Box, Grid, Container, Card, Skeleton, Typography, CardMedia, IconButton, Paper} from '@mui/material'
 import TextBigPicture from 'components/section/text-big-picture/index.js'
 import DaftarJadiAnggota from 'components/section/daftar-jadi-anggota/index.js'
 import { useQueryData } from 'hooks'
 import { API_BISNIS_ANGGOTA } from 'constanta'
-
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
 const BisnisAnggota = () => {
 
@@ -32,7 +32,17 @@ const BisnisAnggota = () => {
 
                                         <Paper elevation={2} key={index} sx={{p:3, m:3}}>   
                                             <Typography variant='h4' className='text-oswald' sx={{mb:3}} >
-                                                {item?.member_name} - {item?.phone}
+                                                {item?.member_name} - &nbsp;
+                                                
+                                                <a className='text-primary-main' href={`https://wa.me/62${item.phone}?text=Assalamu%C3%A1laikum%20%3A)%0A%0ASaya%20mau%20pesan....`} target="_blank">                                                
+                                                    {item?.phone}
+                                                    <IconButton
+                                                        size="large"                                           
+                                                        color="inherit"
+                                                    >
+                                                        <WhatsAppIcon />
+                                                    </IconButton>
+                                                </a>
                                             </Typography>
                                             <Box sx={{display:'flex', flexDirection: 'row', justifyContent:'space-evenly', flexWrap: 'wrap'}}>
                                                 

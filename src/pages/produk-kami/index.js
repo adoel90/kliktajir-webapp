@@ -30,9 +30,30 @@ const ProdukKami = () => {
                         <Grid item xs={12} sm={12} md={12} lg={12} >
                             <Paper elevation={1} sx={{p: 3, mt:7, backgroundColor: "common.softGrey"}}>      
                                 <h1 className='text-oswald text-primary-main text-500 tracking-normal'>
-                                    <b>PRODUK FUNDING :</b>
+                                    <b>PRODUK PEMBIAYAAN :</b>
                                 </h1>
 
+                                <p className='text-bold'>Simpanan Berjangka (Deposito) 6 bulan/12 bulan</p>                                
+
+                                <ul className='list-none'>
+                                    <li>
+                                        <p>✓  Penempatan minimal 1.000.000</p>
+                                    </li>
+                                    <li>
+                                        <p>Nisbah Bagi Hasil 45:55</p>
+                                    </li>
+                                    <li>
+                                        <p>Penarikan Sesuai jangka waktu</p>
+                                    </li>
+                                    <li>
+                                        <p>Akad Mudharabah, akan diinvestasikan secara otomatis dan bagi hasil dimasukkan ke dalam Rekening Anggota</p>
+                                    </li>
+                                    <li>
+                                        <p>Riwayat penempatan dana dan bagi hasil yang didapat untuk setiap penempatan dana dapat dilihat</p>
+                                    </li>
+                                </ul>
+                                
+                                
                                 <p className='text-bold'>Tabungan Qurban</p>
                                 <ul className='list-none'>
                                     <li>
@@ -102,7 +123,7 @@ const ProdukKami = () => {
                                 </ul>
 
                                 <h1 className='text-oswald text-primary-main text-500 tracking-normal mt-5'>
-                                    <b>PRODUK FUNDING :</b>
+                                    <b>PRODUK PEMBIAYAAN :</b>
                                 </h1>
                                 <p>
                                     Skema pembiayaan syariah yang tersedia saat ini adalah Syirkah Mudharabah dan Murabahah.  Setiap proyek pembiayaan yang dirilis, harus melalui proses review baik secara bisnis maupun syariah, oleh tim yang ahli di bidangnya, sehingga benar-benar pruden dan sesuai syariah. Pemberian fasilitas pembiayaan syariah hanya diperuntukkan bagi anggota.

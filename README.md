@@ -6,3 +6,5 @@ rgb(42, 99, 72)
 
 ### TEST DOMAIN
 "homepage": "https://posta.host",
+
+- nvm use v16.13.0

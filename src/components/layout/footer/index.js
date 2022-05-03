@@ -1,9 +1,10 @@
-import { Container, Grid, Typography, Box } from '@mui/material'
+import { Container, Grid, Typography, Box, IconButton} from '@mui/material'
 import ImageLogoTajir from 'assets/images/logo-tajir-medium.svg'
 import ImagePlaystore from 'assets/images/footer/image-playstore.svg'
 import ImageWhiteFb from 'assets/images/footer/image-white-fb.png'
 import { Link } from 'react-router-dom'
-
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import EmailIcon from '@mui/icons-material/Email';
 
 // https://google-map-generator.com/
 //  Jl. Soekarno-Hatta No.641, Sukapura, Kec. Kiaracondong, Kota Bandung, Jawa Barat 40285
@@ -84,7 +85,11 @@ const Footer = () => {
                         </Typography>                           
                         <ul style={{paddingLeft: 0, listStyleType: 'none', color: 'white'}} className="text-avenir-light">
                             <li>FAQ</li>
-                            <li className='mt-1-half'>Help</li>            
+                            <li className='mt-1-half'>
+                                <a className='text-white no-underline' href={`https://wa.me/6285723858570?text=Assalamu%C3%A1laikum`} target="_blank">                                                
+                                    Help
+                                </a>
+                            </li>            
                         </ul>
                     </Grid>
 
@@ -106,7 +111,7 @@ const Footer = () => {
 
                 <hr style={{borderWidth: 1}} />
                 <Grid container >
-                    <Grid item xs={12} sm={12} md={6} lg={6} >
+                    <Grid item xs={12} sm={12} md={3} lg={3} >
                         <Typography 
                             variant="p" 
                             component="p" 
@@ -123,8 +128,43 @@ const Footer = () => {
                             © Kliktajir. {new Date().getFullYear()}. All Right Reserved
                         </Typography>
                     </Grid>
+                    <Grid item xs={12} sm={12} md={2} lg={2} >
+                        <Typography 
+                                variant="p" 
+                                component="p" 
+                                mt={2}                                                               
+                            > 
+                                <a className='text-white ' href={`https://wa.me/6285723858570?text=Assalamu%C3%A1laikum`} target="_blank">                                                
+                                    <IconButton
+                                        size="large"                                           
+                                        color="inherit"
+                                    >
+                                        <WhatsAppIcon />
+                                    </IconButton>
+                                    085723858570
+                                </a>
+                        </Typography>
+                    </Grid>  
 
-                    <Grid item xs={12} sm={12} md={3} lg={3} 
+                    <Grid item xs={12} sm={12} md={3} lg={3} >
+                        <Typography 
+                                variant="p" 
+                                component="p" 
+                                mt={2}                                                               
+                            > 
+                                <a className='text-white no-underline' href="mailto:adoel.cs@gmail.com" >                                                
+                                    <IconButton
+                                        size="large"                                           
+                                        color="inherit"
+                                    >
+                                        <EmailIcon />
+                                    </IconButton>
+                                    adoel.cs@gmail.com
+                                </a>
+                        </Typography>
+                    </Grid>    
+
+                    <Grid item xs={12} sm={12} md={1} lg={1} 
                          sx={{                            
                             textAlign: {
                                 xs: 'center'

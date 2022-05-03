@@ -10,7 +10,7 @@ export default ({register, children, isEdit = false, errors, fields, append, rem
         <>
             <Box sx={{mt:1}}>
                 <TextField                            
-                    label="Nama Anggota*"       
+                    label="Nama Toko/Brand*"       
                     fullWidth    
                     {...register('member_name',{ required: true})}      
                     InputLabelProps = {

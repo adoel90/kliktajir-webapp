@@ -15,7 +15,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { useMutateDelete } from 'hooks'
 
 const columns = [
-  { id: 'name', label: 'Nama Anggota', minWidth: 170 },
+  { id: 'name', label: 'Nama Toko/Brand', minWidth: 170 },
   {
     id: 'no_wa',
     label: 'No WhatsApp',
