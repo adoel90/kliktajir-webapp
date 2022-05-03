@@ -1,13 +1,17 @@
-import React from 'react'
-import { Button, Box, AppBar, Toolbar, Slide, useScrollTrigger, Typography, Container, Menu, MenuItem, IconButton } from '@mui/material'
+import React, { useState } from 'react'
+import { Button, Box, AppBar, Toolbar, Slide, useScrollTrigger, Typography, Container, Menu, MenuItem, IconButton, Dialog, DialogTitle, DialogContent, DialogContentText, TextField, DialogActions } from '@mui/material'
 import { PAGE_TENTANG_KAMI, PAGE_INFORMASI_TERKINI, PAGE_BAITUL_MAAL, PAGE_BISNIS_ANGGOTA } from 'constanta/index'
 import ImageLogoTajir from 'assets/images/logo-tajir.png'
 import CustomLink from 'components/common/custom-link/index'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import MenuIcon from '@mui/icons-material/Menu';
-
+// import InfoIcon from '@mui/icons-material/Info';
 import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
 import { Link } from 'react-router-dom'
+// import { useQueryData } from 'hooks'
+import AxiosConfig from 'utilities/axios-config';
+import { API_SALDO } from 'constanta'
+import { useSnackbar } from 'notistack'
 
 function HideOnScroll(props) {
     
@@ -22,6 +26,10 @@ function HideOnScroll(props) {
       </Slide>
     );
   }
+
+  const Transition = React.forwardRef(function Transition(props, ref) {
+    return <Slide direction="left" ref={ref} {...props} />;
+  });
 
 const Header = (props) => {
 
@@ -43,6 +51,47 @@ const Header = (props) => {
     const handleCloseNavMenu = () => {
         setAnchorElNav(null);
     };
+
+
+    //*Dialog Modal Cek Saldo
+    const { enqueueSnackbar } = useSnackbar()
+
+    const [isOpenDialogCekSaldo, setOpenDialogCekSaldo] = React.useState(false);
+
+    const handleClickOpenDialogCekSaldo = () => {
+        setOpenDialogCekSaldo(true);
+    };
+  
+    const handleCloseDialogCekSaldo = () => {
+        setOpenDialogCekSaldo(false);
+    };
+
+    const [isLoaderCekSaldo, setLoaderCekSaldo ] = useState(false)
+    const [valuePhoneNumber, setValuePhoneNumber ] = useState('')
+    const handleChangePhoneNumber = (e) => {
+        
+        setValuePhoneNumber( e.target.value)
+    };
+
+    const handleSubmitCekSaldo = () => {
+        
+        setLoaderCekSaldo(true);
+
+        AxiosConfig.get(`${API_SALDO}/detail-wa/${valuePhoneNumber}`).then((response) => {
+
+            setLoaderCekSaldo(false);
+            console.log("RESPONSE ORIGNAL : ", response);
+            if(response.data.status )enqueueSnackbar("Oke sekarang Anda dapat melihat saldo Anda saat ini :)", { variant: 'success'})
+            if(!response.data.status ) enqueueSnackbar(response?.data?.message, { variant: 'error'});                     
+            
+        }).catch((error) => {
+
+            setLoaderCekSaldo(false);
+            console.log("error : ", error)
+            enqueueSnackbar(error?.data?.message, { variant: 'error'});     
+        })
+    };
+    
 
 
     return (
@@ -154,9 +203,9 @@ const Header = (props) => {
                                     </Typography>                                        
                                                                                                                     
                                     <Box sx={{mt: 1}}>
-                                        {/* <Button variant="outlined" color="secondary" sx={{borderRadius: "24px", textTransform: 'none'}} >
+                                        <Button onClick={handleClickOpenDialogCekSaldo} variant="outlined" color="secondary" sx={{borderRadius: "24px", textTransform: 'none'}} >
                                             Cek Saldo
-                                        </Button> */}
+                                        </Button>
                                         <Button 
                                             endIcon={<KeyboardArrowDownIcon />} 
                                             variant="contained" 
@@ -196,6 +245,48 @@ const Header = (props) => {
 
             <br />
             <br />
+
+            <Dialog 
+                open={isOpenDialogCekSaldo} 
+                onClose={handleCloseDialogCekSaldo}
+                TransitionComponent={Transition}
+            >
+                <DialogTitle>
+                    Cek Saldo Anggota Tajir
+                    {/* <IconButton
+                        size="large"                                                          
+                        color="primary"
+                    >
+                        <InfoIcon />
+                    </IconButton>  */}
+                </DialogTitle>
+                <DialogContent>
+                    <DialogContentText>                
+                        Untuk mengetahui saldo Anda di rekening Tajir,  <b><i>Anda harus masukan No Handphone yang terdaftar sebagai Anggota Tajir</i></b>
+                    </DialogContentText>
+                    <TextField
+                        autoFocus
+                        margin="dense"
+                        id="name"
+                        label="No Handphone"
+                        type="phone"
+                        fullWidth
+                        variant="standard"
+                        placeholder='Masukan No Handphone Anda di sini !'
+                        onChange={handleChangePhoneNumber}
+                        sx={{mt: 1}}
+                    />
+                </DialogContent>
+                <DialogActions>
+                    <Button size='small' onClick={handleCloseDialogCekSaldo}>Cancel</Button>
+                    <Button size='small' color='primary' variant="contained" onClick={handleSubmitCekSaldo}>
+                        {
+                            isLoaderCekSaldo ? <i>Loading...</i> : 'Submit'
+                        }
+                        
+                    </Button>
+                </DialogActions>
+            </Dialog>
 
         </>        
     )

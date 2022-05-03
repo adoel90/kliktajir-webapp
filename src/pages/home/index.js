@@ -17,7 +17,6 @@ import ImageWhiteKesehatan from 'assets/images/home/produk/icon-white-kesehatan.
 import ImageWhiteIbadah from 'assets/images/home/produk/icon-white-ibadah.svg'
 import ImageWhitePembiayaan from 'assets/images/home/produk/icon-white-pembiayaan.svg'
 import ImageWhiteSyirkah from 'assets/images/home/produk/icon-white-syirkah.svg'
-import ImageUstKahar from 'assets/images/home/image-ust-kahar.png'
 import ImageWhatIsBadanSyirkah from 'assets/images/home/image-section-what-is-badan-syirkah.png'
 
 import ImageManfaatMenjadiAnggota1 from 'assets/images/home/manfaat-menjadi-anggota/1.png'
@@ -26,6 +25,9 @@ import ImageManfaatMenjadiAnggota3 from 'assets/images/home/manfaat-menjadi-angg
 import ImageManfaatMenjadiAnggota4 from 'assets/images/home/manfaat-menjadi-anggota/4.png'
 import ImageManfaatMenjadiAnggota5 from 'assets/images/home/manfaat-menjadi-anggota/5.png'
 import ImageManfaatMenjadiAnggota6 from 'assets/images/home/manfaat-menjadi-anggota/6.png'
+
+// import ImageLogoTajirMed from 'assets/images/logo-tajir-med.webp'
+
 
 import { useQueryData } from 'hooks'
 import { API_INFORMASI_TERKINI } from 'constanta'
@@ -44,14 +46,14 @@ const Home = () => {
                                 xs: 1,
                                 md: 15
                             }                            
-                        }}>
-                               
+                        }}>                                                              
+                            {/* <img src={ImageLogoTajirMed}  alt="ImageLogoTajirMed" style={{height: '240px', width: 'auto'}} /> */}
                             <h1 className='text-oswald text-56px text-white tracking-normal'>
                                 Mitra Bisnis Syariah Anda
                             </h1>
 
                             <h3 className='text-white text-avenir-light text-20px text-500'>
-                                Badan Syirkah Muamalah TAJIR.  Powered By Koperasi <br />masyarakat Muamalah Syariah
+                                Powered By Koperasi <br />masyarakat Muamalah Syariah
                             </h3>
 
                             <Link className=" no-underline" to="/produk-kami">
@@ -105,7 +107,7 @@ const Home = () => {
                             </div>                                                         
                         </Grid>
                         <Grid item xs={12} sm={12} md={4} lg={4} >
-                            <img src={ImageSectionOne}  alt="ImageSectionOne" height="100%" className='w-127 w-sm-full' />
+                            <img src={ImageSectionOne}  alt="ImageSectionOne" style={{height: '100%'}} className='w-127 w-sm-full' />
                         </Grid>
                     </Grid>
                 </Container>

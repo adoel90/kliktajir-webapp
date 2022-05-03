@@ -14,6 +14,7 @@ export const API_BAITUL_MAAL=`v1${PAGE_BAITUL_MAAL}`
 export const API_BISNIS_ANGGOTA=`v1${PAGE_BISNIS_ANGGOTA}`
 export const API_INFORMASI_TERKINI=`v1${PAGE_INFORMASI_TERKINI}`
 export const API_PENGATURAN_USER = `v1/users`
+export const API_SALDO = `v1/saldo`
 
 
 
