@@ -152,14 +152,14 @@ const Footer = () => {
                                 component="p" 
                                 mt={2}                                                               
                             > 
-                                <a className='text-white no-underline' href="mailto:adoel.cs@gmail.com" >                                                
+                                <a className='text-white no-underline' href="mailto:tajir.info01@gmail.com" >                                                
                                     <IconButton
                                         size="large"                                           
                                         color="inherit"
                                     >
                                         <EmailIcon />
                                     </IconButton>
-                                    adoel.cs@gmail.com
+                                    tajir.info01@gmail.com
                                 </a>
                         </Typography>
                     </Grid>    
