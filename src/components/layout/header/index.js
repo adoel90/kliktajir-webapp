@@ -82,13 +82,19 @@ const Header = (props) => {
             setLoaderCekSaldo(false);
             console.log("RESPONSE ORIGNAL : ", response);
             if(response.data.status )enqueueSnackbar("Oke sekarang Anda dapat melihat saldo Anda saat ini :)", { variant: 'success'})
-            if(!response.data.status ) enqueueSnackbar(response?.data?.message, { variant: 'error'});                     
+            if(!response.data.status ) {
+
+                enqueueSnackbar(response?.data?.message, { variant: 'error'});                     
+                handleCloseDialogCekSaldo();
+            }
             
         }).catch((error) => {
 
             setLoaderCekSaldo(false);
             console.log("error : ", error)
-            enqueueSnackbar(error?.data?.message, { variant: 'error'});     
+            enqueueSnackbar(error?.data?.message, { variant: 'error'});    
+            
+            handleCloseDialogCekSaldo();
         })
     };
     
