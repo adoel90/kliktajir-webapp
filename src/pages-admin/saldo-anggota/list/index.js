@@ -20,6 +20,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { API_SALDO } from 'constanta'
 import { useMutateDelete } from 'hooks'
+import { indonesianFormat } from 'utilities/separator-currency'
 
 
 
@@ -74,8 +75,6 @@ export default function List() {
 
 const [deleteData, isLoading ] = useMutateDelete(`${API_SALDO}/delete`);
 
-let indonesianCurrency = Intl.NumberFormat('id-ID');
-
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
@@ -125,7 +124,7 @@ let indonesianCurrency = Intl.NumberFormat('id-ID');
                                             <b>{row?.phone_number}</b>
                                           </p>                                                                                                                                                    
                                         </TableCell>                                      
-                                        <TableCell align="center"><i><b>Rp</b> {indonesianCurrency.format(row.saldo)}</i></TableCell>                                        
+                                        <TableCell align="center"><i><b>Rp</b> {indonesianFormat.format(row.saldo)}</i></TableCell>                                        
                                         <TableCell align="left">
                                           <Link to={`/pages-admin/saldo-anggota/update/${row?.id}`}>                                        
                                             <IconButton>

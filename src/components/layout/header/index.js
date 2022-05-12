@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Box, AppBar, Toolbar, Slide, useScrollTrigger, Typography, Container, Menu, MenuItem, IconButton, Dialog, DialogTitle, DialogContent, DialogContentText, TextField, DialogActions } from '@mui/material'
+import { Alert, AlertTitle, Button, Box, AppBar, Toolbar, Slide, useScrollTrigger, Typography, Container, Menu, MenuItem, IconButton, Dialog, DialogTitle, DialogContent, DialogContentText, TextField, DialogActions } from '@mui/material'
 import { PAGE_TENTANG_KAMI, PAGE_INFORMASI_TERKINI, PAGE_BAITUL_MAAL, PAGE_BISNIS_ANGGOTA } from 'constanta/index'
 import ImageLogoTajir from 'assets/images/logo-tajir.png'
 import CustomLink from 'components/common/custom-link/index'
@@ -12,6 +12,7 @@ import { Link } from 'react-router-dom'
 import AxiosConfig from 'utilities/axios-config';
 import { API_SALDO } from 'constanta'
 import { useSnackbar } from 'notistack'
+import { indonesianFormat } from 'utilities/separator-currency'
 
 function HideOnScroll(props) {
     
@@ -64,6 +65,7 @@ const Header = (props) => {
   
     const handleCloseDialogCekSaldo = () => {
         setOpenDialogCekSaldo(false);
+        setCheckSaldoSuccess(false);
     };
 
     const [isLoaderCekSaldo, setLoaderCekSaldo ] = useState(false)
@@ -73,6 +75,8 @@ const Header = (props) => {
         setValuePhoneNumber( e.target.value)
     };
 
+    const [saldoSaatIni, setSaldoSaatIni ] = useState('')
+    const [isCheckSaldoSuccess, setCheckSaldoSuccess] = useState(false)
     const handleSubmitCekSaldo = () => {
         
         setLoaderCekSaldo(true);
@@ -81,7 +85,12 @@ const Header = (props) => {
 
             setLoaderCekSaldo(false);
             console.log("RESPONSE ORIGNAL : ", response);
-            if(response.data.status )enqueueSnackbar("Oke sekarang Anda dapat melihat saldo Anda saat ini :)", { variant: 'success'})
+            if(response.data.status ){
+
+                setCheckSaldoSuccess(true)
+                setSaldoSaatIni(response?.data?.data?.saldo);
+                enqueueSnackbar("Saldo berhasil di tampilkan, sekarang Anda dapat melihat saldo saat ini :)", { variant: 'success'})
+            }
             if(!response.data.status ) {
 
                 enqueueSnackbar(response?.data?.message, { variant: 'error'});                     
@@ -282,16 +291,27 @@ const Header = (props) => {
                         onChange={handleChangePhoneNumber}
                         sx={{mt: 1}}
                     />
+                    
+                    {
+                        isCheckSaldoSuccess ? 
+                            <Alert severity="success" sx={{mt:3}}  onClose={handleCloseDialogCekSaldo}>
+                                <AlertTitle><b>Success</b></AlertTitle>
+                                Saldo Anda saat ini adalah — <strong className='text-lg'><i>Rp {indonesianFormat.format(saldoSaatIni)},-</i></strong>
+                            </Alert> : ''
+                    }
                 </DialogContent>
-                <DialogActions>
-                    <Button size='small' onClick={handleCloseDialogCekSaldo}>Cancel</Button>
-                    <Button size='small' color='primary' variant="contained" onClick={handleSubmitCekSaldo}>
-                        {
-                            isLoaderCekSaldo ? <i>Loading...</i> : 'Submit'
-                        }
-                        
-                    </Button>
-                </DialogActions>
+                {
+                    !isCheckSaldoSuccess &&
+                        <DialogActions>
+                            <Button size='small' onClick={handleCloseDialogCekSaldo}>Cancel</Button>
+                            <Button size='small' color='primary' variant="contained" onClick={handleSubmitCekSaldo}>
+                                {
+                                    isLoaderCekSaldo ? <i>Loading...</i> : 'Submit'
+                                }
+                                
+                            </Button>
+                        </DialogActions>
+                }
             </Dialog>
 
         </>        
