@@ -30,6 +30,9 @@ import AdminPengaturanUser from 'pages-admin/pengaturan-user/list'
 import AdminPengaturanUserCreate from 'pages-admin/pengaturan-user/create'
 import AdminPengaturanUserUpdate from 'pages-admin/pengaturan-user/update'
 
+import AdminSaldoAnggota from 'pages-admin/saldo-anggota/list'
+import AdminSaldoAnggotaCreate from 'pages-admin/saldo-anggota/create'
+import AdminSaldoAnggotaUpdate from 'pages-admin/saldo-anggota/update'
 
 import AdminLayout from 'components/layout-admin/wrapper-admin-layout'
 
@@ -187,9 +190,10 @@ const App = () =>  {
                 <Route path="pengaturan-user/create" element={<AdminPengaturanUserCreate />} />
                 <Route path="pengaturan-user/update/:id" element={<AdminPengaturanUserUpdate />} />
 
-
-
-
+                <Route path="saldo-anggota" element={<AdminSaldoAnggota />} />
+                <Route path="saldo-anggota/create" element={<AdminSaldoAnggotaCreate />} />
+                <Route path="saldo-anggota/update/:id" element={<AdminSaldoAnggotaUpdate />} />
+                
                 <Route path="*" element={<NoMatch />}  />
               </Route>
 

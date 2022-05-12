@@ -6,11 +6,11 @@ import AddBusinessIcon from '@mui/icons-material/AddBusiness';
 import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
-import { Link } from 'react-router-dom'
 import CustomLink from 'components/common/custom-link/index'
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
+import BatteryCharging90Icon from '@mui/icons-material/BatteryCharging90';
 
 export default () => {
     
@@ -80,6 +80,20 @@ export default () => {
                                 primary={
                                 <p className='text-avenir-light text-bold'>                          
                                     Pengaturan User
+                                </p>                        
+                                }
+                            />
+                            </ListItem>
+                        </CustomLink>
+                        <CustomLink to="/pages-admin/saldo-anggota" isWhite={false} >
+                            <ListItem button>
+                                <ListItemIcon>
+                                    <BatteryCharging90Icon />
+                                </ListItemIcon>
+                            <ListItemText 
+                                primary={
+                                <p className='text-avenir-light text-bold'>                          
+                                    Saldo Anggota
                                 </p>                        
                                 }
                             />
