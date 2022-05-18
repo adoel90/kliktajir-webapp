@@ -25,9 +25,9 @@ import ImageManfaatMenjadiAnggota3 from 'assets/images/home/manfaat-menjadi-angg
 import ImageManfaatMenjadiAnggota4 from 'assets/images/home/manfaat-menjadi-anggota/4.png'
 import ImageManfaatMenjadiAnggota5 from 'assets/images/home/manfaat-menjadi-anggota/5.png'
 import ImageManfaatMenjadiAnggota6 from 'assets/images/home/manfaat-menjadi-anggota/6.png'
+import ImageLogoTajirLg from 'assets/images/logo-tajir-lg.png'
 
 // import ImageLogoTajirMed from 'assets/images/logo-tajir-med.webp'
-
 
 import { useQueryData } from 'hooks'
 import { API_INFORMASI_TERKINI } from 'constanta'
@@ -47,13 +47,13 @@ const Home = () => {
                                 md: 15
                             }                            
                         }}>                                                              
-                            {/* <img src={ImageLogoTajirMed}  alt="ImageLogoTajirMed" style={{height: '240px', width: 'auto'}} /> */}
-                            <h1 className='text-oswald text-56px text-white tracking-normal'>
+                            <img src={ImageLogoTajirLg}  alt="ImageLogoTajirMed" style={{height: '247px', width: 'auto'}} />
+                            <h1 className='text-oswald text-56px text-white tracking-normal mt-0 mb-0'>
                                 Mitra Bisnis Syariah Anda
                             </h1>
 
                             <h3 className='text-white text-avenir-light text-20px text-500'>
-                                Powered By Koperasi <br />masyarakat Muamalah Syariah
+                                Powered By Koperasi masyarakat Muamalah Syariah
                             </h3>
 
                             <Link className=" no-underline" to="/produk-kami">
