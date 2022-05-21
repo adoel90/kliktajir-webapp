@@ -4,9 +4,23 @@
 rgb(42, 99, 72)
 #2a6348
 
-### TEST DOMAIN
-"homepage": "https://posta.host",
+### GET STARTED
++ Clone https://github.com/adoel90/kliktajir-webapp
++ cd ke folder "kliktajir-webapp"
++ npm install 
++ npm start
 
+### REQUIREMENT ENV
++ Install NodeJS v16.13.0 + NPM
++ Install Github
+
+
+### Prepare to DEPLOY
++ npm run build
++ ubah folder build menjadi "build.zip"
++ Upload ke Server Argonhost
+
+### NODE ENV
 - nvm use v16.13.0
 
 "homepage": "https://www.kliktajir.com"
