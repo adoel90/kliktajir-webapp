@@ -47,13 +47,13 @@ const Home = () => {
                                 md: 15
                             }                            
                         }}>                                                              
-                            <img src={ImageLogoTajirLg}  alt="ImageLogoTajirMed" style={{height: '247px', width: 'auto'}} />
+                            <img src={ImageLogoTajirLg}  alt="ImageLogoTajirMed" className='w-sm-319px h-sm-auto w-auto h-247px '  />
                             <h1 className='text-oswald text-56px text-white tracking-normal mt-0 mb-0'>
                                 Mitra Bisnis Syariah Anda
                             </h1>
 
                             <h3 className='text-white text-avenir-light text-20px text-500'>
-                                Powered By Koperasi masyarakat Muamalah Syariah
+                                Powered By Koperasi Masyarakat Muamalah Syariah
                             </h3>
 
                             <Link className=" no-underline" to="/produk-kami">

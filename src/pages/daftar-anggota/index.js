@@ -19,21 +19,23 @@ const DaftarAnggota = () => {
                             <h1 className='text-oswald text-primary-main text-500 tracking-normal'>
                                 <b>SYARAT MENJADI ANGGOTA</b>
                             </h1>
-                            <ol>
+                            <ol>                                     
                                 <li>
-                                    <p>Membayar Penyertaan Modal</p>
-                                    <p> ✓ Pokok Rp. 500.000 (Sekali saja)</p>
-                                    <p> ✓ Wajib Rp. 50.000/bln (Dibayar per thn)</p>
-                                    <p> ✓ Administrasi Rp. 50.000​</p>
+                                    <p>Mengisi <a href="https://forms.gle/5iWp3w4c2PkY2rCK8" target="_blank">formulir secara online</a> </p>
+                                    <p>Membayar Penyertaan Modal  :</p>
+                                    <p>✓ Pokok Rp. 500.000 (sekali saja)</p>
+                                    <p>✓ Wajib Rp.  50.000/bln (dibayar per thn)</p>
+                                    <p>✓ Admininstrasi Rp. 50.000</p>                                             
                                 </li>
-                                 <li>
+                                <li>
                                     <p>Mengisi Form Akad Penyertaan Modal</p>
                                 </li>
                                 <li>
-                                    <p>Melampirkan FC Identita</p>
+                                    <p>Melampirkan foto copy KTP dan Pas Foto </p>
                                 </li>
+
                                 <li>
-                                    <p>Simpanan Wajib dikembalikan pada saat berhenti menjadi anggota</p>
+                                    <p>Simpanan Pokok dan Wajib dikembalikan pada saat berhenti menjadi anggota</p>
                                 </li>                                
                             </ol>
 
@@ -42,28 +44,18 @@ const DaftarAnggota = () => {
                             </h1>
                             <ul className='list-none'>
                                 <li>
-                                    <p>✓ Mudah dalam memperoleh modal</p>
+                                    <p>✓  Dapat mengajukan pembiayaan Proyek</p>
                                 </li>
                                 <li>
-                                    <p>✓ Dapat mengajukan pembiayaan Proyek</p>
+                                    <p>✓  Dapat Mangakses database produk anggota lain</p>
                                 </li>
                                 <li>
-                                    <p>✓ Dapat Mangakses database produk anggota lain</p>
+                                    <p>✓  Melakukan Usaha sesuai syariah islam & Insya Allah bebas Riba</p>
                                 </li>
                                 <li>
-                                    <p>✓ Melakukan Usaha sesuai syariah islam & bebas Riba</p>
-                                </li>
-                                <li>
-                                    <p>✓ Memperoleh kesempatan yang luas untuk berbisnis dengan anggota lain</p>
-                                </li>
-                                <li>
-                                    <p>✓ Membeli produk anggota lain dengan harga khusus</p>
+                                    <p>✓  Memperoleh kesempatan yang luas untuk berbisnis dengan anggota lain</p>
                                 </li>
                             </ul>
-
-
-
-
                         </Paper>
 
                         </Grid>

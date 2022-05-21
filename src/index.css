@@ -287,6 +287,16 @@ code {
   width: 100%;
 }
 
+ .w-auto {
+
+  width: auto;
+ }
+ 
+ .h-247px {
+
+  height: 247px;
+ }
+
 .tracking-tight {
 
   letter-spacing: 1px !important;
@@ -311,7 +321,16 @@ code {
 /* mobile device - sm */
 @media (max-width: 740px) {
 
-  
+  .w-sm-319px {
+
+    width: 319px !important;
+  }
+
+  .h-sm-auto {
+
+    height: auto !important;
+  }
+
   .w-sm-full {
     
     width: 100% !important;
