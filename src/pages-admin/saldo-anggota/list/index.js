@@ -25,7 +25,7 @@ import { indonesianFormat } from 'utilities/separator-currency'
 
 
 const columns = [
-  { id: 'no_wa', label: 'Nomor Whatsapp', minWidth: 170 },
+  { id: 'no_wa', label: 'Kode Akses Anggota', minWidth: 170 },
   { id: 'saldo_saat_ini', label: 'Saldo saat ini', minWidth: 100,align: 'center', },
   {
     id: 'density',
@@ -82,8 +82,8 @@ const [deleteData, isLoading ] = useMutateDelete(`${API_SALDO}/delete`);
       <SideNav />
 
       <Box component="main" sx={{ flexGrow: 1, p: 2 }}>
-        <Typography variant="h3" sx={{mt:-3}} className='text-center text-oswald'>
-            Saldo Anggota
+        <Typography variant="h3" sx={{mt:-3}} className='text-center text-oswald'>            
+            Saldo Rekening Anggota <i>(Wadiáh)</i>
         </Typography>
         
         <Box sx={{display: 'flex', justifyContent: 'end', mt: 7}}>                

@@ -50,6 +50,9 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+  /* border: 1px var(--primary-main) solid; */
+  /* border-radius: 5px; */
+  text-decoration-line: underline; 
 }
 
 

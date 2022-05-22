@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Alert, AlertTitle, Button, Box, AppBar, Toolbar, Slide, useScrollTrigger, Typography, Container, Menu, MenuItem, IconButton, Dialog, DialogTitle, DialogContent, DialogContentText, TextField, DialogActions } from '@mui/material'
+import { Tooltip,Alert, AlertTitle, Button, Box, AppBar, Toolbar, Slide, useScrollTrigger, Typography, Container, Menu, MenuItem, IconButton, Dialog, DialogTitle, DialogContent, DialogContentText, TextField, DialogActions } from '@mui/material'
 import { PAGE_TENTANG_KAMI, PAGE_INFORMASI_TERKINI, PAGE_BAITUL_MAAL, PAGE_BISNIS_ANGGOTA } from 'constanta/index'
 import ImageLogoTajir from 'assets/images/logo-tajir.png'
 import CustomLink from 'components/common/custom-link/index'
@@ -218,9 +218,11 @@ const Header = (props) => {
                                     </Typography>                                        
                                                                                                                     
                                     <Box sx={{mt: 1}}>
-                                        <Button onClick={handleClickOpenDialogCekSaldo} variant="outlined" color="secondary" sx={{borderRadius: "24px", textTransform: 'none'}} >
-                                            Cek Saldo
-                                        </Button>
+                                        <Tooltip arrow title="Hanya untuk Cek Saldo Rekening Anggota (Wadiáh), tidak termasuk Saldo Simpanan Pokok, Wajib, Deposito, Tabungan Umroh & Qurban" placement='left-start'>
+                                            <Button onClick={handleClickOpenDialogCekSaldo} variant="outlined" color="secondary" sx={{borderRadius: "24px", textTransform: 'none'}} >
+                                                Cek Saldo
+                                            </Button>
+                                        </Tooltip>
                                         <Button 
                                             endIcon={<KeyboardArrowDownIcon />} 
                                             variant="contained" 
@@ -267,7 +269,7 @@ const Header = (props) => {
                 TransitionComponent={Transition}
             >
                 <DialogTitle>
-                    Cek Saldo Anggota Tajir
+                    Cek Saldo Rekening Anggota <i>(Akad Wadiáh)</i>
                     {/* <IconButton
                         size="large"                                                          
                         color="primary"
@@ -277,17 +279,25 @@ const Header = (props) => {
                 </DialogTitle>
                 <DialogContent>
                     <DialogContentText>                
-                        Untuk mengetahui saldo Anda di rekening Tajir,  <b><i>Anda harus masukan No Handphone yang terdaftar sebagai Anggota Tajir</i></b>
+                        Untuk mengetahui Saldo Rekening,  &nbsp;
+                        <b>
+                           Anda harus masukan &nbsp; 
+                                <Tooltip arrow title="Kode Akses adalah akses khusus yang di berikan ketika Anda telah menjadi Anggota Tajir">
+                                <i><code className='text-lg text-bold'>Kode Akses</code> </i>
+                                </Tooltip>
+                                &nbsp; yang terdaftar sebagai Anggota Tajir.
+                            
+                        </b>
                     </DialogContentText>
                     <TextField
                         autoFocus
                         margin="dense"
                         id="name"
-                        label="No Handphone"
+                        label="Kode Akses"
                         type="phone"
                         fullWidth
                         variant="standard"
-                        placeholder='Masukan No Handphone Anda di sini !'
+                        placeholder='Masukan Kode Akses Anda di sini !'
                         onChange={handleChangePhoneNumber}
                         sx={{mt: 1}}
                     />
@@ -296,7 +306,7 @@ const Header = (props) => {
                         isCheckSaldoSuccess ? 
                             <Alert severity="success" sx={{mt:3}}  onClose={handleCloseDialogCekSaldo}>
                                 <AlertTitle><b>Success</b></AlertTitle>
-                                Saldo Anda saat ini adalah — <strong className='text-lg'><i>Rp {indonesianFormat.format(saldoSaatIni)},-</i></strong>
+                                Saldo Rekening Anda saat ini adalah — <strong className='text-lg'><i>Rp {indonesianFormat.format(saldoSaatIni)},-</i></strong>
                             </Alert> : ''
                     }
                 </DialogContent>

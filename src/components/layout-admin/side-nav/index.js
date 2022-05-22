@@ -93,7 +93,7 @@ export default () => {
                             <ListItemText 
                                 primary={
                                 <p className='text-avenir-light text-bold'>                          
-                                    Saldo Anggota
+                                    Saldo Rekening Anggota
                                 </p>                        
                                 }
                             />

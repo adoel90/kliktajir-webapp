@@ -6,7 +6,7 @@ export default ({register, children, isEdit = false, errors}) => {
         <>
             <Box sx={{mt:1}}>
                 <TextField                            
-                    label="No WhatsApp *"       
+                    label="Kode Akses *"       
                     fullWidth    
                     {...register('phone_number',{ required: true})}   
                     InputLabelProps = {
@@ -18,7 +18,7 @@ export default ({register, children, isEdit = false, errors}) => {
             </Box> 
             <Box sx={{mt:1}}>
                 <TextField                            
-                    label="Saldo Saat ini *"       
+                    label="Saldo Rekening Saat ini *"       
                     fullWidth    
                     {...register('saldo',{ required: true})}   
                     InputLabelProps = {
