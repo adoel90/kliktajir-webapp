@@ -89,7 +89,7 @@ const Header = (props) => {
 
                 setCheckSaldoSuccess(true)
                 setSaldoSaatIni(response?.data?.data?.saldo);
-                enqueueSnackbar("Saldo berhasil di tampilkan, sekarang Anda dapat melihat saldo saat ini :)", { variant: 'success'})
+                enqueueSnackbar("Saldo Rekening Anggota berhasil di tampilkan, sekarang Anda dapat melihat Saldo Rekening saat ini :)", { variant: 'success'})
             }
             if(!response.data.status ) {
 
@@ -177,7 +177,46 @@ const Header = (props) => {
                                         </p>
                                     </CustomLink>
                                 </MenuItem>
+                                
+                                <MenuItem  onClick={handleCloseNavMenu}>
+                                    <Tooltip arrow title="Hanya untuk Cek Saldo Rekening Anggota (Wadiáh), tidak termasuk Saldo Simpanan Pokok, Wajib, Deposito, Tabungan Umroh & Qurban" placement='left-start'>
+                                        <Button onClick={handleClickOpenDialogCekSaldo} variant="outlined" color="secondary" sx={{ml: 2, borderRadius: "24px", textTransform: 'none'}} >
+                                            Cek Saldo
+                                        </Button>
+                                    </Tooltip>
+                                </MenuItem>
 
+                                <MenuItem>
+                                    <Button 
+                                        endIcon={<KeyboardArrowDownIcon />} 
+                                        variant="contained" 
+                                        color="secondary" 
+                                        sx={{ml: 2, borderRadius: "24px", color: "primary.contrastText", textTransform: 'none'}}
+                                        onClick={handleClick}    
+                                        className="tracking-tight"
+                                    >
+                                        Daftar
+                                    </Button>    
+
+                                    <Menu                                        
+                                        anchorEl={anchorEl}
+                                        open={open}
+                                        onClose={handleClose}                                           
+                                    >
+                                        <MenuItem onClick={handleClose}>
+                                            <Link className='no-underline text-avenir-light text-bold text-primary-main tracking-normal' to="/daftar-anggota">
+                                                Daftar Anggota 
+                                            </Link>
+                                            <DoubleArrowIcon  fontSize='small' />
+                                        </MenuItem>
+                                        <MenuItem onClick={handleClose}>
+                                            <a className='no-underline  text-avenir-light text-bold text-primary-main tracking-normal' href="https://forms.gle/hdggctA9V3zSBp6E8" target="_blank">                                                
+                                                Daftar Konsultasi
+                                            </a>
+                                            <DoubleArrowIcon fontSize='small' />
+                                        </MenuItem>                                            
+                                    </Menu> 
+                                </MenuItem>                                                                                                             
                             </Menu>
                         </Box>
                         <Box sx={{ mt: -1, ml: -3, flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
