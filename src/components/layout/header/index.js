@@ -13,6 +13,7 @@ import AxiosConfig from 'utilities/axios-config';
 import { API_SALDO } from 'constanta'
 import { useSnackbar } from 'notistack'
 import { indonesianFormat } from 'utilities/separator-currency'
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
 function HideOnScroll(props) {
     
@@ -343,10 +344,28 @@ const Header = (props) => {
                     
                     {
                         isCheckSaldoSuccess ? 
-                            <Alert severity="success" sx={{mt:3}}  onClose={handleCloseDialogCekSaldo}>
-                                <AlertTitle><b>Success</b></AlertTitle>
-                                Saldo Rekening Anda saat ini adalah — <strong className='text-lg'><i>Rp {indonesianFormat.format(saldoSaatIni)},-</i></strong>
-                            </Alert> : ''
+                            <>                        
+                                <Alert severity="success" sx={{mt:3}}  onClose={handleCloseDialogCekSaldo}>
+                                    <AlertTitle><b>Success</b></AlertTitle>
+                                    Saldo Rekening Anda saat ini adalah — <strong className='text-lg'><i>Rp {indonesianFormat.format(saldoSaatIni)},-</i></strong>
+                                </Alert> 
+
+                                <Alert severity="info" sx={{mt:3}}  onClose={handleCloseDialogCekSaldo}>
+                                    <AlertTitle><b>Info</b></AlertTitle>
+                                        Untuk mengetahui rincian transaksi bisa minta informasi melalui &nbsp; 
+                                        <a className='' style={{color: '#014361'}} href={`https://wa.me/6285723858570?text=Assalamu%C3%A1laikum`} target="_blank">                                                
+                                            <b>HOTLINE </b>
+                                            <IconButton
+                                                size="large"                                           
+                                                color="inherit"
+                                            >
+                                                <WhatsAppIcon />
+                                            </IconButton>                                            
+                                        </a>                               
+                                </Alert> 
+                                
+                            </>
+                                : ''
                     }
                 </DialogContent>
                 {

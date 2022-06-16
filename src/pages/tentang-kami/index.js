@@ -65,14 +65,14 @@ const TentangKami = () => {
                         </Grid>
                     </Grid>
 
-                    <Grid container sx={{mt: 7}}>
+                    {/* <Grid container sx={{mt: 7}}>
                         <Grid item xs={12} sm={12} md={12} lg={12} >
                             <SwipeableTextMobileStepper images={images} />
                             <p className='text-avenir-light text-500 text-lg'>
-                                Mutiara Bunda Bandung,  dihadiri Founder TAJIR Bapak Dr. Ir. H. Kahar Mulyani, MM., dan Bapak Pristyanto dari Kementrian Koperasi dan UKM yang disaksikan oleh 40 pendiri.
+                                <i>Launching TAJIR pada tanggal 9 November 2019,  bertempat di Aula SD Mutiara Bunda Bandung,  dihadiri Founder TAJIR Bapak Dr. Ir. H. Kahar Mulyani, MM., dan Bapak Pristyanto dari Kementrian Koperasi dan UKM yang disaksikan oleh 40 pendiri.</i>
                             </p>
                         </Grid>
-                    </Grid>
+                    </Grid> */}
                 </section>
         
                 <section id="berdirinya-tajir">
@@ -85,30 +85,45 @@ const TentangKami = () => {
                     <p className='text-avenir-light text-500 text-lg'>
                         Hasil dari kajian ini, banyak peserta yang sadar akan bahaya dan dosa-dosa Riba sehingga ada yang berhenti bekerja dan meninggalkan pekerjaan ribawi yang selama ini digelutinya. Di sisi lain, ada juga yang memiliki sejumlah uang tapi takut menyimpan karena Riba. Berbagai fenomena yang terjadi di masyarakat ini menyebabkan perlunya sebuah lembaga yang dapat menjadi solusi agar kita semua dapat melakukan kegiatan ekonomi secara syar’i. 
                     </p>
+                    <SwipeableTextMobileStepper images={imagesBeridirinyaTajir} />           
+                    <p className='text-avenir-light text-500 text-lg text-center'>
+                        <i>Kajian Masyarakat Muamalah Syariah di Masjid Trans Studio Mall Bandung</i>
+                    </p>
 
+
+                    <p className='text-avenir-light text-500 text-lg mt-5'>
+                        Badan Syirkah Muamalah adalah tempat berkumpulnya ummat untuk melakukan Syirkah (kerjasama) antara yang satu dengan yang lain. Ada yang memerlukan modal bekerja sama dengan yang punya modal, ada yang memiliki uang tetapi memilih untuk menyimpan uangnya yang sesuai dengan syariah, ada yang memiliki proyek bekerjasama dengan yang ahli pada bidang yang diinginkan. Dalam wadah ini insya Allah menggunakan akad sesuai dengan syariah,  sepakat melakukan bisnis dengan tujuan mencari keuntungan yang sesuai syariah islam, yang terhindar dari antara lain Maysir (untung-untungan), Gharar (Ketidakjelasan), Riba dan Haram.
+                    </p>
                     <figure>
                         <img className='rounded' src={ImageSectionBerdirinyaTajir} width="100%" height="auto" />
                         <figcaption className='text-avenir-light text-500 text-lg text-center'>
-                            Acara kajian Masyarakat Muamalah Syariah di Bengkulu
+                            <i>Acara kajian Masyarakat Muamalah Syariah di Bengkulu</i>
                         </figcaption>
                     </figure>
 
+                    
                     <p className='text-avenir-light text-500 text-lg'>
-                        Badan Syirkah Muamalah adalah tempat berkumpulnya ummat untuk melakukan Syirkah (kerjasama) antara yang satu dengan yang lain. Ada yang memerlukan modal bekerja sama dengan yang punya modal, ada yang memiliki uang tetapi memilih untuk menyimpan uangnya yang sesuai dengan syariah, ada yang memiliki proyek bekerjasama dengan yang ahli pada bidang yang diinginkan. Dalam wadah ini insya Allah menggunakan akad sesuai dengan syariah,  sepakat melakukan bisnis dengan tujuan mencari keuntungan yang sesuai syariah islam, yang terhindar dari antara lain Maysir (untung-untungan), Gharar (Ketidakjelasan), Riba dan Haram.
+                        Bermula dari hal-hal tersebut, maka pada tanggal 9 Nopember 2019 bertempat di Bandung, dilakukan launching Badan Syirkah Muamalah ini dengan nama nama TAJIR. Sehingga Nama lengkapnya adalah <b>Badan Syirkah Muamalah TAJIR</b> atau disingkat dengan <b>BSM TAJIR</b>.
                     </p>
-
-                    <SwipeableTextMobileStepper images={imagesBeridirinyaTajir} />
-
-                    <p className='text-avenir-light text-500 text-lg'>                        
-                        Maka pada tanggal 9 Nopember 2019 bertempat di Bandung dilakukan launching Badan Syirkah Muamalah ini dengan nama Badan Syirkah Muamalah TAJIR atau disingkat dengan BSM TAJIR.
-                    </p>
-
-                    <p className='text-avenir-light text-500 text-lg'>                
-                        Maka pada tanggal 9 Nopember 2019 bertempat di Bandung dilakukan launching Badan Syirkah Muamalah ini dengan nama Badan Syirkah Muamalah TAJIR atau disingkat dengan BSM TAJIR.
-                    </p>
-
-                    <p className='text-avenir-light text-500 text-lg'>
+                
+                       <Grid container sx={{mt: 7}}>
+                        <Grid item xs={12} sm={12} md={12} lg={12} >
+                            <SwipeableTextMobileStepper images={images} />
+                            <p className='text-avenir-light text-500 text-lg'>
+                                <i>Launching TAJIR pada tanggal 9 November 2019,  bertempat di Aula SD Mutiara Bunda Bandung,  dihadiri Founder TAJIR Bapak Dr. Ir. H. Kahar Mulyani, MM., dan Bapak Pristyanto dari Kementrian Koperasi dan UKM yang disaksikan oleh 40 pendiri.</i>
+                            </p>
+                        </Grid>
+                    </Grid>
+                    
+                    {/* <p className='text-avenir-light text-500 text-lg'>
                         Pada tanggal 23 Januari 2020 Koperasi Muamalah Syariah sudah berbadan hukum, dengan terbitnya Akte Notaris No. 37 Tanggal 23 Januari 2020 dengan pengesahan Kementerian Hukum dan Ham No. AHU-0001852.AH.01.26  tanggal 24 Januari Tahun 2020.
+                    </p> */}
+
+                    <p className='text-avenir-light text-500 text-lg'>
+                        Agar keberadaannya legal,  dipilih badan hukum yang memungkin untuk itu, akhirnya dipilih koperasi syariah sebagai badan hukum Badan Syirkah Muamalah Tajir ini.
+                        Koperasi Syariah dengan nama Koperasi Masyarakat Muamalah Syariah ini berdiri pada tanggal 9 Nopember 2019 dan sudah berjalan sebagai Pra-Koperasi sambil berjalan mengurus perizinan. 
+                        Akhirnya terbit terbit <b>Akte Notaris No. 37 Tanggal 23 Januari 2020</b> dengan pengesahan <b>Kementerian Hukum dan HAM No. AHU-0001852.AH.01.26 Tahun 2020 Tanggal 24 Januari 2020</b> sebagai badan hukum. 
+                        Dan sudah terdaftar sebagai koperasi syariah di kementrian Koperasi dan UKM dengan nomor induk Koperasi (NIK) 3273150050088.
                     </p>
 
                     <SusunanOrganisasi />

@@ -18,16 +18,29 @@ export default ({register, children, isEdit = false, errors}) => {
             </Box> 
             <Box sx={{mt:1}}>
                 <TextField                            
-                    label="Saldo Rekening Saat ini *"       
+                    label="Saldo Idle *"       
+                    fullWidth    
+                    {...register('saldo_idle',{ required: true})}   
+                    InputLabelProps = {
+                        isEdit ? {shrink: true} : {}
+                    }     
+                    helperText={errors?.saldo_idle?.type === "required" && "Wajib di isi !"} 
+                    error={errors?.saldo_idle?.type === "required" ? true : false}                                         
+                />
+            </Box>  
+            <Box sx={{mt:1}}>
+                <TextField                            
+                    label="Total Saldo*"       
                     fullWidth    
                     {...register('saldo',{ required: true})}   
                     InputLabelProps = {
                         isEdit ? {shrink: true} : {}
                     }     
-                    helperText={errors?.ussaldoername?.type === "required" && "Wajib di isi !"} 
+                    helperText={errors?.saldo?.type === "required" && "Wajib di isi !"} 
                     error={errors?.saldo?.type === "required" ? true : false}                                         
                 />
             </Box>                                 
+                                                
                  
             {children}
         </>

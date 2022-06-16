@@ -46,6 +46,7 @@ export default () => {
     formData.append("id", data?.id)    
     formData.append("phone_number", params?.phone_number)    
     formData.append("saldo", params?.saldo)
+    formData.append("saldo_idle", params?.saldo_idle)
 
     mutateData(formData);
     

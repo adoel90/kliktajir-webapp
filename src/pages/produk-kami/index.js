@@ -30,10 +30,10 @@ const ProdukKami = () => {
                         <Grid item xs={12} sm={12} md={12} lg={12} >
                             <Paper elevation={1} sx={{p: 3, mt:7, backgroundColor: "common.softGrey"}}> 
 
-                                <section id="produk-simpanan">    
-                                    <h1 className='text-oswald text-primary-main text-500 tracking-normal'>
-                                        <b>PRODUK SIMPANAN :</b>
-                                    </h1>
+                                <h1 className='text-oswald text-primary-main text-500 tracking-normal '>
+                                    <b>PRODUK SIMPANAN :</b>
+                                </h1>
+                                <section id="produk-simpanan">                                      
 
                                     <p className='text-bold'>Simpanan Berjangka (Deposito) 6 bulan/12 bulan</p>                                
 
