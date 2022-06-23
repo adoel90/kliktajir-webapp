@@ -38,7 +38,12 @@ const Home = () => {
 
     return (
         <>
-            <section id="hero" className='bg-primary-main'>                            
+            <section id="hero" className='' 
+                style={{background: 'linear-gradient(172deg, rgba(25,212,62,1) 21%, rgba(185,195,0,1) 99%)'}}
+                // style={{background: 'linear-gradient(162deg, rgba(25,212,62,1) 21%, rgba(185,195,0,1) 99%)'}}
+                // style={{background: 'linear-gradient(162deg, rgba(25,212,62,1) 21%, rgba(185,195,0,1) 67%)'}}
+
+            >                            
                 <Container>
                     <Grid container >
                         <Grid item xs={12} sm={12} md={8} lg={8} sx={{

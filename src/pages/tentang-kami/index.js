@@ -122,7 +122,7 @@ const TentangKami = () => {
                     <p className='text-avenir-light text-500 text-lg'>
                         Agar keberadaannya legal,  dipilih badan hukum yang memungkin untuk itu, akhirnya dipilih koperasi syariah sebagai badan hukum Badan Syirkah Muamalah Tajir ini.
                         Koperasi Syariah dengan nama Koperasi Masyarakat Muamalah Syariah ini berdiri pada tanggal 9 Nopember 2019 dan sudah berjalan sebagai Pra-Koperasi sambil berjalan mengurus perizinan. 
-                        Akhirnya terbit terbit <b>Akte Notaris No. 37 Tanggal 23 Januari 2020</b> dengan pengesahan <b>Kementerian Hukum dan HAM No. AHU-0001852.AH.01.26 Tahun 2020 Tanggal 24 Januari 2020</b> sebagai badan hukum. 
+                        Akhirnya terbit <b>Akte Notaris No. 37 Tanggal 23 Januari 2020</b> dengan pengesahan <b>Kementerian Hukum dan HAM No. AHU-0001852.AH.01.26 Tahun 2020 Tanggal 24 Januari 2020</b> sebagai badan hukum. 
                         Dan sudah terdaftar sebagai koperasi syariah di kementrian Koperasi dan UKM dengan nomor induk Koperasi (NIK) 3273150050088.
                     </p>
 

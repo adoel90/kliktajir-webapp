@@ -107,19 +107,19 @@ const ProdukKami = () => {
                                 <section id="rekening-anggota">   
                                     <p className='text-bold mt-3'>REKENING ANGGOTA</p>
                                     <p>
-                                        Setiap anggota mempunyai rekening virtual yang dinamakan REKENING ANGGOTA atau akun anggota.
+                                        Setiap anggota mempunyai rekening virtual yang dinamakan REKENING <b>Wadiah</b> atau akun anggota.
                                     </p>
                                     <p>
-                                        REKENING ANGGOTA dipergunakan sebagai tempat penampungan dana sebelum ditempatkan pada deposito, tabungan umroh, tabungan qurban dan produk lainnya serta untuk penyertaan dalam kegiatan  pendanaan proyek
+                                        REKENING <b>Wadiah</b> dipergunakan sebagai tempat penampungan dana sebelum ditempatkan pada deposito, tabungan umroh, tabungan qurban dan produk lainnya serta untuk penyertaan dalam kegiatan  pendanaan proyek
                                     </p>
                                     <p>
                                         Semua setoran anggota akan masuk kedalam rekening virtual ini, termasuk untuk pembayaran simpanan wajib dan atau wajib khusus
                                     </p>
                                     <p>
-                                        Semua bagi hasil dari deposito, tabungan umroh dan tabungan Qurban dimasukan kedalam REKENING ANGGOTA
+                                        Semua bagi hasil dari deposito, tabungan umroh dan tabungan Qurban dimasukan kedalam REKENING <b>Wadiah</b>
                                     </p>
                                     <p>
-                                        Akad <i>Wadiah</i> sehingga dianggap sebagai titipan 
+                                        Karena akad <i>Wadiah</i> maka bersifat sebagai titipan 
                                     </p> 
                                     <p>
                                         Tidak secara otomatis diikut sertakan dalam pendanaan proyek, akan diikut sertakan dalam pendanaan proyek atas permintaan anggota
