@@ -38,8 +38,8 @@ const Home = () => {
 
     return (
         <>
-            <section id="hero" className='' 
-                style={{background: 'linear-gradient(172deg, rgba(25,212,62,1) 21%, rgba(185,195,0,1) 99%)'}}
+            <section id="hero" className='bg-primary-main' 
+                // style={{background: 'linear-gradient(172deg, rgba(25,212,62,1) 21%, rgba(185,195,0,1) 99%)'}}
                 // style={{background: 'linear-gradient(162deg, rgba(25,212,62,1) 21%, rgba(185,195,0,1) 99%)'}}
                 // style={{background: 'linear-gradient(162deg, rgba(25,212,62,1) 21%, rgba(185,195,0,1) 67%)'}}
 

@@ -77,6 +77,7 @@ const Header = (props) => {
     };
 
     const [saldoSaatIni, setSaldoSaatIni ] = useState('')
+    const [saldoIdle, setSaldoIdle ] = useState('')
     const [isCheckSaldoSuccess, setCheckSaldoSuccess] = useState(false)
     const handleSubmitCekSaldo = () => {
         
@@ -86,10 +87,11 @@ const Header = (props) => {
 
             setLoaderCekSaldo(false);
             console.log("RESPONSE ORIGNAL : ", response);
-            if(response.data.status ){
+            if(response?.data?.status ){
 
                 setCheckSaldoSuccess(true)
                 setSaldoSaatIni(response?.data?.data?.saldo);
+                setSaldoIdle(response?.data?.data?.saldo_idle)
                 enqueueSnackbar("Saldo Rekening Anggota berhasil di tampilkan, sekarang Anda dapat melihat Saldo Rekening saat ini :)", { variant: 'success'})
             }
             if(!response.data.status ) {
@@ -346,8 +348,9 @@ const Header = (props) => {
                         isCheckSaldoSuccess ? 
                             <>                        
                                 <Alert severity="success" sx={{mt:3}}  onClose={handleCloseDialogCekSaldo}>
-                                    <AlertTitle><b>Success</b></AlertTitle>
-                                    Saldo Rekening Anda saat ini adalah — <strong className='text-lg'><i>Rp {indonesianFormat.format(saldoSaatIni)},-</i></strong>
+                                    <AlertTitle><b>Saldo Rekening Tabungan <i>Wadiáh</i></b></AlertTitle>
+                                    Saldo <i>Idle</i> adalah — <strong className='text-lg'><i>Rp {indonesianFormat.format(saldoIdle)},-</i></strong>
+                                    <br />Saldo <i>Total</i> adalah — <strong className='text-lg'><i>Rp {indonesianFormat.format(saldoSaatIni)},-</i></strong>
                                 </Alert> 
 
                                 <Alert severity="info" sx={{mt:3}}  onClose={handleCloseDialogCekSaldo}>
