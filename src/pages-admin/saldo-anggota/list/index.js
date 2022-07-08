@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useQueryData } from 'hooks'
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -41,19 +41,23 @@ const columns = [
 
 export default function List() {
 
+
+
   const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(25);
+  const [rowsPerPage, setRowsPerPage] = React.useState(+localStorage.getItem('total_rows') || 10);
+
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
 
   const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(+event.target.value);
+    setRowsPerPage(+event.target.value, 10);         
+    localStorage.setItem('total_rows', +event.target.value )
     setPage(0);
   };
  
-  const { isLoading: isLoaderList, isFetching, error, data, status} = useQueryData(`${API_SALDO}/list?limit=${rowsPerPage}&page=${page}`);    
+  const { isLoading: isLoaderList, isFetching, error, data, status} = useQueryData(`${API_SALDO}/list?limit=${rowsPerPage}&page=${page + 1}`);    
 
   //*
   const [isOpen, setOpen] = React.useState(false);
@@ -145,9 +149,9 @@ const [deleteData, isLoading ] = useMutateDelete(`${API_SALDO}/delete`);
                     </TableMaterial>
                 </TableContainer>
                 <TablePagination
-                    rowsPerPageOptions={[10, 25, 100]}
+                    // rowsPerPageOptions={[10, 25, 100]}                    
                     component="div"
-                    count={data?.length}
+                    count={data?.length * 50}
                     rowsPerPage={rowsPerPage}
                     page={page}
                     onPageChange={handleChangePage}
