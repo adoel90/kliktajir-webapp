@@ -28,7 +28,7 @@ const BisnisAnggota = () => {
                         <Grid container>
                             <Grid item xs={12} sm={12} md={12} lg={12} alignContent="center">
                                 {
-                                    data?.map((item, index) => (
+                                    data?.data?.map((item, index) => (
 
                                         <Paper elevation={2} key={index} sx={{p:3, m:3}}>   
                                             <Typography variant='h4' className='text-oswald' sx={{mb:3}} >

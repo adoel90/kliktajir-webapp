@@ -27,7 +27,7 @@ const InformasiTerkini = () => {
                             <Grid item xs={12} sm={12} md={12} lg={12} alignContent="center">
 
                                     {
-                                        data?.map((item, i) => (
+                                        data?.data?.map((item, i) => (
                                             <Box sx={{display:'flex', justifyContent: 'center', mb: 7}} key={i}>
 
                                                 <Card sx={{ 

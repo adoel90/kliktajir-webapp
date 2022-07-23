@@ -6,7 +6,7 @@ const useQueryData = (endPointName = '', params = {}, options = {}) => {
     const getList = async () => {    
       const { data } = await AxiosConfig.get(endPointName)  
     
-      return data?.data || [];
+      return data || [];
       
     };
     

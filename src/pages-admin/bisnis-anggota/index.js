@@ -119,7 +119,7 @@ export default function AdminBisnisAnggota() {
                         </TableHead>
                         <TableBody>
                             {                        
-                              data?.map((row, i) => {
+                              data?.data?.map((row, i) => {
                                   return (
                                     <>
                                       <TableRow key={i}>

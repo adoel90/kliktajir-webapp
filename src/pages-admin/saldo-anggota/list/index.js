@@ -57,7 +57,7 @@ export default function List() {
     setPage(0);
   };
  
-  const { isLoading: isLoaderList, isFetching, error, data, status} = useQueryData(`${API_SALDO}/list?limit=${rowsPerPage}&page=${page + 1}`);    
+  const { isLoading: isLoaderList, isFetching, error, data, status} = useQueryData(`${API_SALDO}/list?limit=${rowsPerPage}&page=${page + 1}`);      
 
   //*
   const [isOpen, setOpen] = React.useState(false);
@@ -119,7 +119,7 @@ const [deleteData, isLoading ] = useMutateDelete(`${API_SALDO}/delete`);
                         </TableHead>
                         <TableBody>
                             {                        
-                              data?.map((row, i) => {
+                              data?.data?.map((row, i) => {
 
                                   return (                                    
                                       <TableRow key={i}>
@@ -151,12 +151,13 @@ const [deleteData, isLoading ] = useMutateDelete(`${API_SALDO}/delete`);
                 <TablePagination
                     // rowsPerPageOptions={[10, 25, 100]}                    
                     component="div"
-                    count={data?.length * 50}
+                    count={data?.total || 0}
                     rowsPerPage={rowsPerPage}
                     page={page}
                     onPageChange={handleChangePage}
                     onRowsPerPageChange={handleChangeRowsPerPage}
                 />
+
               </Paper>              
         }
         

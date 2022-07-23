@@ -124,7 +124,7 @@ const [deleteData, isLoading ] = useMutateDelete(`${API_INFORMASI_TERKINI}/delet
                         </TableHead>
                         <TableBody>
                             {                        
-                              data?.map((row, i) => {
+                              data?.data?.map((row, i) => {
                                   return (
                                     <>
                                       <TableRow key={i}>

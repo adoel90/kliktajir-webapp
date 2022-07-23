@@ -113,7 +113,7 @@ const [deleteData, isLoading ] = useMutateDelete(`${API_PENGATURAN_USER}/delete`
                         </TableHead>
                         <TableBody>
                             {                        
-                              data?.map((row, i) => {
+                              data?.data?.map((row, i) => {
 
                                   return (
                                     

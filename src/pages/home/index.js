@@ -240,7 +240,7 @@ const Home = () => {
                         <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
 
                             {
-                                data?.map((item, i) => (
+                                data?.data?.map((item, i) => (
                                     <Card 
                                         key={i}
                                         sx={{ 

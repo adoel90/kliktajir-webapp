@@ -128,7 +128,7 @@ const [deleteData, isLoading ] = useMutateDelete(`${API_BAITUL_MAAL}/delete`);
                         </TableHead>
                         <TableBody>
                             {                        
-                              data?.map((row, i) => {
+                              data?.data?.map((row, i) => {
 
                                   return (
                                     
