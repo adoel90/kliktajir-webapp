@@ -40,14 +40,15 @@ const columns = [
 export default function List() {
 
   const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [rowsPerPage, setRowsPerPage] = React.useState(+localStorage.getItem('total_rows') || 10);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
 
   const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(+event.target.value);
+    setRowsPerPage(+event.target.value, 10);         
+    localStorage.setItem('total_rows', +event.target.value )
     setPage(0);
   };
  
@@ -145,7 +146,7 @@ const [deleteData, isLoading ] = useMutateDelete(`${API_PENGATURAN_USER}/delete`
                 <TablePagination
                     rowsPerPageOptions={[10, 25, 100]}
                     component="div"
-                    count={data?.length}
+                    count={data?.total || 100}
                     rowsPerPage={rowsPerPage}
                     page={page}
                     onPageChange={handleChangePage}

@@ -166,7 +166,7 @@ const [deleteData, isLoading ] = useMutateDelete(`${API_INFORMASI_TERKINI}/delet
                 <TablePagination
                     rowsPerPageOptions={[10, 25, 100]}
                     component="div"
-                    count={data?.length}
+                    count={data?.total || 100}
                     rowsPerPage={rowsPerPage}
                     page={page}
                     onPageChange={handleChangePage}

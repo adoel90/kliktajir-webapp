@@ -174,7 +174,7 @@ const [deleteData, isLoading ] = useMutateDelete(`${API_BAITUL_MAAL}/delete`);
                 <TablePagination
                     rowsPerPageOptions={[10, 25, 100]}
                     component="div"
-                    count={data?.length}
+                    count={data?.total || 100}
                     rowsPerPage={rowsPerPage}
                     page={page}
                     onPageChange={handleChangePage}
