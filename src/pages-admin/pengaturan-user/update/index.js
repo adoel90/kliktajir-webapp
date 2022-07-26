@@ -35,7 +35,7 @@ export default () => {
     
     if(data){      
 
-      reset(data)
+      reset(data?.data)
     };
 
   },[data])
@@ -43,7 +43,7 @@ export default () => {
   const onSubmit = params => {  
     
     var formData = new FormData();
-    formData.append("id", data?.id)    
+    formData.append("id", data?.data?.id)    
     formData.append("full_name", params?.full_name)    
     formData.append("username", params?.username)
     if(params?.password_new !== ''){

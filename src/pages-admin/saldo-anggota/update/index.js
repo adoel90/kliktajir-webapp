@@ -35,15 +35,17 @@ export default () => {
     
     if(data){      
 
-      reset(data)
+      reset(data?.data);
+      
     };
 
   },[data])
 
   const onSubmit = params => {  
     
+    
     var formData = new FormData();
-    formData.append("id", data?.id)    
+    formData.append("id", data?.data?.id)    
     formData.append("phone_number", params?.phone_number)    
     formData.append("saldo", params?.saldo)
     formData.append("saldo_idle", params?.saldo_idle)

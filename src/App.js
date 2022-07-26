@@ -190,7 +190,7 @@ const App = () =>  {
                 <Route path="pengaturan-user/create" element={<AdminPengaturanUserCreate />} />
                 <Route path="pengaturan-user/update/:id" element={<AdminPengaturanUserUpdate />} />
 
-                <Route path="saldo-anggota" element={<AdminSaldoAnggota />} />
+                <Route path="saldo-anggota/page:pageCount/limit:limitCount" element={<AdminSaldoAnggota />} />
                 <Route path="saldo-anggota/create" element={<AdminSaldoAnggotaCreate />} />
                 <Route path="saldo-anggota/update/:id" element={<AdminSaldoAnggotaUpdate />} />
                 

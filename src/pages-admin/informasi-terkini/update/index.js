@@ -36,8 +36,8 @@ export default () => {
     
     if(data){      
 
-      reset(data)
-      setImageUrl(data?.image);
+      reset(data?.data)
+      setImageUrl(data?.data?.image);
 
     };
 

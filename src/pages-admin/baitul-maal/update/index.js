@@ -37,16 +37,14 @@ export default () => {
     
     if(data){      
 
-      reset(data);
-      setImageUrl(data?.image);
+      reset(data?.data);
+      setImageUrl(data?.data?.image);
     };
 
   },[data])
 
   const onSubmit = params => {
-    
-
-    
+        
     var formData = new FormData();
     formData.append('id', queryParam?.id)
     formData.append("title", params?.title)
@@ -55,7 +53,6 @@ export default () => {
     formData.append("description", params?.description)
     mutateData(formData);
     
-
   };
 
   const [mutateData, isLoading] = useMutate(`${API_BAITUL_MAAL}/update`);

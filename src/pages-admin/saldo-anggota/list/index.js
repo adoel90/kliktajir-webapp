@@ -12,7 +12,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 
 import SideNav from 'components/layout-admin/side-nav'
 import HeaderAdmin from 'components/layout-admin/header'
@@ -41,18 +41,27 @@ const columns = [
 
 export default function List() {
 
+  const navigate = useNavigate();
+  let { limitCount, pageCount } = useParams()
 
+  const log = console.log;
+  log({
+    limitCount, pageCount 
+  })
 
-  const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(+localStorage.getItem('total_rows') || 10);
+  const [page, setPage] = React.useState(+pageCount || 0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(+localStorage.getItem('total_rows') || +limitCount || 10);
 
 
   const handleChangePage = (event, newPage) => {
-    setPage(newPage);
+    setPage(newPage);    
+    navigate(`/pages-admin/saldo-anggota/page${newPage}/limit${rowsPerPage}`)
+
   };
 
   const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(+event.target.value, 10);         
+    navigate(`/pages-admin/saldo-anggota/page${page}/limit${rowsPerPage}`)
     localStorage.setItem('total_rows', +event.target.value )
     setPage(0);
   };

@@ -88,7 +88,7 @@ export default () => {
     
     if(data){            
       
-      reset(data)
+      reset(data?.data)
 
     };
 
@@ -125,7 +125,7 @@ export default () => {
     console.log("PARAMS : ", params);
     var formData = new FormData();    
 
-    formData.append("id", data?.id)
+    formData.append("id", data?.data?.id)
     formData.append("member_name", params?.member_name)
     formData.append("phone", params?.phone)
     formData.append("description", params?.description)    
