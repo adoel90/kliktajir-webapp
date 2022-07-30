@@ -52,7 +52,7 @@ export default () => {
     var formData = new FormData();
     formData.append("title", params?.title)
     formData.append("image", params?.image[0])
-    formData.append("date", params?.date)    
+    formData.append("date", params?.date?.toISOString()?.substring(0, 10))    
     mutateData(formData);
     // mutateData(params);
 

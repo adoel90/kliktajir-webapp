@@ -71,6 +71,7 @@ const useMutate = (endpointName = '', endpointNameRefetch = undefined) => {
     }
 
     console.log("isError : ", isError)
+    // err.response.data.message
     if(isError){
       enqueueSnackbar("Whoops, something went wrong !", { variant: 'error'});      
 
