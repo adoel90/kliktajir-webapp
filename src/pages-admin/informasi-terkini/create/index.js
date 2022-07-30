@@ -13,6 +13,8 @@ import { useMutate } from 'hooks'
 import { API_INFORMASI_TERKINI } from 'constanta'
 import { useAuthentication } from 'context/authentication';
 import Form from '../components/form'
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
 
 export default () => {
 
@@ -20,8 +22,31 @@ export default () => {
   const navigate = useNavigate();
   const { token } = useAuthentication();  
 
+  const schema = yup
+  .object()
+  .shape({
+    title: yup.string().required("Wajib di isi !"),
+    date: yup.date().required("Wajib di isi !"),
+    image: yup.mixed().nullable().notRequired()    
+    .test("FILE_REQUIRED", "Wajib di isi !", (value) => {      
+      return !value || value.length > 0;
+    })
+    .test('SUPPORTED_FILES', 'Hanya Gambar berformat .PNG & .JPG/JPEG yang di bolehkan', (value) => {
 
-  const { register, handleSubmit, watch, formState: { errors } } = useForm();
+      if(value[0]?.type === "image/jpeg" || value[0]?.type === "image/jpg" || value[0]?.type === "image/png" ){
+        return true 
+      } else { 
+        return false;
+      }
+      
+    })
+  })
+  .required();
+
+
+  const { register, handleSubmit, watch, formState: { errors }, getValues } = useForm({
+    resolver: yupResolver(schema),
+  });
   const onSubmit = params => {
     
     var formData = new FormData();
@@ -31,7 +56,7 @@ export default () => {
     mutateData(formData);
     // mutateData(params);
 
-  }
+  }  
 
   const [mutateData, isLoading] = useMutate(`${API_INFORMASI_TERKINI}/add`);
   

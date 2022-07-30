@@ -1,11 +1,12 @@
 {
   "name": "kliktajir-webapp",
-  "version": "0.1.0",  
+  "version": "0.1.0",
   "homepage": "https://www.kliktajir.com",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.8.1",
     "@emotion/styled": "^11.8.1",
+    "@hookform/resolvers": "^2.9.6",
     "@material-ui/styles": "^4.11.4",
     "@mui/icons-material": "^5.4.4",
     "@mui/material": "^5.8.6",
@@ -26,7 +27,8 @@
     "react-swipeable-views-utils": "^0.14.0",
     "react-table": "^7.7.0",
     "styled-components": "^5.3.3",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "yup": "^0.32.11"
   },
   "scripts": {
     "start": "react-scripts start",

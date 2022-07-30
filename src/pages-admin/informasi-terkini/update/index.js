@@ -14,6 +14,8 @@ import { API_INFORMASI_TERKINI } from 'constanta'
 import { useAuthentication } from 'context/authentication';
 import { useQueryData } from 'hooks';
 import Form from '../components/form'
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
 
 export default () => {
 
@@ -25,8 +27,28 @@ export default () => {
 
   const { isLoading: isLoadingDetail, isFetching, error, data } = useQueryData(`${API_INFORMASI_TERKINI}/detail/${queryParam?.id}`); 
 
-  const { register, handleSubmit, watch, formState: { errors }, setValue, reset } = useForm({
+  const schema = yup
+  .object()
+  .shape({
+    title: yup.string().required("Wajib di isi !"),
+    date: yup.date().required("Wajib di isi !"),
+    image: yup.mixed().nullable().notRequired()    
+    .test("FILE_REQUIRED", "Wajib di isi !", (value) => {      
+      return !value || value.length > 0;
+    })
+    .test('SUPPORTED_FILES', 'Hanya Gambar berformat .PNG & .JPG/JPEG yang di bolehkan', (value) => {
 
+      if(value[0]?.type === "image/jpeg" || value[0]?.type === "image/jpg" || value[0]?.type === "image/png" ){
+        return true 
+      } else { 
+        return false;
+      }
+      
+    })
+  })
+  .required();
+  const { register, handleSubmit, watch, formState: { errors }, setValue, reset } = useForm({
+    resolver: yupResolver(schema),
     defaultValues: {} 
   });
 
@@ -50,7 +72,7 @@ export default () => {
     formData.append("title", params?.title)
     formData.append("image", params?.image[0])
     formData.append("date", params?.date)
-    formData.append("description", params?.description)
+    // formData.append("description", params?.description)
     mutateData(formData);
     
 
