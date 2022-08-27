@@ -85,7 +85,7 @@ export default () => {
                             />
                             </ListItem>
                         </CustomLink>
-                        <CustomLink to="/pages-admin/saldo-anggota/page0/limit10" isWhite={false} >
+                        <CustomLink to="/pages-admin/saldo-anggota/page=0/limit=10" isWhite={false} >
                             <ListItem button>
                                 <ListItemIcon>
                                     <BatteryCharging90Icon />

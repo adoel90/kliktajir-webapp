@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef, createRef } from 'react'
 import { useQueryData } from 'hooks'
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -43,25 +43,19 @@ export default function List() {
 
   const navigate = useNavigate();
   let { limitCount, pageCount } = useParams()
-
-  const log = console.log;
-  log({
-    limitCount, pageCount 
-  })
-
   const [page, setPage] = React.useState(+pageCount || 0);
   const [rowsPerPage, setRowsPerPage] = React.useState(+localStorage.getItem('total_rows') || +limitCount || 10);
 
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);    
-    navigate(`/pages-admin/saldo-anggota/page${newPage}/limit${rowsPerPage}`)
+    navigate(`/pages-admin/saldo-anggota/page=${newPage}/limit=${rowsPerPage}`)
 
   };
 
   const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(+event.target.value, 10);         
-    navigate(`/pages-admin/saldo-anggota/page${page}/limit${rowsPerPage}`)
+    navigate(`/pages-admin/saldo-anggota/page=${page}/limit=${rowsPerPage}`)
     localStorage.setItem('total_rows', +event.target.value )
     setPage(0);
   };
@@ -87,7 +81,24 @@ export default function List() {
 
   }
 
-const [deleteData, isLoading ] = useMutateDelete(`${API_SALDO}/delete`);
+  const [deleteData, isLoading ] = useMutateDelete(`${API_SALDO}/delete`);
+
+
+  //* SCROLL RESTORATION
+  const restorationRef = createRef();   
+  const productMarkerId = localStorage.getItem("scroll-position-product-id-marker") || null;  
+
+  useEffect(() => {    
+    if (!restorationRef) {
+      return;
+    }    
+    restorationRef?.current?.scrollIntoView({ behavior: 'auto', block: 'center', scroll:'smooth' });
+  },[restorationRef])
+
+  const handleSelected = (row) => {
+    localStorage.setItem("scroll-position-product-id-marker", row?.id);
+    navigate(`/pages-admin/saldo-anggota/update/${row?.id}`)
+  }
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -131,7 +142,10 @@ const [deleteData, isLoading ] = useMutateDelete(`${API_SALDO}/delete`);
                               data?.data?.map((row, i) => {
 
                                   return (                                    
-                                      <TableRow key={i}>
+                                      <TableRow 
+                                        key={i}                                        
+                                        ref={+productMarkerId === +row.id ? restorationRef : null}
+                                      >
                                         <TableCell component="th" scope="row">
                                           <p className='text-avenir-light'>
                                             <b>{row?.phone_number}</b>
@@ -140,11 +154,11 @@ const [deleteData, isLoading ] = useMutateDelete(`${API_SALDO}/delete`);
                                         <TableCell align="center"><i><b>Rp</b> {indonesianFormat.format(row.saldo_idle)}</i></TableCell>                                        
                                         <TableCell align="center"><i><b>Rp</b> {indonesianFormat.format(row.saldo)}</i></TableCell>                                        
                                         <TableCell align="left">
-                                          <Link to={`/pages-admin/saldo-anggota/update/${row?.id}`}>                                        
-                                            <IconButton>
+                                          {/* <Link to={`/pages-admin/saldo-anggota/update/${row?.id}`}>                                         */}
+                                            <IconButton onClick={() => handleSelected(row)}>
                                               <EditIcon />
                                             </IconButton>
-                                          </Link>
+                                          {/* </Link> */}
                                           <IconButton onClick={() => handleOpenModalDelete(row)}>
                                             <DeleteIcon />
                                           </IconButton>
