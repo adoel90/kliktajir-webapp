@@ -237,10 +237,17 @@ const Home = () => {
                                 </Link>
                             </Box>
                         </Box>               
-                        <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
+                        <Box sx={{
+                            display: 'flex', 
+                            flexDirection: {
+                                xs: 'column',
+                                md: 'row'
+                            },                          
+                            justifyContent: 'space-between'
+                        }}>
 
                             {
-                                data?.data?.map((item, i) => (
+                               data?.data?.slice(0, 3).map((item, i) => (
                                     <Card 
                                         key={i}
                                         sx={{ 
@@ -248,7 +255,8 @@ const Home = () => {
                                             width: {
                                                 xs: '100%',
                                                 md: '25%' 
-                                            }                                                                                
+                                            },
+                                            mb: 3,                                                                          
                                         }}
                                     >
                                         <CardMedia

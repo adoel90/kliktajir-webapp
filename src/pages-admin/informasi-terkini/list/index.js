@@ -33,6 +33,13 @@ const columns = [
     format: (value) => value.toLocaleString('en-US'),
   },
   {
+    id: 'deskripsi',
+    label: 'Deskripsi',
+    minWidth: 170,
+    align: 'left',
+    format: (value) => value,
+  },
+  {
     id: 'density',
     label: 'Action',
     minWidth: 170,
@@ -144,7 +151,8 @@ const [deleteData, isLoading ] = useMutateDelete(`${API_INFORMASI_TERKINI}/delet
                                             }
                                           </p>
                                         </TableCell>
-                                        <TableCell align="center">{row.date}</TableCell>                                    
+                                        <TableCell align="center">{row.date}</TableCell> 
+                                        <TableCell align="left">{row?.description || "-"}</TableCell>                                   
                                         <TableCell align="left">
                                           <Link to={`/pages-admin/informasi-terkini/update/${row?.id}`}>   
                                             <IconButton>

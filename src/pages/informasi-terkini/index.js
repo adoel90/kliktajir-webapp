@@ -57,7 +57,11 @@ const InformasiTerkini = () => {
                                                         image={`${ process.env.REACT_APP_API_BASE_URL}/${item?.image}`}
                                                         alt= {item?.judul}
                                                     />                                         
+                                                    <Typography variant='h5' className='text-avenir-light text-center' sx={{mt:3, mb: 5}} >
+                                                        {item?.description}
+                                                    </Typography>
                                                 </Card>
+
                                             </Box>
                                         ))
                                     }

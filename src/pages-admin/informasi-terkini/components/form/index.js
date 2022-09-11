@@ -63,6 +63,20 @@ export default ({register, children, isEdit = false, errors, imageUrl =''}) => {
                     )}
                 </Stack>
             </Box> 
+                          <Box sx={{mt:3}}>
+                <TextField 
+                  label="Deskripsi*" 
+                  fullWidth                 
+                  multiline
+                  rows={4}                  
+                  {...register('description',{ required: true})}
+                  InputLabelProps = {
+                    isEdit ? { shrink: true } : {}
+                  }    
+                  helperText={errors?.description?.type === "required" && "Wajib di isi !"} 
+                  error={errors?.description?.type === "required" ? true : false}  
+                />
+              </Box>  
             {children}
         </>
     )
