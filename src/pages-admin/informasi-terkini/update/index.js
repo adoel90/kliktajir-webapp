@@ -16,6 +16,7 @@ import { useQueryData } from 'hooks';
 import Form from '../components/form'
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import dayjs from 'dayjs'
 
 export default () => {
 
@@ -66,13 +67,14 @@ export default () => {
   },[data])
 
   const onSubmit = params => {
-    
+        
     var formData = new FormData();
     formData.append('id', queryParam?.id)
     formData.append("title", params?.title)
-    formData.append("image", params?.image[0])
-    formData.append("date",params?.date?.toISOString()?.substring(0, 10))
+    formData.append("image", params?.image[0])    
+    formData.append("date", dayjs(params?.date).format('YYYY-MM-DD'))
     formData.append("description", params?.description)
+
     mutateData(formData);
     
 
