@@ -3,6 +3,8 @@ import {
   Route ,
   Outlet
 } from "react-router-dom";
+import { useIdleTimer } from 'react-idle-timer'
+
 import Home from 'pages/home/index'
 import InformasiTerkini from 'pages/informasi-terkini/index'
 import TentangKami from 'pages/tentang-kami/index'
@@ -93,7 +95,32 @@ const queryClient = new QueryClient({
   },
 });
 
+
+
 const App = () =>  {
+
+  const onIdle = () => {
+    localStorage.clear();
+    window.location.reload()
+  };
+  
+  useIdleTimer({ 
+    onIdle, timeout: 1000 * 60 * 120, //120 Menit
+    promptTimeout: 0,
+    events: [
+      'mousemove',
+      'keydown',
+      'wheel',
+      'DOMMouseScroll',
+      'mousewheel',
+      'mousedown',
+      'touchstart',
+      'touchmove',
+      'MSPointerDown',
+      'MSPointerMove',
+      'visibilitychange'
+    ],});
+    
 
   return (    
       <>     
