@@ -2,7 +2,7 @@ import { Container, Grid, Typography, Box, IconButton} from '@mui/material'
 import ImageLogoTajir from 'assets/images/logo-tajir-medium.svg'
 import ImagePlaystore from 'assets/images/footer/image-playstore.svg'
 import ImageWhiteFb from 'assets/images/footer/image-white-fb.png'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import EmailIcon from '@mui/icons-material/Email';
 
@@ -11,6 +11,19 @@ import EmailIcon from '@mui/icons-material/Email';
 // <div class="mapouter"><div class="gmap_canvas"><iframe width="416" height="296" id="gmap_canvas" src="https://maps.google.com/maps?q=%20Jl.%20Soekarno-Hatta%20No.641,%20Sukapura,%20Kec.%20Kiaracondong,%20Kota%20Bandung,%20Jawa%20Barat%2040285&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://123movies-to.org"></a><br><style>.mapouter{position:relative;text-align:right;height:296px;width:416px;}</style><a href="https://www.embedgooglemap.net"></a><style>.gmap_canvas {overflow:hidden;background:none!important;height:296px;width:416px;}</style></div></div>
 
 const Footer = () => {
+
+    const navigate = useNavigate();
+    const handleToPageAdmin = () => {
+        localStorage.clear();        
+        handleNavigate()
+    }
+
+    const handleNavigate = async ()=> {
+        
+        await navigate('/pages-admin');
+        await window.location.reload()
+        
+    };
 
     return (
         <footer className='bg-primary-main'>
@@ -23,9 +36,9 @@ const Footer = () => {
                             }
                         }}
                     >
-                        <Link to="/pages-admin" className='no-underline'>
-                            <img src={ImageLogoTajir} height="47" width="114" className='' />
-                        </Link>
+                        {/* <Link to="/pages-admin" className='no-underline'  onClick={() => console.log("TEST")}> */}
+                            <img src={ImageLogoTajir} height="47" width="114" className='' onClick={() => handleToPageAdmin()} />
+                        {/* </Link> */}
                     </Grid>
                     <Grid item xs={6} sm={6} md={2} lg={2} >
                         <Typography variant="p" component="p" mt={1} sx={{color: "common.white"}} className="text-avenir-light text-bold"> 

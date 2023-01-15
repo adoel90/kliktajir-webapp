@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
@@ -11,14 +12,22 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import BatteryCharging90Icon from '@mui/icons-material/BatteryCharging90';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 export default () => {
     
     const drawerWidth = 240;
 
+    // const [isOpen, setOpen] = useState(false);
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.up('xs'));
+
     return (
         <>
             <Drawer
+                // anchor={isOpen}
+                // variant={isMobile ? 'temporary' : 'permanent'}
                 variant="permanent"
                 sx={{
                     width: drawerWidth,
