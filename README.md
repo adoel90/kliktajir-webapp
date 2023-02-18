@@ -20,7 +20,16 @@ rgb(42, 99, 72)
 + ubah folder build menjadi "build.zip"
 + Upload ke Server Argonhost
 
+
 ### NODE ENV
 - nvm use v16.13.0
 
 "homepage": "https://www.kliktajir.com"
+
+
+### ARGONHOST SERVER
+Ip: 103.31.251.235:2083 (n) 
+Port: 333 (connect via termius)
+UserName: kliktajir
+PassWord: I[ZshN}%LTqW
+
