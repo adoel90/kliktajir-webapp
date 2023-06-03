@@ -26,7 +26,8 @@ import { indonesianFormat } from 'utilities/separator-currency'
 
 const columns = [
   { id: 'no_wa', label: 'Kode Akses Anggota', minWidth: 170 },
-  { id: 'saldo_saat_ini', label: 'Saldo Idle', minWidth: 100, align: 'center', },
+  { id: 'saldo_idle', label: 'Saldo Idle', minWidth: 100, align: 'center', },
+  { id: 'saldo_ditempatkan', label: 'Saldo Ditempatkan', minWidth: 100, align: 'center', },
   { id: 'saldo_saat_ini', label: 'Total Saldo', minWidth: 100,align: 'center', },
   {
     id: 'density',
@@ -152,6 +153,7 @@ export default function List() {
                                           </p>                                                                                                                                                    
                                         </TableCell>                                      
                                         <TableCell align="center"><i><b>Rp</b> {indonesianFormat.format(row.saldo_idle)}</i></TableCell>                                        
+                                        <TableCell align="center"><i><b>Rp</b> {indonesianFormat.format(row?.saldo_ditempatkan)}</i></TableCell>  
                                         <TableCell align="center"><i><b>Rp</b> {indonesianFormat.format(row.saldo)}</i></TableCell>                                        
                                         <TableCell align="left">
                                           {/* <Link to={`/pages-admin/saldo-anggota/update/${row?.id}`}>                                         */}

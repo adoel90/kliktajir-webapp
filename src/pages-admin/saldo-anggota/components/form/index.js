@@ -42,6 +42,21 @@ export default ({register, children, isEdit = false, errors}) => {
             </Box>  
             <Box sx={{mt:1}}>
                 <TextField                            
+                    label="Saldo Di Tempatkan *"       
+                    fullWidth    
+                    {...register('saldo_ditempatkan',{ 
+                        required: true,
+                                              
+                    })}   
+                    InputLabelProps = {
+                        isEdit ? {shrink: true} : {}
+                    }     
+                    helperText={errors?.saldo_ditempatkan?.type === "required" && "Wajib di isi !"} 
+                    error={ errors?.saldo_ditempatkan?.type === "required" ? true : false }                                         
+                />                
+            </Box>  
+            <Box sx={{mt:1}}>
+                <TextField                            
                     label="Total Saldo*"       
                     fullWidth    
                     {...register('saldo',{ required: true})}   
